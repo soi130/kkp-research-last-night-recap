@@ -10,8 +10,8 @@ from email.mime.text import MIMEText
 import requests
 import xml.etree.ElementTree as ET
 
-# VERSION: 1.8 - Deep News Context & AI Judgment
-print("Starting script Version 1.8 (Deep News Context & AI Judgment)...")
+# VERSION: 1.9 - Precise Macro Data (NFP/Rates/Unemployment)
+print("Starting script Version 1.9 (Precise Macro Data)...")
 
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
@@ -29,12 +29,10 @@ def get_latest_news_context():
         try:
             resp = requests.get(feed['url'], timeout=10)
             root = ET.fromstring(resp.content)
-            # Increased to 50 items per feed to capture Friday news on weekends
             for item in root.findall('./channel/item')[:50]:
                 title = item.find('title').text
                 desc = item.find('description').text if item.find('description') is not None else ""
                 if desc:
-                    # Basic HTML tag removal
                     if '<' in desc:
                         try:
                             desc = ET.fromstring(f"<div>{desc}</div>").text
@@ -44,7 +42,6 @@ def get_latest_news_context():
         except Exception as e:
             print(f"Error fetching {feed['name']}: {e}")
             continue
-    # Return more items to let AI use its judgment
     return "\n".join(news_items[:150])
 
 def get_market_data_v2():
@@ -92,30 +89,33 @@ def generate_ai_content(market_summary, news_context, current_day_info):
     
     RAW DATA:
     - Market Summary: {market_summary}
-    - Deep News Feed (Last few days):
+    - Deep News Feed:
     {news_context}
     
-    YOUR MISSION (JUDGMENT CALL):
-    1. **IDENTIFY MARKET MOVERS**: กวาดข้อมูลข่าวทั้งหมด (ซึ่งอาจรวมข่าวจากคืนวันศุกร์และช่วงวันหยุด) แล้วใช้ "วิจารณญาณ" เลือกเหตุการณ์ที่มีผลกระทบต่อตลาดรุนแรงที่สุด (เช่น ตัวเลขการจ้างงานนอกภาคเกษตร NFP, การประชุมธนาคารกลาง, หรือความขัดแย้งระดับภูมิภาค) มาเป็นหัวใจหลักในการรายงาน
-    2. **RETAIL FOCUS**: สรุปให้รายย่อยไทยเข้าใจง่าย กระชับ ไม่ใช้ภาษาเทคนิคที่ซับซ้อน หรือไทยคำอังกฤษคำโดยไม่จำเป็น
-    3. **NO REPETITION**: ไม่ต้องสรุปตัวเลขราคาซ้ำจากตาราง ให้เน้น "เหตุการณ์สำคัญที่ทำให้เกิดการเคลื่อนไหว" และวิเคราะห์นัยสำคัญ (Implications)
-    4. **STRATEGIC JUDGMENT**: หากมีเหตุการณ์ใหญ่เกิดขึ้นในวันศุกร์ที่ผ่านมา (เช่น NFP) และเป็นประเด็นหลักที่ตลาดจะนำมาเก็งกำไรในวันจันทร์ **คุณต้องให้ความสำคัญกับประเด็นนั้นเป็นอันดับหนึ่ง**
-    5. **TONE**: เป็นมืออาชีพแต่เข้าถึงง่าย ชัดเจน และระมัดระวัง (ห้ามชี้นำการลงทุน)
+    YOUR MISSION:
+    1. **IDENTIFY KEY MACRO EVENTS**: คัดเลือกข่าวที่มีผลต่อตลาดรุนแรงที่สุด (เช่น NFP, อัตราดอกเบี้ย Fed, หรือตัวเลขเงินเฟ้อ)
+    2. **MUST INCLUDE ACTUAL NUMBERS**: หากมีการรายงานตัวเลขเศรษฐกิจสำคัญ **ต้องระบุตัวเลขจริงที่เกิดขึ้น** ลงในเนื้อหาด้วยเสมอ เช่น:
+       - "ตัวเลขจ้างงานนอกภาคเกษตร (NFP) เพิ่มขึ้น XXX,XXX ตำแหน่ง (สูง/ต่ำกว่าที่คาด)"
+       - "อัตราการว่างงานอยู่ที่ X.X%"
+       - "อัตราดอกเบี้ยคงที่ที่ระดับ X.XX% - X.XX%"
+    3. **RETAIL-FRIENDLY THAI**: ใช้ภาษาไทยที่เข้าใจง่าย กระชับ ลดคำศัพท์เทคนิคซับซ้อน และไม่ใช้ไทยคำอังกฤษคำโดยไม่จำเป็น
+    4. **NO REPETITION**: ไม่ต้องบรรยายการขึ้นลงของราคาหุ้นจากตารางซ้ำ ให้เน้น "สาเหตุ" และ "ตัวเลขเศรษฐกิจ" ที่เป็น Market Movers
+    5. **STRATEGIC JUDGMENT**: หากมีเหตุการณ์ใหญ่ในวันศุกร์ (เช่น NFP) ให้สรุปเป็นประเด็นหลักสำหรับวันจันทร์
     
     Provide the output in JSON format:
     {{
-      "moverStory": "สรุปหัวใจสำคัญที่เกิดขึ้นตามวิจารณญาณของคุณ (เน้นเหตุการณ์ที่ส่งผลกระทบต่อตลาดรุนแรงที่สุด)",
-      "macroFocus": ["ประเด็นเศรษฐกิจสำคัญที่คุณคัดเลือกมา 1", "ประเด็นเศรษฐกิจสำคัญที่คุณคัดเลือกมา 2", "ประเด็นเศรษฐกิจสำคัญที่คุณคัดเลือกมา 3"],
-      "implications": ["ข้อควรระวังหรือแนวทางปรับตัวสำหรับรายย่อยไทย 1", "ข้อควรระวังหรือแนวทางปรับตัวสำหรับรายย่อยไทย 2", "ข้อควรระวังหรือแนวทางปรับตัวสำหรับรายย่อยไทย 3"]
+      "moverStory": "สรุปเหตุการณ์สำคัญพร้อมตัวเลขเศรษฐกิจที่เกิดขึ้นจริง (เน้นข่าวใหญ่ที่มีผลกระทบสูง)",
+      "macroFocus": ["วิเคราะห์ตัวเลขเศรษฐกิจ 1", "วิเคราะห์ตัวเลขเศรษฐกิจ 2", "วิเคราะห์ตัวเลขเศรษฐกิจ 3"],
+      "implications": ["ข้อควรระวังสำหรับรายย่อยไทยจากตัวเลขข้างต้น 1", "ข้อควรระวังสำหรับรายย่อยไทยจากตัวเลขข้างต้น 2", "ข้อควรระวังสำหรับรายย่อยไทยจากตัวเลขข้างต้น 3"]
     }}
     """
     
     try:
-        print("Generating deep analysis using AI Judgment (GPT-5-mini)...")
+        print("Generating precise analysis with AI Judgment (GPT-5-mini)...")
         response = client.chat.completions.create(
             model="gpt-5-mini",
             messages=[
-                {"role": "system", "content": "You are a professional Senior Macro Strategist. Use your judgment to identify the most significant market-moving events from a large pool of news. Prioritize macro-economic shifts (like NFP) over minor updates. Pure Thai, retail-friendly."},
+                {"role": "system", "content": "You are a professional Senior Macro Strategist. You MUST include actual economic figures (NFP, Unemployment rates, Interest rates) in your analysis when available in the context. Pure Thai, retail-friendly."},
                 {"role": "user", "content": prompt}
             ],
             response_format={ "type": "json_object" }
@@ -149,7 +149,7 @@ def send_recap_email(data):
     except Exception as e: print(f"ERROR: Email failed: {e}")
 
 def main():
-    print("Main execution started (Version 1.8).")
+    print("Main execution started (Version 1.9).")
     tz = pytz.timezone('Asia/Bangkok')
     now = datetime.now(tz)
     
