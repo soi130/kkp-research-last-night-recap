@@ -61,8 +61,9 @@ def generate_content(market_summary):
     """
     
     try:
+        print(f"Generating content with model: gemini-1.5-flash-latest")
         response = client.models.generate_content(
-            model='gemini-1.5-flash',
+            model='gemini-1.5-flash-latest',
             contents=prompt
         )
         content = response.text.strip()
