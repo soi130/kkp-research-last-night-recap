@@ -1,16 +1,15 @@
 import os
 import json
 import yfinance as yf
-import google.generativeai as genai
+from google import genai
 from datetime import datetime
 import pytz
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-# Setup Gemini
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
-model = genai.GenerativeModel('gemini-1.5-flash')
+# Setup Gemini with the new SDK
+client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
 def get_market_data():
     tickers = {
@@ -61,18 +60,22 @@ def generate_content(market_summary):
     - implications: (An array of 3 bullet points about what COULD happen and risks to watch, focusing on TH economy/markets)
     """
     
-    response = model.generate_content(prompt)
     try:
+        response = client.models.generate_content(
+            model='gemini-1.5-flash',
+            contents=prompt
+        )
         content = response.text.strip()
         if "```json" in content:
             content = content.split("```json")[1].split("```")[0].strip()
         return json.loads(content)
-    except:
+    except Exception as e:
+        print(f"AI Generation Error: {e}")
         return None
 
 def send_email(data):
     sender = os.environ.get("EMAIL_SENDER")
-    password = os.environ.get("EMAIL_PASSWORD") # Use App Password
+    password = os.environ.get("EMAIL_PASSWORD") 
     receiver = "thanak.ratt@kkpfg.com"
     
     if not sender or not password:
@@ -84,7 +87,6 @@ def send_email(data):
     msg['From'] = f"KKP Research Bot <{sender}>"
     msg['To'] = receiver
 
-    # Generate HTML rows for market data
     rows = ""
     for item in data['marketData']:
         color = "#059669" if item['status'] == 'up' else "#dc2626"
@@ -146,7 +148,6 @@ def send_email(data):
     msg.attach(MIMEText(html, 'html'))
 
     try:
-        # Use Gmail/Google SMTP as a free standard
         with smtplib.SMTP('smtp.gmail.com', 587) as server:
             server.starttls()
             server.login(sender, password)
@@ -184,7 +185,6 @@ def main():
         with open('src/data.json', 'w', encoding='utf-8') as f:
             json.dump(final_data, f, ensure_ascii=False, indent=2)
         
-        # Send Email
         send_email(final_data)
         print("Process completed.")
 
