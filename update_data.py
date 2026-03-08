@@ -78,11 +78,12 @@ def generate_ai_content(market_summary, news_headlines):
     - Recent Headlines: {news_headlines}
     
     INSTRUCTIONS:
-    1. Summarize only the MOST IMPORTANT stories. Don't be vague. Mention specific data points (e.g., 'CPI rose 3.1%', 'Fed's Powell said...').
-    2. Focus on Macro and Geopolitics. 
-    3. Investment Implications must be logical and specific to the Thai context (Trade balance, Baht volatility, specific Thai sectors).
-    4. TONE: Formal, professional, high-signal, NO DRAMA.
-    5. CONSTRAINT: NO investment advice. Use Thai language.
+    1. Summarize only the MOST IMPORTANT stories. NEVER be vague. 
+    2. REQUIRED: You MUST include specific numbers/percentages for every economic indicator you mention (e.g., instead of 'Labor market improved', write 'Non-farm payrolls added 225k jobs, beating expectations of 200k').
+    3. Focus on Macro, Central Banks (Fed/ECB/BoJ), and Geopolitics. 
+    4. Investment Implications must be data-driven and specific to the Thai context (Impact on SET index sectors, THB/USD targets if mentioned, or specific export/import risks).
+    5. TONE: Senior Macro Strategist, formal, high-signal.
+    6. CONSTRAINT: NO investment advice. Use Thai language.
     
     Provide the output in JSON format:
     {{
