@@ -92,11 +92,12 @@ def generate_ai_content(market_summary, news_context):
     1. READ THE NEWS CAREFULLY: วิเคราะห์จากเนื้อหาข่าวที่ให้มาจริงๆ หากข่าวไหนเป็นตัวขับเคลื่อนตลาด (Market Mover) ให้เน้นตัวนั้นเป็นพิเศษ
     2. BE HONEST: หากตลาดนิ่ง หรือไม่มีข่าวสำคัญ (No major news) ให้แจ้งตามตรงว่าบรรยากาศการลงทุนค่อนข้างเงียบเหงา ไม่ต้องพยายามหาข่าวเล็กๆ มาขยายความจนเกินจริง
     3. MARKET FOCUS (WHAT & WHY): สรุปประเด็นหลักที่ทำให้ตลาดขยับ หากมีเรื่องสงคราม พลังงาน หรือตัวเลขเศรษฐกิจสำคัญ (เช่น NFP) ต้องระบุตัวเลขและสาเหตุเชิงโครงสร้าง
-    4. INVESTMENT RISKS (ปัจจัยที่ต้องระมัดระวัง): **ห้ามชี้นำการลงทุน** เช่น ห้ามบอกว่า "ควรซื้อทอง" หรือ "หุ้นพลังงานน่าจะดี" 
+    4. DIRECT NEWS REFERENCE: ในส่วนของ "moverStory" ให้มีการกล่าวถึงหัวข้อข่าว (Headline) หรือชื่อแหล่งข่าว (Source) จากข้อมูลที่ให้มาโดยตรง เพื่อยืนยันว่าข้อมูลมาจากข่าวที่เกิดขึ้นจริง
+    5. INVESTMENT RISKS (ปัจจัยที่ต้องระมัดระวัง): **ห้ามชี้นำการลงทุน** เช่น ห้ามบอกว่า "ควรซื้อทอง" หรือ "หุ้นพลังงานน่าจะดี" 
        - ให้เปลี่ยนเป็น: "ประเด็นที่ต้องติดตามคือ...", "ความเสี่ยงที่อาจเกิดขึ้นคือ...", "ปัจจัยที่อาจกดดันตลาดคือ..."
        - เน้นที่การระบุ "ความเสี่ยง" และ "สิ่งที่นักลงทุนต้องเตรียมรับมือ" เท่านั้น
-    5. TONE: Professional, Data-driven, Objective, Cautious.
-    6. CONSTRAINT: NO investment advice. Use Thai language.
+    6. TONE: Professional, Data-driven, Objective, Cautious.
+    7. CONSTRAINT: NO investment advice. Use Thai language.
     
     Provide the output in JSON format:
     {{
@@ -107,9 +108,9 @@ def generate_ai_content(market_summary, news_context):
     """
     
     try:
-        print("Generating deep analysis with OpenAI GPT-4o-mini...")
+        print("Generating deep analysis with OpenAI GPT-5-mini...")
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-5-mini",
             messages=[
                 {"role": "system", "content": "You are a professional Senior Macro Strategist. You provide objective analysis and highlight risks without giving direct investment advice. You value news accuracy and context over hype."},
                 {"role": "user", "content": prompt}
