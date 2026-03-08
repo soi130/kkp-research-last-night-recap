@@ -144,7 +144,18 @@ def send_recap_email(data):
 def main():
     print("Main execution started.")
     tz = pytz.timezone('Asia/Bangkok')
-    date_str = datetime.now(tz).strftime("%d %B %Y, %H:%M น.")
+    now = datetime.now(tz)
+    
+    # Format Thai date and time
+    months_th = [
+        "", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+        "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+    ]
+    day = now.day
+    month = months_th[now.month]
+    year = now.year + 543
+    time_str = now.strftime("%H:%M")
+    date_str = f"{day} {month} {year}, {time_str} น."
     
     # Simple market fetch
     market_data = get_market_data_v2()
