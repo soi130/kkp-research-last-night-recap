@@ -8,43 +8,11 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-# Use a standard, stable model name
+# Setup Gemini with the new SDK
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
-MODEL_NAME = 'gemini-1.5-flash'
 
-def get_market_data():
-    tickers = {
-        "^GSPC": "S&P 500 (US)",
-        "^IXIC": "Nasdaq (US)",
-        "^N225": "Nikkei 225 (JP)*",
-        "^KS11": "KOSPI (KR)*",
-        "GC=F": "Gold (Spot)",
-        "^TNX": "US 10Y Yield"
-    }
-    
-    results = []
-    for ticker, name in tickers.items():
-        try:
-            t = yf.Ticker(ticker)
-            hist = t.history(period="2d")
-            if len(hist) >= 2:
-                close = hist['Close'].iloc[-1]
-                prev_close = hist['Close'].iloc[-2]
-                change_pct = ((close - prev_close) / prev_close) * 100
-                
-                price_str = f"{close:,.2f}"
-                if ticker == "GC=F": price_str = f"${close:,.2f}"
-                if ticker == "^TNX": price_str = f"{close:.2f}%"
-                
-                results.append({
-                    "name": name,
-                    "price": price_str,
-                    "change": f"{'+' if change_pct >= 0 else ''}{change_pct:.2f}%",
-                    "status": "up" if change_pct >= 0 else "down"
-                })
-        except:
-            continue
-    return results
+# Model fallback list for robustness
+MODELS_TO_TRY = ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro']
 
 def generate_content(market_summary):
     prompt = f"""
@@ -61,19 +29,22 @@ def generate_content(market_summary):
     - implications: (An array of 3 bullet points about what COULD happen and risks to watch, focusing on TH economy/markets)
     """
     
-    try:
-        print(f"Generating content with model: {MODEL_NAME}")
-        response = client.models.generate_content(
-            model=MODEL_NAME,
-            contents=prompt
-        )
-        content = response.text.strip()
-        if "```json" in content:
-            content = content.split("```json")[1].split("```")[0].strip()
-        return json.loads(content)
-    except Exception as e:
-        print(f"AI Generation Error: {e}")
-        return None
+    for model_name in MODELS_TO_TRY:
+        try:
+            print(f"Generating content with model: {model_name}")
+            response = client.models.generate_content(
+                model=model_name,
+                contents=prompt
+            )
+            content = response.text.strip()
+            if "```json" in content:
+                content = content.split("```json")[1].split("```")[0].strip()
+            return json.loads(content)
+        except Exception as e:
+            print(f"AI Generation Error with {model_name}: {e}")
+            continue
+    
+    return None
 
 def send_email(data):
     sender = os.environ.get("EMAIL_SENDER")
