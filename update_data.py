@@ -81,7 +81,7 @@ def generate_ai_content(market_summary, news_context):
     You are a professional Senior Macro Strategist at KKP Research. 
     Your task is to analyze real market-moving news and data for Thai investors.
     
-    หน้าที่ของคุณคือวิเคราะห์ "เมื่อคืนเกิดอะไรขึ้นบ้าง" และ "ปัจจัยเสี่ยงที่ต้องระวัง"
+    หน้าที่ของคุณคือวิเคราะห์ "เมื่อคืนเกิดข่าวสำคัญอะไรขึ้นบ้าง" และ "นัยสำคัญต่อตลาด (Implications)"
     
     DATA CONTEXT:
     - Market Numbers: {market_summary}
@@ -89,21 +89,19 @@ def generate_ai_content(market_summary, news_context):
     {news_context}
     
     INSTRUCTIONS:
-    1. READ THE NEWS CAREFULLY: วิเคราะห์จากเนื้อหาข่าวที่ให้มาจริงๆ หากข่าวไหนเป็นตัวขับเคลื่อนตลาด (Market Mover) ให้เน้นตัวนั้นเป็นพิเศษ
-    2. BE HONEST: หากตลาดนิ่ง หรือไม่มีข่าวสำคัญ (No major news) ให้แจ้งตามตรงว่าบรรยากาศการลงทุนค่อนข้างเงียบเหงา ไม่ต้องพยายามหาข่าวเล็กๆ มาขยายความจนเกินจริง
-    3. MARKET FOCUS (WHAT & WHY): สรุปประเด็นหลักที่ทำให้ตลาดขยับ หากมีเรื่องสงคราม พลังงาน หรือตัวเลขเศรษฐกิจสำคัญ (เช่น NFP) ต้องระบุตัวเลขและสาเหตุเชิงโครงสร้าง
-    4. DIRECT NEWS REFERENCE: ในส่วนของ "moverStory" ให้มีการกล่าวถึงหัวข้อข่าว (Headline) หรือชื่อแหล่งข่าว (Source) จากข้อมูลที่ให้มาโดยตรง เพื่อยืนยันว่าข้อมูลมาจากข่าวที่เกิดขึ้นจริง
-    5. INVESTMENT RISKS (ปัจจัยที่ต้องระมัดระวัง): **ห้ามชี้นำการลงทุน** เช่น ห้ามบอกว่า "ควรซื้อทอง" หรือ "หุ้นพลังงานน่าจะดี" 
-       - ให้เปลี่ยนเป็น: "ประเด็นที่ต้องติดตามคือ...", "ความเสี่ยงที่อาจเกิดขึ้นคือ...", "ปัจจัยที่อาจกดดันตลาดคือ..."
-       - เน้นที่การระบุ "ความเสี่ยง" และ "สิ่งที่นักลงทุนต้องเตรียมรับมือ" เท่านั้น
+    1. **FOCUS ON NEWS, NOT NUMBERS**: ไม่ต้องบรรยายการเปลี่ยนแปลงของตัวเลขราคา (เช่น "ดัชนีลดลง 1%") เนื่องจากผู้ใช้เห็นตัวเลขในตารางอยู่แล้ว ให้ใช้ตัวเลขประกอบเฉพาะเมื่อจำเป็นต้องอธิบาย "ผล" ของข่าวเท่านั้น
+    2. **WHAT HAPPENED LAST NIGHT?**: เจาะจงไปที่เหตุการณ์หรือข่าวสำคัญ (Market Movers) ที่เกิดขึ้นจริงจาก News Context ที่ให้มา โดยต้องระบุชื่อข่าว (Headline) หรือแหล่งข่าว (Source) ให้ชัดเจนเพื่อให้ผู้อ่านทราบว่านี่คือเหตุการณ์จริง
+    3. **STRATEGIC IMPLICATIONS**: วิเคราะห์ว่าข่าวนั้นส่งผลกระทบต่อทิศทางตลาดในระยะข้างหน้าอย่างไร หรือเปลี่ยนมุมมองการลงทุนอย่างไร (เช่น "ข่าวนี้น่าจะกดดันกลุ่มเทคโนโลยีต่อเนื่องเนื่องจาก...")
+    4. **BE HONEST**: หากใน Context ไม่มีข่าวใหญ่จริงๆ ให้แจ้งตามตรงว่าตลาดเคลื่อนไหวตามปัจจัยทางเทคนิคหรือบรรยากาศการลงทุนทั่วไป ไม่ต้องพยายามขยายความข่าวเล็ก
+    5. **INVESTMENT RISKS**: **ห้ามชี้นำการลงทุน** (ห้ามบอกว่า "ควรซื้อ" หรือ "ควรขาย") ให้เน้นที่ "ปัจจัยเสี่ยงที่ต้องติดตาม" หรือ "สิ่งที่อาจกระทบพอร์ต"
     6. TONE: Professional, Data-driven, Objective, Cautious.
-    7. CONSTRAINT: NO investment advice. Use Thai language.
+    7. CONSTRAINT: Use Thai language. Output must be JSON.
     
     Provide the output in JSON format:
     {{
-      "moverStory": "สรุปประเด็นหลักที่เคลื่อนไหวตลาด (หากตลาดนิ่งให้ระบุตามตรง)",
-      "macroFocus": ["ประเด็นเศรษฐกิจสำคัญ 1", "ประเด็นเศรษฐกิจสำคัญ 2", "ประเด็นเศรษฐกิจสำคัญ 3"],
-      "implications": ["ปัจจัยที่ต้องระมัดระวัง 1", "ปัจจัยที่ต้องระมัดระวัง 2", "ปัจจัยที่ต้องระมัดระวัง 3"]
+      "moverStory": "สรุปเหตุการณ์สำคัญที่เกิดขึ้นจริงเมื่อคืน (เน้นเนื้อหาข่าวและชื่อข่าวจาก Context)",
+      "macroFocus": ["วิเคราะห์นัยสำคัญของข่าว 1", "วิเคราะห์นัยสำคัญของข่าว 2", "วิเคราะห์นัยสำคัญของข่าว 3"],
+      "implications": ["ปัจจัยเสี่ยงที่ต้องจับตา 1", "ปัจจัยเสี่ยงที่ต้องจับตา 2", "ปัจจัยเสี่ยงที่ต้องจับตา 3"]
     }}
     """
     
@@ -112,7 +110,7 @@ def generate_ai_content(market_summary, news_context):
         response = client.chat.completions.create(
             model="gpt-5-mini",
             messages=[
-                {"role": "system", "content": "You are a professional Senior Macro Strategist. You provide objective analysis and highlight risks without giving direct investment advice. You value news accuracy and context over hype."},
+                {"role": "system", "content": "You are a professional Senior Macro Strategist. You focus on real news events and their implications, avoiding redundant price summaries. You value news accuracy and context over hype."},
                 {"role": "user", "content": prompt}
             ],
             response_format={ "type": "json_object" }
