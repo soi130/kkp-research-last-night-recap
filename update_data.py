@@ -60,7 +60,8 @@ def get_market_data_v2():
     for ticker, name in tickers.items():
         try:
             t = yf.Ticker(ticker)
-            hist = t.history(period="5d")
+            # Increased period to 10d to cover long weekends/holidays
+            hist = t.history(period="10d")
             if len(hist) >= 2:
                 close = hist['Close'].iloc[-1]
                 prev_close = hist['Close'].iloc[-2]
@@ -81,26 +82,26 @@ def generate_ai_content(market_summary, news_context):
     You are a professional Senior Macro Strategist at KKP Research. 
     Your task is to analyze real market-moving news and data for Thai investors.
     
-    หน้าที่ของคุณคือวิเคราะห์ "เมื่อคืนเกิดข่าวสำคัญอะไรขึ้นบ้าง" และ "นัยสำคัญต่อตลาด (Implications)"
+    หน้าที่ของคุณคือวิเคราะห์ "เหตุการณ์สำคัญที่เกิดขึ้นตั้งแต่ปิดตลาดครั้งล่าสุดจนถึงปัจจุบัน" (โดยเฉพาะหากเป็นหลังวันหยุดเสาร์-อาทิตย์ หรือวันหยุดยาว ให้รวบรวมประเด็นตั้งแต่คืนวันศุกร์หรือวันก่อนหยุด)
     
     DATA CONTEXT:
     - Market Numbers: {market_summary}
-    - News Headlines & Summaries: 
+    - News Headlines & Summaries (ตั้งแต่ปิดตลาดครั้งก่อนถึงปัจจุบัน): 
     {news_context}
     
     INSTRUCTIONS:
-    1. **FOCUS ON NEWS, NOT NUMBERS**: ไม่ต้องบรรยายการเปลี่ยนแปลงของตัวเลขราคา (เช่น "ดัชนีลดลง 1%") เนื่องจากผู้ใช้เห็นตัวเลขในตารางอยู่แล้ว ให้ใช้ตัวเลขประกอบเฉพาะเมื่อจำเป็นต้องอธิบาย "ผล" ของข่าวเท่านั้น
-    2. **WHAT HAPPENED LAST NIGHT?**: เจาะจงไปที่เหตุการณ์หรือข่าวสำคัญ (Market Movers) ที่เกิดขึ้นจริงจาก News Context ที่ให้มา โดยต้องระบุชื่อข่าว (Headline) หรือแหล่งข่าว (Source) ให้ชัดเจนเพื่อให้ผู้อ่านทราบว่านี่คือเหตุการณ์จริง
-    3. **STRATEGIC IMPLICATIONS**: วิเคราะห์ว่าข่าวนั้นส่งผลกระทบต่อทิศทางตลาดในระยะข้างหน้าอย่างไร หรือเปลี่ยนมุมมองการลงทุนอย่างไร (เช่น "ข่าวนี้น่าจะกดดันกลุ่มเทคโนโลยีต่อเนื่องเนื่องจาก...")
-    4. **BE HONEST**: หากใน Context ไม่มีข่าวใหญ่จริงๆ ให้แจ้งตามตรงว่าตลาดเคลื่อนไหวตามปัจจัยทางเทคนิคหรือบรรยากาศการลงทุนทั่วไป ไม่ต้องพยายามขยายความข่าวเล็ก
-    5. **INVESTMENT RISKS**: **ห้ามชี้นำการลงทุน** (ห้ามบอกว่า "ควรซื้อ" หรือ "ควรขาย") ให้เน้นที่ "ปัจจัยเสี่ยงที่ต้องติดตาม" หรือ "สิ่งที่อาจกระทบพอร์ต"
+    1. **HOLIDAY/WEEKEND COVERAGE**: หากวันนี้เป็นวันจันทร์ หรือวันแรกหลังวันหยุดยาว ให้สรุปภาพรวมข่าวสำคัญทั้งหมดที่เกิดขึ้นตลอดช่วงวันหยุด (Weekend Wrap-up) โดยเน้นประเด็นที่จะส่งผลต่อการเปิดตลาดในเช้านี้
+    2. **FOCUS ON NEWS, NOT NUMBERS**: ไม่ต้องบรรยายการเปลี่ยนแปลงของตัวเลขราคาในตาราง ให้เน้นที่ "ข่าว" หรือ "เหตุการณ์" (Market Movers) ที่เป็นสาเหตุของการเคลื่อนไหวนั้นๆ
+    3. **WHAT HAPPENED?**: เจาะจงไปที่เหตุการณ์หรือข่าวสำคัญที่เกิดขึ้นจริงจาก News Context โดยต้องระบุชื่อข่าว (Headline) หรือแหล่งข่าว (Source) ให้ชัดเจนเพื่อให้ผู้อ่านทราบว่านี่คือเหตุการณ์จริง
+    4. **STRATEGIC IMPLICATIONS**: วิเคราะห์นัยสำคัญต่อกลยุทธ์การลงทุน หรือปัจจัยเสี่ยงที่นักลงทุนไทยต้องเตรียมรับมือในวันนี้
+    5. **BE HONEST**: หากช่วงวันหยุดที่ผ่านมาไม่มีข่าวใหญ่จริงๆ ให้ระบุตามตรงว่าบรรยากาศการลงทุนเงียบเหงา
     6. TONE: Professional, Data-driven, Objective, Cautious.
     7. CONSTRAINT: Use Thai language. Output must be JSON.
     
     Provide the output in JSON format:
     {{
-      "moverStory": "สรุปเหตุการณ์สำคัญที่เกิดขึ้นจริงเมื่อคืน (เน้นเนื้อหาข่าวและชื่อข่าวจาก Context)",
-      "macroFocus": ["วิเคราะห์นัยสำคัญของข่าว 1", "วิเคราะห์นัยสำคัญของข่าว 2", "วิเคราะห์นัยสำคัญของข่าว 3"],
+      "moverStory": "สรุปเหตุการณ์สำคัญที่เกิดขึ้นจริง (เน้นเนื้อหาข่าวจาก Context ตลอดช่วงวันหยุด/วันก่อนหน้า)",
+      "macroFocus": ["วิเคราะห์นัยสำคัญของเหตุการณ์ 1", "วิเคราะห์นัยสำคัญของเหตุการณ์ 2", "วิเคราะห์นัยสำคัญของเหตุการณ์ 3"],
       "implications": ["ปัจจัยเสี่ยงที่ต้องจับตา 1", "ปัจจัยเสี่ยงที่ต้องจับตา 2", "ปัจจัยเสี่ยงที่ต้องจับตา 3"]
     }}
     """
@@ -110,7 +111,7 @@ def generate_ai_content(market_summary, news_context):
         response = client.chat.completions.create(
             model="gpt-5-mini",
             messages=[
-                {"role": "system", "content": "You are a professional Senior Macro Strategist. You focus on real news events and their implications, avoiding redundant price summaries. You value news accuracy and context over hype."},
+                {"role": "system", "content": "You are a professional Senior Macro Strategist. You focus on real news events and their implications since the last closed session. You value news accuracy and context over hype."},
                 {"role": "user", "content": prompt}
             ],
             response_format={ "type": "json_object" }
