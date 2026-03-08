@@ -43,6 +43,8 @@ def get_market_data_v2():
         "^TPX": "TOPIX (JP)*",
         "^KS11": "KOSPI (KR)*",
         "GC=F": "Gold (Spot)",
+        "CL=F": "Crude Oil (WTI)",
+        "BZ=F": "Crude Oil (Brent)",
         "BTC-USD": "Bitcoin (BTC)",
         "THB=X": "USD/THB",
         "DX-Y.NYB": "Dollar Index (DXY)",
@@ -57,7 +59,7 @@ def get_market_data_v2():
                 close = hist['Close'].iloc[-1]
                 prev_close = hist['Close'].iloc[-2]
                 change_pct = ((close - prev_close) / prev_close) * 100
-                if ticker == "GC=F": price_str = f"${close:,.2f}"
+                if ticker in ["GC=F", "CL=F", "BZ=F"]: price_str = f"${close:,.2f}"
                 elif ticker == "BTC-USD": price_str = f"${close:,.0f}"
                 elif ticker == "THB=X": price_str = f"{close:.2f} บาท"
                 elif ticker == "^TNX": price_str = f"{close:.2f}%"
@@ -76,7 +78,13 @@ def generate_ai_content(market_summary, news_headlines):
     หน้าที่ของคุณคือสรุปว่า "เมื่อคืนเกิดอะไรขึ้นบ้าง" (What happened), "เกิดขึ้นเพราะอะไร" (Why), 
     และ "ส่งผลต่อการลงทุนของผู้อ่านอย่างไร" (How it affects the reader's investment).
     
-    **เน้นที่เนื้อหาข่าวและบทวิเคราะห์เป็นหลัก** ไม่ต้องเน้นการรายงานราคาซ้ำซ้อน เพราะผู้ใช้เห็นจากตารางแล้ว
+    **เน้นที่เนื้อหาข่าวและบทวิเคราะห์เชิงกลยุทธ์เป็นหลัก** 
+    
+    THEMATIC PRIORITIES (ลำดับความสำคัญของเนื้อหา):
+    1. Geopolitics & Energy: หากมีความตึงเครียดทางการเมือง/สงคราม (War) และราคาน้ำมัน (Oil Price) ผันผวน ต้องวิเคราะห์เจาะลึกถึงสาเหตุและผลกระทบต่อต้นทุนพลังงานและอัตราเงินเฟ้อ
+    2. Key Economic Indicators: หากเป็นช่วงต้นเดือน ต้องให้ความสำคัญกับตัวเลขจ้างงาน (Non-farm payrolls) และอัตราว่างงานของสหรัฐฯ โดยเปรียบเทียบกับคาดการณ์อย่างชัดเจน
+    3. Monetary Policy: ท่าทีของ Fed และธนาคารกลางสำคัญต่อทิศทางดอกเบี้ย
+    4. Market Sentiment: การเคลื่อนไหวของ Bond Yield และ Dollar Index ที่สะท้อนความกังวลหรือความเชื่อมั่นของนักลงทุน
     
     DATA CONTEXT:
     - Market Numbers: {market_summary}
@@ -84,18 +92,17 @@ def generate_ai_content(market_summary, news_headlines):
     
     INSTRUCTIONS:
     1. Summarize only the MOST IMPORTANT stories. NEVER be vague. 
-    2. Focus on Macro, Central Banks (Fed/ECB/BoJ), and Geopolitics. 
-    3. สำหรับส่วน Mover Story ให้ตอบคำถาม: เมื่อคืนเกิดอะไรขึ้น และทำไม (What & Why).
-    4. สำหรับส่วน Macro Focus ให้ระบุข้อมูลเศรษฐกิจที่สำคัญที่เพิ่งประกาศออกมา (พร้อมตัวเลขเปรียบเทียบกับคาดการณ์).
-    5. สำหรับส่วน Implications ให้วิเคราะห์เจาะลึก: ส่งผลอย่างไรต่อกลยุทธ์การลงทุนของนักลงทุนไทย (Impact & Strategy).
-    6. TONE: Senior Macro Strategist, formal, high-signal, professional.
-    7. CONSTRAINT: NO investment advice. Use Thai language.
+    2. สำหรับส่วน Mover Story: เขียนเป็น Narrative ที่ร้อยเรียงเหตุการณ์เข้าด้วยกัน (เช่น ข่าวสงคราม -> ดันราคาน้ำมัน -> กระทบคาดการณ์เงินเฟ้อ -> Yield พุ่ง)
+    3. สำหรับส่วน Macro Focus: ต้องมีตัวเลขเศรษฐกิจที่สำคัญ (Actual vs Expected) โดยเฉพาะ NFP หากอยู่ในช่วงสัปดาห์แรกของเดือน
+    4. สำหรับส่วน Implications: วิเคราะห์เจาะลึกถึง Asset Allocation หรือ Sector ที่ได้ประโยชน์/เสียประโยชน์ในตลาดหุ้นไทย (SET Index)
+    5. TONE: Senior Macro Strategist, formal, high-signal, professional.
+    6. CONSTRAINT: NO investment advice. Use Thai language.
     
     Provide the output in JSON format:
     {{
-      "moverStory": "สรุปประเด็นสำคัญที่สุดของเมื่อคืนว่าเกิดอะไรขึ้นและเพราะอะไร (What & Why)",
-      "macroFocus": ["ประเด็นที่ 1 พร้อมข้อมูลตัวเลข", "ประเด็นที่ 2 พร้อมข้อมูลตัวเลข", "ประเด็นที่ 3 พร้อมข้อมูลตัวเลข"],
-      "implications": ["ผลกระทบต่อการลงทุน 1", "ผลกระทบต่อการลงทุน 2", "ผลกระทบต่อการลงทุน 3"]
+      "moverStory": "สรุปประเด็นหลักที่ขับเคลื่อนตลาดเมื่อคืนแบบร้อยเรียงเหตุผล (What & Why)",
+      "macroFocus": ["ประเด็นเศรษฐกิจสำคัญ 1 (พร้อมตัวเลข)", "ประเด็นเศรษฐกิจสำคัญ 2 (พร้อมตัวเลข)", "ประเด็นเศรษฐกิจสำคัญ 3 (พร้อมตัวเลข)"],
+      "implications": ["กลยุทธ์/ผลกระทบต่อพอร์ตลงทุน 1", "กลยุทธ์/ผลกระทบต่อพอร์ตลงทุน 2", "กลยุทธ์/ผลกระทบต่อพอร์ตลงทุน 3"]
     }}
     """
     
