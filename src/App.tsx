@@ -6,8 +6,10 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h1>KKP Research - Last Night Recap {data.lastUpdated.split(',')[0]}</h1>
-        <div className="timestamp">อัปเดตล่าสุด: {data.lastUpdated} | ข้อมูลสรุปเพื่อนักลงทุนไทย</div>
+        <h1>KKP Research - Last Night Recap</h1>
+        <div className="timestamp" style={{background: '#512D6D', color: '#fff', padding: '4px 12px', borderRadius: '4px', display: 'inline-block'}}>
+          อัปเดตล่าสุด: {data.lastUpdated} (เวลาประเทศไทย)
+        </div>
       </header>
 
       {/* 1. สรุปดัชนีสำคัญ */}
