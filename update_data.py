@@ -8,8 +8,9 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-# Setup Gemini with the new SDK
+# Use a standard, stable model name
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+MODEL_NAME = 'gemini-1.5-flash'
 
 def get_market_data():
     tickers = {
@@ -61,11 +62,9 @@ def generate_content(market_summary):
     """
     
     try:
-        # Using a more standard model name string
-        model_name = 'gemini-1.5-flash'
-        print(f"Generating content with model: {model_name}")
+        print(f"Generating content with model: {MODEL_NAME}")
         response = client.models.generate_content(
-            model=model_name,
+            model=MODEL_NAME,
             contents=prompt
         )
         content = response.text.strip()
@@ -81,8 +80,10 @@ def send_email(data):
     password = os.environ.get("EMAIL_PASSWORD") 
     receiver = "thanak.ratt@kkpfg.com"
     
+    print(f"Attempting to send email from: {sender} to: {receiver}")
+
     if not sender or not password:
-        print("Email credentials missing. Skipping email.")
+        print("CRITICAL: Email credentials missing (EMAIL_SENDER or EMAIL_PASSWORD). Skipping email.")
         return
 
     msg = MIMEMultipart('alternative')
@@ -155,9 +156,9 @@ def send_email(data):
             server.starttls()
             server.login(sender, password)
             server.send_message(msg)
-            print("Email sent successfully!")
+            print(f"SUCCESS: Email sent to {receiver}")
     except Exception as e:
-        print(f"Failed to send email: {e}")
+        print(f"ERROR: Failed to send email: {e}")
 
 def main():
     tz = pytz.timezone('Asia/Bangkok')
@@ -174,6 +175,8 @@ def main():
         date_str = date_str.replace(eng, thai)
 
     market_data = get_market_data()
+    print(f"Fetched Market Data: {len(market_data)} items.")
+    
     ai_content = generate_content(str(market_data))
     
     if ai_content:
@@ -189,7 +192,9 @@ def main():
             json.dump(final_data, f, ensure_ascii=False, indent=2)
         
         send_email(final_data)
-        print("Process completed.")
+        print("Data processing and saving complete.")
+    else:
+        print("CRITICAL: AI content generation failed. Data not updated.")
 
 if __name__ == "__main__":
     main()

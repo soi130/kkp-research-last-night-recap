@@ -14,10 +14,10 @@ jobs:
   update-data:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4 # Upgraded to v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 # Upgraded to v5
         with:
           python-version: '3.10'
 
@@ -38,5 +38,4 @@ jobs:
           git config --global user.email 'bot@github.com'
           git add src/data.json
           git commit -m "Auto-update market data: $(date)" || echo "No changes to commit"
-          git pull --rebase origin main
-          git push origin main
+          git push origin main --force
