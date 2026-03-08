@@ -10,8 +10,8 @@ from email.mime.text import MIMEText
 import requests
 import xml.etree.ElementTree as ET
 
-# VERSION: 1.6 - Enhanced Weekend/NFP Coverage
-print("Starting script Version 1.6 (Enhanced Weekend/NFP Coverage)...")
+# VERSION: 1.7 - Retail-Friendly & Concise Thai
+print("Starting script Version 1.7 (Retail-Friendly & Concise Thai)...")
 
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
@@ -29,7 +29,6 @@ def get_latest_news_context():
         try:
             resp = requests.get(feed['url'], timeout=10)
             root = ET.fromstring(resp.content)
-            # Increased to 20 items per feed to capture Friday news on weekends
             for item in root.findall('./channel/item')[:20]:
                 title = item.find('title').text
                 desc = item.find('description').text if item.find('description') is not None else ""
@@ -39,7 +38,7 @@ def get_latest_news_context():
         except Exception as e:
             print(f"Error fetching {feed['name']}: {e}")
             continue
-    return "\n".join(news_items[:60]) # Keep a healthy amount of items
+    return "\n".join(news_items[:60])
 
 def get_market_data_v2():
     print("Fetching market data...")
@@ -81,30 +80,30 @@ def get_market_data_v2():
 def generate_ai_content(market_summary, news_context, current_day_info):
     prompt = f"""
     You are a professional Senior Macro Strategist at KKP Research. 
-    Your task is to analyze real market-moving news and data for Thai investors.
+    Your task is to analyze real market-moving news and data for Thai RETAIL investors.
     
     CONTEXT: Today is {current_day_info}. 
-    หน้าที่ของคุณคือวิเคราะห์เหตุการณ์สำคัญที่เกิดขึ้น โดยเฉพาะหากเพิ่งผ่านวันหยุด (Weekend) หรือวันที่มีตัวเลขเศรษฐกิจสำคัญ (เช่น Non-Farm Payrolls - NFP)
+    หน้าที่ของคุณคือสรุป "หัวใจสำคัญ" ของเหตุการณ์ที่เกิดขึ้นเพื่อให้ "นักลงทุนรายย่อยไทย" เข้าใจง่าย
     
     DATA CONTEXT:
     - Market Numbers: {market_summary}
-    - News Headlines (ดึงข่าวย้อนหลังให้ครอบคลุมช่วงวันหยุด/วันศุกร์): 
+    - News Headlines: 
     {news_context}
     
     INSTRUCTIONS:
-    1. **PRIORITIZE MAJOR DATA**: หากมีข่าวเศรษฐกิจมหภาคที่สำคัญมาก เช่น Non-Farm Payrolls (NFP), CPI, หรือการประชุม Fed เกิดขึ้นใน Context (แม้จะเป็นข่าวของวันศุกร์และวันนี้เป็นวันอาทิตย์/จันทร์) **ต้องนำมาเป็นหัวข้อหลักใน moverStory ทันที** ห้ามพลาดเด็ดขาด
-    2. **HOLIDAY WRAP-UP**: หากวันนี้เป็นวันอาทิตย์หรือวันจันทร์ ให้สรุปประเด็นที่เกิดขึ้นทั้งหมดตั้งแต่คืนวันศุกร์จนถึงปัจจุบัน
-    3. **FOCUS ON NEWS, NOT NUMBERS**: ไม่ต้องบรรยายการเปลี่ยนแปลงของตัวเลขราคาในตาราง (เช่น "S&P ลดลง 1%") ให้เน้นที่ "เหตุผล/ข่าว" ที่ทำให้มันลดลง
-    4. **DIRECT REFERENCE**: ระบุชื่อหัวข้อข่าวหรือแหล่งข่าวให้ชัดเจน เพื่อยืนยันว่าวิเคราะห์จากข้อมูลจริง
-    5. **STRATEGIC IMPLICATIONS**: วิเคราะห์นัยสำคัญต่อตลาดและนักลงทุนไทย
-    6. TONE: Professional, Objective, Cautious.
-    7. CONSTRAINT: Use Thai language. Output must be JSON.
+    1. **RETAIL-FRIENDLY & CONCISE**: ใช้ภาษาไทยที่เข้าใจง่าย กระชับ ตรงไปตรงมา ลดการใช้คำศัพท์เทคนิคที่ซับซ้อน หรือคำทับศัพท์ภาษาอังกฤษโดยไม่จำเป็น (เช่น ใช้คำว่า "ปัจจัยกระทบ" แทน "Factor")
+    2. **PRIORITIZE MAJOR DATA (NFP/FED)**: หากมีข่าวใหญ่ เช่น ตัวเลขจ้างงาน (NFP) หรือความเคลื่อนไหวของดอกเบี้ยสหรัฐฯ (Fed) ให้สรุปประเด็นนี้ขึ้นก่อนด้วยภาษาที่คนทั่วไปเข้าใจได้ทันที
+    3. **NO REDUNDANT NUMBERS**: ไม่ต้องสรุปราคาจากตารางซ้ำ ให้เน้น "ข่าวสำคัญที่ทำให้ตลาดขยับ" และอ้างอิงชื่อข่าว/แหล่งข่าวเพื่อความน่าเชื่อถือ
+    4. **WEEKEND WRAP-UP**: หากเป็นเช้าวันจันทร์ ให้สรุปภาพรวมที่เกิดขึ้นตลอดช่วงวันหยุดจนถึงปัจจุบันแบบรวบยอด
+    5. **INVESTMENT RISKS**: วิเคราะห์ "ความเสี่ยงที่รายย่อยต้องระวัง" ในวันนี้ โดยห้ามชี้นำการลงทุน
+    6. TONE: Professional but accessible, Clear, Cautious.
+    7. CONSTRAINT: Use PURE Thai language as much as possible. Output must be JSON.
     
     Provide the output in JSON format:
     {{
-      "moverStory": "สรุปเหตุการณ์สำคัญที่สุด (เน้นตัวเลขเศรษฐกิจมหภาค เช่น NFP หากมีใน Context)",
-      "macroFocus": ["วิเคราะห์เจาะลึกข่าว 1", "วิเคราะห์เจาะลึกข่าว 2", "วิเคราะห์เจาะลึกข่าว 3"],
-      "implications": ["ปัจจัยเสี่ยงที่ต้องจับตา 1", "ปัจจัยเสี่ยงที่ต้องจับตา 2", "ปัจจัยเสี่ยงที่ต้องจับตา 3"]
+      "moverStory": "สรุปหัวใจสำคัญที่เกิดขึ้น (เน้นข่าวใหญ่และเนื้อหาที่เข้าใจง่ายสำหรับคนทั่วไป)",
+      "macroFocus": ["ประเด็นเศรษฐกิจสำคัญที่ต้องรู้ 1", "ประเด็นเศรษฐกิจสำคัญที่ต้องรู้ 2", "ประเด็นเศรษฐกิจสำคัญที่ต้องรู้ 3"],
+      "implications": ["ข้อควรระวังสำหรับนักลงทุนในวันนี้ 1", "ข้อควรระวังสำหรับนักลงทุนในวันนี้ 2", "ข้อควรระวังสำหรับนักลงทุนในวันนี้ 3"]
     }}
     """
     
@@ -113,7 +112,7 @@ def generate_ai_content(market_summary, news_context, current_day_info):
         response = client.chat.completions.create(
             model="gpt-5-mini",
             messages=[
-                {"role": "system", "content": "You are a professional Senior Macro Strategist. You prioritize major economic data like NFP and CPI from the news context. You avoid redundant price summaries."},
+                {"role": "system", "content": "You are a professional Senior Macro Strategist. You provide concise, retail-friendly analysis in pure Thai. You avoid excessive English terms and redundant price summaries."},
                 {"role": "user", "content": prompt}
             ],
             response_format={ "type": "json_object" }
@@ -136,7 +135,7 @@ def send_recap_email(data):
     rows = "".join([f"<tr><td style='padding:12px;border-bottom:1px solid #e2e8f0;'>{item['name']}</td><td style='padding:12px;border-bottom:1px solid #e2e8f0;'>{item['price']}</td><td style='padding:12px;border-bottom:1px solid #e2e8f0;color:{'#059669' if item['status'] == 'up' else '#dc2626'};font-weight:bold;'>{item['change']}</td></tr>" for item in data['marketData']])
     macro_items = "".join([f"<p style='margin-bottom:8px;'>• {item}</p>" for item in data['macroFocus']])
     risk_items = "".join([f"<p style='margin-bottom:8px;'>• {item}</p>" for item in data['implications']])
-    html = f"""<html><body style="font-family:Arial,sans-serif;background-color:#f8fafc;padding:20px;color:#1e293b;"><div style="max-width:600px;margin:0 auto;background:#ffffff;padding:30px;border-radius:12px;border:1px solid #e2e8f0;border-top:8px solid #512D6D;"><h1 style="color:#512D6D;font-size:22px;">KKP Research Recap</h1><p style="color:#64748b;font-size:14px;">{data['lastUpdated']} (เวลาประเทศไทย)</p><hr style="border:none;border-top:1px solid #e2e8f0;margin:20px 0;"><h2 style="color:#512D6D;font-size:16px;">📊 สรุปตลาดและราคาสินทรัพย์</h2><table style="width:100%;border-collapse:collapse;"><tr style="background:#f3f0f7;"><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">สินทรัพย์</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">ล่าสุด</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">เปลี่ยนแปลง</th></tr>{rows}</table><p style='font-size:11px;color:#94a3b8;margin-top:8px;'>แหล่งข้อมูล: Yahoo Finance, Reuters, CNBC</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">MARKET FOCUS (WHAT & WHY)</h2><p style="font-size:15px;line-height:1.6;">{data['moverStory']}</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">🧠 MACRO FOCUS</h2><div style="font-size:14px;line-height:1.6;">{macro_items}</div><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">⚠️ RISKS & FACTORS TO WATCH</h2><div style="font-size:14px;line-height:1.6;">{risk_items}</div><hr style="border:none;border-top:1px solid #e2e8f0;margin:30px 0;"><p style="font-size:11px;color:#94a3b8;line-height:1.6;">เนื้อหาข้างต้นจัดทำขึ้นโดย KKP Research เพื่อวัตถุประสงค์ในการรายงานข้อมูลข่าวสารเศรษฐกิจและตลาดทุนเท่านั้น มิใช่การให้คำแนะนำการลงทุน</p></div></body></html>"""
+    html = f"""<html><body style="font-family:Arial,sans-serif;background-color:#f8fafc;padding:20px;color:#1e293b;"><div style="max-width:600px;margin:0 auto;background:#ffffff;padding:30px;border-radius:12px;border:1px solid #e2e8f0;border-top:8px solid #512D6D;"><h1 style="color:#512D6D;font-size:22px;">KKP Research Recap</h1><p style="color:#64748b;font-size:14px;">{data['lastUpdated']} (เวลาประเทศไทย)</p><hr style="border:none;border-top:1px solid #e2e8f0;margin:20px 0;"><h2 style="color:#512D6D;font-size:16px;">📊 สรุปตลาดและราคาสินทรัพย์</h2><table style="width:100%;border-collapse:collapse;"><tr style="background:#f3f0f7;"><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">สินทรัพย์</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">ล่าสุด</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">เปลี่ยนแปลง</th></tr>{rows}</table><p style='font-size:11px;color:#94a3b8;margin-top:8px;'>แหล่งข้อมูล: Yahoo Finance, Reuters, CNBC</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">MARKET FOCUS (WHAT & WHY)</h2><p style="font-size:15px;line-height:1.6;">{data['moverStory']}</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">🧠 สรุปประเด็นเศรษฐกิจสำคัญ</h2><div style="font-size:14px;line-height:1.6;">{macro_items}</div><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">⚠️ ข้อควรระวังสำหรับนักลงทุน</h2><div style="font-size:14px;line-height:1.6;">{risk_items}</div><hr style="border:none;border-top:1px solid #e2e8f0;margin:30px 0;"><p style="font-size:11px;color:#94a3b8;line-height:1.6;">เนื้อหาข้างต้นจัดทำขึ้นโดย KKP Research เพื่อวัตถุประสงค์ในการรายงานข้อมูลข่าวสารเศรษฐกิจและตลาดทุนเท่านั้น มิใช่การให้คำแนะนำการลงทุน</p></div></body></html>"""
     msg.attach(MIMEText(html, 'html'))
     try:
         with smtplib.SMTP('smtp.gmail.com', 587) as server:
@@ -147,11 +146,10 @@ def send_recap_email(data):
     except Exception as e: print(f"ERROR: Email failed: {e}")
 
 def main():
-    print("Main execution started (Version 1.6).")
+    print("Main execution started (Version 1.7).")
     tz = pytz.timezone('Asia/Bangkok')
     now = datetime.now(tz)
     
-    # Get localized day of week for AI context
     days_th = ["จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์", "อาทิตย์"]
     current_day_info = f"วัน{days_th[now.weekday()]}ที่ {now.day}/{now.month}/{now.year}"
     
@@ -160,7 +158,7 @@ def main():
     
     market_data = get_market_data_v2()
     news_context = get_latest_news_context()
-    print(f"Fetched news context with {len(news_context.split('---'))} potential items.")
+    print(f"Fetched news context.")
     
     ai_content = generate_ai_content(str(market_data), news_context, current_day_info)
     
