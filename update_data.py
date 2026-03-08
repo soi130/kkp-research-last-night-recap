@@ -8,13 +8,15 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-# Setup Gemini with the new SDK
+# VERSION: 1.2 - Explicit Function Check
+print("Starting script Version 1.2...")
+
+# Setup Gemini
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+MODELS_TO_TRY = ['gemini-1.5-flash', 'gemini-2.0-flash']
 
-# Model fallback list for robustness
-MODELS_TO_TRY = ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro']
-
-def get_market_data():
+def get_market_data_v2():
+    print("Fetching market data...")
     tickers = {
         "^GSPC": "S&P 500 (US)",
         "^IXIC": "Nasdaq (US)",
@@ -44,11 +46,12 @@ def get_market_data():
                     "change": f"{'+' if change_pct >= 0 else ''}{change_pct:.2f}%",
                     "status": "up" if change_pct >= 0 else "down"
                 })
-        except:
+        except Exception as e:
+            print(f"Error fetching {ticker}: {e}")
             continue
     return results
 
-def generate_content(market_summary):
+def generate_ai_content(market_summary):
     prompt = f"""
     You are a professional researcher at KKP Research. 
     Summarize the global market events from last night for Thai investors.
@@ -58,37 +61,31 @@ def generate_content(market_summary):
     Market Data Context: {market_summary}
     
     Provide the output in JSON format with these exact keys:
-    - moverStory: (A concise paragraph about the main market driver, focus on macro/geopolitics)
-    - macroFocus: (An array of 3 bullet points about key macro data like Fed, Inflation, Jobs)
-    - implications: (An array of 3 bullet points about what COULD happen and risks to watch, focusing on TH economy/markets)
+    - moverStory: (A concise paragraph)
+    - macroFocus: (An array of 3 strings)
+    - implications: (An array of 3 strings)
     """
     
     for model_name in MODELS_TO_TRY:
         try:
             print(f"Generating content with model: {model_name}")
-            response = client.models.generate_content(
-                model=model_name,
-                contents=prompt
-            )
+            response = client.models.generate_content(model=model_name, contents=prompt)
             content = response.text.strip()
             if "```json" in content:
                 content = content.split("```json")[1].split("```")[0].strip()
             return json.loads(content)
         except Exception as e:
-            print(f"AI Generation Error with {model_name}: {e}")
+            print(f"AI Error with {model_name}: {e}")
             continue
-    
     return None
 
-def send_email(data):
+def send_recap_email(data):
     sender = os.environ.get("EMAIL_SENDER")
     password = os.environ.get("EMAIL_PASSWORD") 
     receiver = "thanak.ratt@kkpfg.com"
     
-    print(f"Attempting to send email from: {sender} to: {receiver}")
-
     if not sender or not password:
-        print("CRITICAL: Email credentials missing (EMAIL_SENDER or EMAIL_PASSWORD). Skipping email.")
+        print("Email credentials missing.")
         return
 
     msg = MIMEMultipart('alternative')
@@ -96,64 +93,43 @@ def send_email(data):
     msg['From'] = f"KKP Research Bot <{sender}>"
     msg['To'] = receiver
 
-    rows = ""
-    for item in data['marketData']:
-        color = "#059669" if item['status'] == 'up' else "#dc2626"
-        rows += f"""
-            <tr>
-                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-size: 14px;">{item['name']}</td>
-                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-size: 14px;">{item['price']}</td>
-                <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; font-size: 14px; color: {color}; font-weight: bold;">{item['change']}</td>
-            </tr>
-        """
+    rows = "".join([f"""
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">{item['name']}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e2e8f0;">{item['price']}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; color: {'#059669' if item['status'] == 'up' else '#dc2626'}; font-weight: bold;">{item['change']}</td>
+        </tr>
+    """ for item in data['marketData']])
 
-    macro_items = "".join([f"<p style='margin-bottom: 8px;'>• {item}</p>" for item in data['macroFocus']])
-    risk_items = "".join([f"<p style='margin-bottom: 8px;'>• {item}</p>" for item in data['implications']])
+    macro_items = "".join([f"<li>{item}</li>" for item in data['macroFocus']])
+    risk_items = "".join([f"<li>{item}</li>" for item in data['implications']])
 
     html = f"""
     <html>
-    <body style="font-family: 'Helvetica', Arial, sans-serif; background-color: #f8fafc; padding: 20px; color: #1e293b;">
-        <div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; border-top: 8px solid #512D6D;">
-            <div style="margin-bottom: 30px;">
-                <h1 style="color: #512D6D; margin: 0; font-size: 22px; font-weight: bold;">KKP Research - Last Night Recap</h1>
-                <p style="color: #64748b; font-size: 14px; margin-top: 5px;">{data['lastUpdated']}</p>
-            </div>
-            
-            <div style="margin-bottom: 25px;">
-                <h2 style="color: #512D6D; font-size: 16px; border-bottom: 2px solid #f3f0f7; padding-bottom: 8px; text-transform: uppercase;">📊 สรุปตลาดและราคาสินทรัพย์</h2>
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr style="background: #f3f0f7;">
-                        <th style="text-align: left; padding: 10px; font-size: 11px; color: #512D6D;">สินทรัพย์</th>
-                        <th style="text-align: left; padding: 10px; font-size: 11px; color: #512D6D;">ล่าสุด</th>
-                        <th style="text-align: left; padding: 10px; font-size: 11px; color: #512D6D;">เปลี่ยนแปลง</th>
-                    </tr>
-                    {rows}
-                </table>
-            </div>
-
-            <div style="margin-bottom: 25px;">
-                <div style="display: inline-block; background: #f3f0f7; color: #512D6D; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; margin-bottom: 10px;">MARKET FOCUS</div>
-                <p style="font-size: 15px; line-height: 1.6;">{data['moverStory']}</p>
-            </div>
-
-            <div style="margin-bottom: 25px;">
-                <h2 style="color: #512D6D; font-size: 16px; border-bottom: 2px solid #f3f0f7; padding-bottom: 8px; text-transform: uppercase;">🧠 MACRO FOCUS</h2>
-                <div style="font-size: 14px; line-height: 1.6;">{macro_items}</div>
-            </div>
-
-            <div style="margin-bottom: 25px;">
-                <h2 style="color: #512D6D; font-size: 16px; border-bottom: 2px solid #f3f0f7; padding-bottom: 8px; text-transform: uppercase;">⚠️ RISK WATCH</h2>
-                <div style="font-size: 14px; line-height: 1.6;">{risk_items}</div>
-            </div>
-
-            <div style="font-size: 11px; color: #94a3b8; margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 20px; line-height: 1.6;">
-                เนื้อหาข้างต้นจัดทำขึ้นโดย KKP Research เพื่อวัตถุประสงค์ในการรายงานข้อมูลข่าวสารเศรษฐกิจและตลาดทุนเท่านั้น มิใช่การให้คำแนะนำการลงทุนหรือการชี้ชวนซื้อขายหลักทรัพย์
-            </div>
+    <body style="font-family: Arial, sans-serif; color: #1e293b;">
+        <div style="max-width: 600px; margin: 0 auto; border-top: 8px solid #512D6D; padding: 20px; border: 1px solid #e2e8f0;">
+            <h1 style="color: #512D6D;">KKP Research Recap</h1>
+            <p>{data['lastUpdated']}</p>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #f3f0f7;">
+                    <th style="text-align: left; padding: 10px;">สินทรัพย์</th>
+                    <th style="text-align: left; padding: 10px;">ล่าสุด</th>
+                    <th style="text-align: left; padding: 10px;">เปลี่ยนแปลง</th>
+                </tr>
+                {rows}
+            </table>
+            <h3>MARKET FOCUS</h3>
+            <p>{data['moverStory']}</p>
+            <h3>MACRO FOCUS</h3>
+            <ul>{macro_items}</ul>
+            <h3>RISK WATCH</h3>
+            <ul>{risk_items}</ul>
+            <hr>
+            <p style="font-size: 11px; color: #94a3b8;">มิใช่การให้คำแนะนำการลงทุน</p>
         </div>
     </body>
     </html>
     """
-    
     msg.attach(MIMEText(html, 'html'))
 
     try:
@@ -161,28 +137,21 @@ def send_email(data):
             server.starttls()
             server.login(sender, password)
             server.send_message(msg)
-            print(f"SUCCESS: Email sent to {receiver}")
+            print("SUCCESS: Email sent.")
     except Exception as e:
-        print(f"ERROR: Failed to send email: {e}")
+        print(f"ERROR: Email failed: {e}")
 
 def main():
+    print("Main execution started.")
     tz = pytz.timezone('Asia/Bangkok')
-    now = datetime.now(tz)
-    date_str = now.strftime("%d %B %Y, %H:%M น.")
+    date_str = datetime.now(tz).strftime("%d %B %Y, %H:%M น.")
     
-    months = {
-        "January": "มกราคม", "February": "กุมภาพันธ์", "March": "มีนาคม",
-        "April": "เมษายน", "May": "พฤษภาคม", "June": "มิถุนายน",
-        "July": "กรกฎาคม", "August": "สิงหาคม", "September": "กันยายน",
-        "October": "ตุลาคม", "November": "พฤศจิกายน", "December": "ธันวาคม"
-    }
-    for eng, thai in months.items():
-        date_str = date_str.replace(eng, thai)
-
-    market_data = get_market_data()
-    print(f"Fetched Market Data: {len(market_data)} items.")
+    # Simple market fetch
+    market_data = get_market_data_v2()
+    print(f"Data fetched: {len(market_data)} indices.")
     
-    ai_content = generate_content(str(market_data))
+    # AI Summary
+    ai_content = generate_ai_content(str(market_data))
     
     if ai_content:
         final_data = {
@@ -196,10 +165,10 @@ def main():
         with open('src/data.json', 'w', encoding='utf-8') as f:
             json.dump(final_data, f, ensure_ascii=False, indent=2)
         
-        send_email(final_data)
-        print("Data processing and saving complete.")
+        send_recap_email(final_data)
+        print("Workflow finished successfully.")
     else:
-        print("CRITICAL: AI content generation failed. Data not updated.")
+        print("Workflow failed at AI generation.")
 
 if __name__ == "__main__":
     main()
