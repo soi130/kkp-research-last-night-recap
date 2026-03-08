@@ -10,8 +10,8 @@ from email.mime.text import MIMEText
 import requests
 import xml.etree.ElementTree as ET
 
-# VERSION: 1.5 - Real News Content + Risk Focus
-print("Starting script Version 1.5 (Real News Content)...")
+# VERSION: 1.6 - Enhanced Weekend/NFP Coverage
+print("Starting script Version 1.6 (Enhanced Weekend/NFP Coverage)...")
 
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
@@ -19,25 +19,27 @@ def get_latest_news_context():
     print("Fetching latest market news with context...")
     feeds = [
         {"name": "Reuters Markets", "url": "https://www.reuters.com/tools/rssfeed/us/marketnews"},
+        {"name": "Reuters Business", "url": "https://www.reuters.com/tools/rssfeed/us/businessnews"},
         {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/news/rss"},
-        {"name": "CNBC Markets", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=15839069"}
+        {"name": "CNBC Markets", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=15839069"},
+        {"name": "CNBC Economy", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=10000063"}
     ]
     news_items = []
     for feed in feeds:
         try:
             resp = requests.get(feed['url'], timeout=10)
             root = ET.fromstring(resp.content)
-            for item in root.findall('./channel/item')[:8]:
+            # Increased to 20 items per feed to capture Friday news on weekends
+            for item in root.findall('./channel/item')[:20]:
                 title = item.find('title').text
                 desc = item.find('description').text if item.find('description') is not None else ""
-                # Clean up description (remove HTML tags if any)
                 if desc:
                     desc = ET.fromstring(f"<div>{desc}</div>").text if '<' in desc else desc
                 news_items.append(f"Source: {feed['name']}\nHeadline: {title}\nSummary: {desc}\n---")
         except Exception as e:
             print(f"Error fetching {feed['name']}: {e}")
             continue
-    return "\n".join(news_items[:20])
+    return "\n".join(news_items[:60]) # Keep a healthy amount of items
 
 def get_market_data_v2():
     print("Fetching market data...")
@@ -60,7 +62,6 @@ def get_market_data_v2():
     for ticker, name in tickers.items():
         try:
             t = yf.Ticker(ticker)
-            # Increased period to 10d to cover long weekends/holidays
             hist = t.history(period="10d")
             if len(hist) >= 2:
                 close = hist['Close'].iloc[-1]
@@ -77,31 +78,32 @@ def get_market_data_v2():
             continue
     return results
 
-def generate_ai_content(market_summary, news_context):
+def generate_ai_content(market_summary, news_context, current_day_info):
     prompt = f"""
     You are a professional Senior Macro Strategist at KKP Research. 
     Your task is to analyze real market-moving news and data for Thai investors.
     
-    หน้าที่ของคุณคือวิเคราะห์ "เหตุการณ์สำคัญที่เกิดขึ้นตั้งแต่ปิดตลาดครั้งล่าสุดจนถึงปัจจุบัน" (โดยเฉพาะหากเป็นหลังวันหยุดเสาร์-อาทิตย์ หรือวันหยุดยาว ให้รวบรวมประเด็นตั้งแต่คืนวันศุกร์หรือวันก่อนหยุด)
+    CONTEXT: Today is {current_day_info}. 
+    หน้าที่ของคุณคือวิเคราะห์เหตุการณ์สำคัญที่เกิดขึ้น โดยเฉพาะหากเพิ่งผ่านวันหยุด (Weekend) หรือวันที่มีตัวเลขเศรษฐกิจสำคัญ (เช่น Non-Farm Payrolls - NFP)
     
     DATA CONTEXT:
     - Market Numbers: {market_summary}
-    - News Headlines & Summaries (ตั้งแต่ปิดตลาดครั้งก่อนถึงปัจจุบัน): 
+    - News Headlines (ดึงข่าวย้อนหลังให้ครอบคลุมช่วงวันหยุด/วันศุกร์): 
     {news_context}
     
     INSTRUCTIONS:
-    1. **HOLIDAY/WEEKEND COVERAGE**: หากวันนี้เป็นวันจันทร์ หรือวันแรกหลังวันหยุดยาว ให้สรุปภาพรวมข่าวสำคัญทั้งหมดที่เกิดขึ้นตลอดช่วงวันหยุด (Weekend Wrap-up) โดยเน้นประเด็นที่จะส่งผลต่อการเปิดตลาดในเช้านี้
-    2. **FOCUS ON NEWS, NOT NUMBERS**: ไม่ต้องบรรยายการเปลี่ยนแปลงของตัวเลขราคาในตาราง ให้เน้นที่ "ข่าว" หรือ "เหตุการณ์" (Market Movers) ที่เป็นสาเหตุของการเคลื่อนไหวนั้นๆ
-    3. **WHAT HAPPENED?**: เจาะจงไปที่เหตุการณ์หรือข่าวสำคัญที่เกิดขึ้นจริงจาก News Context โดยต้องระบุชื่อข่าว (Headline) หรือแหล่งข่าว (Source) ให้ชัดเจนเพื่อให้ผู้อ่านทราบว่านี่คือเหตุการณ์จริง
-    4. **STRATEGIC IMPLICATIONS**: วิเคราะห์นัยสำคัญต่อกลยุทธ์การลงทุน หรือปัจจัยเสี่ยงที่นักลงทุนไทยต้องเตรียมรับมือในวันนี้
-    5. **BE HONEST**: หากช่วงวันหยุดที่ผ่านมาไม่มีข่าวใหญ่จริงๆ ให้ระบุตามตรงว่าบรรยากาศการลงทุนเงียบเหงา
-    6. TONE: Professional, Data-driven, Objective, Cautious.
+    1. **PRIORITIZE MAJOR DATA**: หากมีข่าวเศรษฐกิจมหภาคที่สำคัญมาก เช่น Non-Farm Payrolls (NFP), CPI, หรือการประชุม Fed เกิดขึ้นใน Context (แม้จะเป็นข่าวของวันศุกร์และวันนี้เป็นวันอาทิตย์/จันทร์) **ต้องนำมาเป็นหัวข้อหลักใน moverStory ทันที** ห้ามพลาดเด็ดขาด
+    2. **HOLIDAY WRAP-UP**: หากวันนี้เป็นวันอาทิตย์หรือวันจันทร์ ให้สรุปประเด็นที่เกิดขึ้นทั้งหมดตั้งแต่คืนวันศุกร์จนถึงปัจจุบัน
+    3. **FOCUS ON NEWS, NOT NUMBERS**: ไม่ต้องบรรยายการเปลี่ยนแปลงของตัวเลขราคาในตาราง (เช่น "S&P ลดลง 1%") ให้เน้นที่ "เหตุผล/ข่าว" ที่ทำให้มันลดลง
+    4. **DIRECT REFERENCE**: ระบุชื่อหัวข้อข่าวหรือแหล่งข่าวให้ชัดเจน เพื่อยืนยันว่าวิเคราะห์จากข้อมูลจริง
+    5. **STRATEGIC IMPLICATIONS**: วิเคราะห์นัยสำคัญต่อตลาดและนักลงทุนไทย
+    6. TONE: Professional, Objective, Cautious.
     7. CONSTRAINT: Use Thai language. Output must be JSON.
     
     Provide the output in JSON format:
     {{
-      "moverStory": "สรุปเหตุการณ์สำคัญที่เกิดขึ้นจริง (เน้นเนื้อหาข่าวจาก Context ตลอดช่วงวันหยุด/วันก่อนหน้า)",
-      "macroFocus": ["วิเคราะห์นัยสำคัญของเหตุการณ์ 1", "วิเคราะห์นัยสำคัญของเหตุการณ์ 2", "วิเคราะห์นัยสำคัญของเหตุการณ์ 3"],
+      "moverStory": "สรุปเหตุการณ์สำคัญที่สุด (เน้นตัวเลขเศรษฐกิจมหภาค เช่น NFP หากมีใน Context)",
+      "macroFocus": ["วิเคราะห์เจาะลึกข่าว 1", "วิเคราะห์เจาะลึกข่าว 2", "วิเคราะห์เจาะลึกข่าว 3"],
       "implications": ["ปัจจัยเสี่ยงที่ต้องจับตา 1", "ปัจจัยเสี่ยงที่ต้องจับตา 2", "ปัจจัยเสี่ยงที่ต้องจับตา 3"]
     }}
     """
@@ -111,7 +113,7 @@ def generate_ai_content(market_summary, news_context):
         response = client.chat.completions.create(
             model="gpt-5-mini",
             messages=[
-                {"role": "system", "content": "You are a professional Senior Macro Strategist. You focus on real news events and their implications since the last closed session. You value news accuracy and context over hype."},
+                {"role": "system", "content": "You are a professional Senior Macro Strategist. You prioritize major economic data like NFP and CPI from the news context. You avoid redundant price summaries."},
                 {"role": "user", "content": prompt}
             ],
             response_format={ "type": "json_object" }
@@ -145,17 +147,22 @@ def send_recap_email(data):
     except Exception as e: print(f"ERROR: Email failed: {e}")
 
 def main():
-    print("Main execution started (Version 1.5).")
+    print("Main execution started (Version 1.6).")
     tz = pytz.timezone('Asia/Bangkok')
     now = datetime.now(tz)
+    
+    # Get localized day of week for AI context
+    days_th = ["จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์", "อาทิตย์"]
+    current_day_info = f"วัน{days_th[now.weekday()]}ที่ {now.day}/{now.month}/{now.year}"
+    
     months_th = ["", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"]
     date_str = f"{now.day} {months_th[now.month]} {now.year + 543}, {now.strftime('%H:%M')} น."
     
     market_data = get_market_data_v2()
     news_context = get_latest_news_context()
-    print(f"Fetched news context for analysis.")
+    print(f"Fetched news context with {len(news_context.split('---'))} potential items.")
     
-    ai_content = generate_ai_content(str(market_data), news_context)
+    ai_content = generate_ai_content(str(market_data), news_context, current_day_info)
     
     if ai_content:
         final_data = {"lastUpdated": date_str, "marketData": market_data, "moverStory": ai_content['moverStory'], "macroFocus": ai_content['macroFocus'], "implications": ai_content['implications']}
