@@ -18,10 +18,15 @@ def get_market_data_v2():
     print("Fetching market data...")
     tickers = {
         "^GSPC": "S&P 500 (US)",
+        "^DJI": "Dow Jones (US)",
         "^IXIC": "Nasdaq (US)",
         "^N225": "Nikkei 225 (JP)*",
+        "^TPX": "TOPIX (JP)*",
         "^KS11": "KOSPI (KR)*",
         "GC=F": "Gold (Spot)",
+        "BTC-USD": "Bitcoin (BTC)",
+        "THB=X": "USD/THB",
+        "DX-Y.NYB": "Dollar Index (DXY)",
         "^TNX": "US 10Y Yield"
     }
     
@@ -29,15 +34,23 @@ def get_market_data_v2():
     for ticker, name in tickers.items():
         try:
             t = yf.Ticker(ticker)
-            hist = t.history(period="2d")
+            hist = t.history(period="5d") # Get more days to ensure we have enough data
             if len(hist) >= 2:
                 close = hist['Close'].iloc[-1]
                 prev_close = hist['Close'].iloc[-2]
                 change_pct = ((close - prev_close) / prev_close) * 100
                 
-                price_str = f"{close:,.2f}"
-                if ticker == "GC=F": price_str = f"${close:,.2f}"
-                if ticker == "^TNX": price_str = f"{close:.2f}%"
+                # Special formatting based on asset type
+                if ticker == "GC=F": 
+                    price_str = f"${close:,.2f}"
+                elif ticker == "BTC-USD":
+                    price_str = f"${close:,.0f}"
+                elif ticker == "THB=X":
+                    price_str = f"{close:.2f} บาท"
+                elif ticker == "^TNX":
+                    price_str = f"{close:.2f}%"
+                else:
+                    price_str = f"{close:,.2f}"
                 
                 results.append({
                     "name": name,
