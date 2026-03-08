@@ -82,7 +82,7 @@ def generate_ai_content(market_summary):
 def send_recap_email(data):
     sender = os.environ.get("EMAIL_SENDER")
     password = os.environ.get("EMAIL_PASSWORD") 
-    receiver = "thanak.ratt@kkpfg.com"
+    receivers = ["thanak.ratt@kkpfg.com", "mynameisnak@gmail.com"]
     
     if not sender or not password:
         print("Email credentials missing.")
@@ -91,7 +91,7 @@ def send_recap_email(data):
     msg = MIMEMultipart('alternative')
     msg['Subject'] = f"KKP Research Recap - {data['lastUpdated'].split(',')[0]}"
     msg['From'] = f"KKP Research Bot <{sender}>"
-    msg['To'] = receiver
+    msg['To'] = ", ".join(receivers)
 
     rows = "".join([f"""
         <tr>
@@ -137,7 +137,7 @@ def send_recap_email(data):
             server.starttls()
             server.login(sender, password)
             server.send_message(msg)
-            print("SUCCESS: Email sent.")
+            print(f"SUCCESS: Email sent to {', '.join(receivers)}")
     except Exception as e:
         print(f"ERROR: Email failed: {e}")
 
