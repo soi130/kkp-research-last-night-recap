@@ -43,7 +43,7 @@ function App() {
         </div>
         <div style={{fontSize: '0.75rem', color: '#707070', marginTop: '1rem', lineHeight: '1.5'}}>
           * ดัชนีตลาดเอเชียเป็นระดับปิด ณ วันทำการล่าสุด | ราคาทองคำเป็น Spot Price<br />
-          แหล่งข้อมูล: Yahoo Finance, Reuters
+          แหล่งข้อมูล: Yahoo Finance, Reuters, CNBC
         </div>
       </section>
 
@@ -75,7 +75,7 @@ function App() {
       <section className="section">
         <h2 className="section-title">
           <AlertCircle size={24} />
-          มุมมองและผลกระทบต่อการลงทุน (Investment Implications)
+          ปัจจัยที่ต้องระมัดระวังและประเด็นติดตาม (Risks & Watchlist)
         </h2>
         <div className="implication-content">
           {data.implications.map((item, index) => (
