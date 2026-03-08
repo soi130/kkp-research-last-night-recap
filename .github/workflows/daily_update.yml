@@ -38,4 +38,5 @@ jobs:
           git config --global user.email 'bot@github.com'
           git add src/data.json
           git commit -m "Auto-update market data: $(date)" || echo "No changes to commit"
-          git push
+          git pull --rebase origin main
+          git push origin main
