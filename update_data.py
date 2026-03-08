@@ -13,7 +13,7 @@ print("Starting script Version 1.2...")
 
 # Setup Gemini
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
-MODELS_TO_TRY = ['gemini-1.5-flash', 'gemini-2.0-flash']
+MODELS_TO_TRY = ['gemini-2.0-flash', 'gemini-2.5-flash']
 
 def get_market_data_v2():
     print("Fetching market data...")
