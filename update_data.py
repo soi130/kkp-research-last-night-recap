@@ -73,23 +73,29 @@ def generate_ai_content(market_summary, news_headlines):
     You are a professional Senior Macro Strategist at KKP Research. 
     Your task is to provide a deep, insightful recap of the global market for Thai investors.
     
+    หน้าที่ของคุณคือสรุปว่า "เมื่อคืนเกิดอะไรขึ้นบ้าง" (What happened), "เกิดขึ้นเพราะอะไร" (Why), 
+    และ "ส่งผลต่อการลงทุนของผู้อ่านอย่างไร" (How it affects the reader's investment).
+    
+    **เน้นที่เนื้อหาข่าวและบทวิเคราะห์เป็นหลัก** ไม่ต้องเน้นการรายงานราคาซ้ำซ้อน เพราะผู้ใช้เห็นจากตารางแล้ว
+    
     DATA CONTEXT:
     - Market Numbers: {market_summary}
     - Recent Headlines: {news_headlines}
     
     INSTRUCTIONS:
     1. Summarize only the MOST IMPORTANT stories. NEVER be vague. 
-    2. REQUIRED: You MUST include specific numbers/percentages for every economic indicator you mention (e.g., instead of 'Labor market improved', write 'Non-farm payrolls added 225k jobs, beating expectations of 200k').
-    3. Focus on Macro, Central Banks (Fed/ECB/BoJ), and Geopolitics. 
-    4. Investment Implications must be data-driven and specific to the Thai context (Impact on SET index sectors, THB/USD targets if mentioned, or specific export/import risks).
-    5. TONE: Senior Macro Strategist, formal, high-signal.
-    6. CONSTRAINT: NO investment advice. Use Thai language.
+    2. Focus on Macro, Central Banks (Fed/ECB/BoJ), and Geopolitics. 
+    3. สำหรับส่วน Mover Story ให้ตอบคำถาม: เมื่อคืนเกิดอะไรขึ้น และทำไม (What & Why).
+    4. สำหรับส่วน Macro Focus ให้ระบุข้อมูลเศรษฐกิจที่สำคัญที่เพิ่งประกาศออกมา (พร้อมตัวเลขเปรียบเทียบกับคาดการณ์).
+    5. สำหรับส่วน Implications ให้วิเคราะห์เจาะลึก: ส่งผลอย่างไรต่อกลยุทธ์การลงทุนของนักลงทุนไทย (Impact & Strategy).
+    6. TONE: Senior Macro Strategist, formal, high-signal, professional.
+    7. CONSTRAINT: NO investment advice. Use Thai language.
     
     Provide the output in JSON format:
     {{
-      "moverStory": "A concise but detailed paragraph summarizing the key move of the night.",
-      "macroFocus": ["Bullet 1 with data", "Bullet 2 with data", "Bullet 3 with data"],
-      "implications": ["Specific risk 1", "Specific risk 2", "Specific risk 3"]
+      "moverStory": "สรุปประเด็นสำคัญที่สุดของเมื่อคืนว่าเกิดอะไรขึ้นและเพราะอะไร (What & Why)",
+      "macroFocus": ["ประเด็นที่ 1 พร้อมข้อมูลตัวเลข", "ประเด็นที่ 2 พร้อมข้อมูลตัวเลข", "ประเด็นที่ 3 พร้อมข้อมูลตัวเลข"],
+      "implications": ["ผลกระทบต่อการลงทุน 1", "ผลกระทบต่อการลงทุน 2", "ผลกระทบต่อการลงทุน 3"]
     }}
     """
     
@@ -98,7 +104,7 @@ def generate_ai_content(market_summary, news_headlines):
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are a professional financial analyst at KKP Research. Your output is data-driven and objective."},
+                {"role": "system", "content": "You are a professional financial analyst at KKP Research. Your output is data-driven and objective. You focus on 'What, Why, and Impact'."},
                 {"role": "user", "content": prompt}
             ],
             response_format={ "type": "json_object" }
@@ -116,12 +122,12 @@ def send_recap_email(data):
     if not sender or not password: return
     msg = MIMEMultipart('alternative')
     msg['Subject'] = f"KKP Research Recap - {data['lastUpdated'].split(',')[0]}"
-    msg['From'] = f"KKP Research Bot <{sender}>"
+    msg['From'] = f"KKP Research <thanak.ratt@kkpfg.com>"
     msg['To'] = ", ".join(receivers)
     rows = "".join([f"<tr><td style='padding:12px;border-bottom:1px solid #e2e8f0;'>{item['name']}</td><td style='padding:12px;border-bottom:1px solid #e2e8f0;'>{item['price']}</td><td style='padding:12px;border-bottom:1px solid #e2e8f0;color:{'#059669' if item['status'] == 'up' else '#dc2626'};font-weight:bold;'>{item['change']}</td></tr>" for item in data['marketData']])
     macro_items = "".join([f"<p style='margin-bottom:8px;'>• {item}</p>" for item in data['macroFocus']])
     risk_items = "".join([f"<p style='margin-bottom:8px;'>• {item}</p>" for item in data['implications']])
-    html = f"""<html><body style="font-family:Arial,sans-serif;background-color:#f8fafc;padding:20px;color:#1e293b;"><div style="max-width:600px;margin:0 auto;background:#ffffff;padding:30px;border-radius:12px;border:1px solid #e2e8f0;border-top:8px solid #512D6D;"><h1 style="color:#512D6D;font-size:22px;">KKP Research Recap</h1><p style="color:#64748b;font-size:14px;">{data['lastUpdated']} (เวลาประเทศไทย)</p><hr style="border:none;border-top:1px solid #e2e8f0;margin:20px 0;"><h2 style="color:#512D6D;font-size:16px;">📊 สรุปตลาดและราคาสินทรัพย์</h2><table style="width:100%;border-collapse:collapse;"><tr style="background:#f3f0f7;"><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">สินทรัพย์</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">ล่าสุด</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">เปลี่ยนแปลง</th></tr>{rows}</table><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">MARKET FOCUS</h2><p style="font-size:15px;line-height:1.6;">{data['moverStory']}</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">🧠 MACRO FOCUS</h2><div style="font-size:14px;line-height:1.6;">{macro_items}</div><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">⚠️ RISK WATCH</h2><div style="font-size:14px;line-height:1.6;">{risk_items}</div><hr style="border:none;border-top:1px solid #e2e8f0;margin:30px 0;"><p style="font-size:11px;color:#94a3b8;line-height:1.6;">เนื้อหาข้างต้นจัดทำขึ้นโดย KKP Research เพื่อวัตถุประสงค์ในการรายงานข้อมูลข่าวสารเศรษฐกิจและตลาดทุนเท่านั้น มิใช่การให้คำแนะนำการลงทุน</p></div></body></html>"""
+    html = f"""<html><body style="font-family:Arial,sans-serif;background-color:#f8fafc;padding:20px;color:#1e293b;"><div style="max-width:600px;margin:0 auto;background:#ffffff;padding:30px;border-radius:12px;border:1px solid #e2e8f0;border-top:8px solid #512D6D;"><h1 style="color:#512D6D;font-size:22px;">KKP Research Recap</h1><p style="color:#64748b;font-size:14px;">{data['lastUpdated']} (เวลาประเทศไทย)</p><hr style="border:none;border-top:1px solid #e2e8f0;margin:20px 0;"><h2 style="color:#512D6D;font-size:16px;">📊 สรุปตลาดและราคาสินทรัพย์</h2><table style="width:100%;border-collapse:collapse;"><tr style="background:#f3f0f7;"><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">สินทรัพย์</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">ล่าสุด</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">เปลี่ยนแปลง</th></tr>{rows}</table><p style='font-size:11px;color:#94a3b8;margin-top:8px;'>แหล่งข้อมูล: Yahoo Finance, Reuters</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">MARKET FOCUS (WHAT & WHY)</h2><p style="font-size:15px;line-height:1.6;">{data['moverStory']}</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">🧠 MACRO FOCUS</h2><div style="font-size:14px;line-height:1.6;">{macro_items}</div><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">💡 INVESTMENT IMPLICATIONS</h2><div style="font-size:14px;line-height:1.6;">{risk_items}</div><hr style="border:none;border-top:1px solid #e2e8f0;margin:30px 0;"><p style="font-size:11px;color:#94a3b8;line-height:1.6;">เนื้อหาข้างต้นจัดทำขึ้นโดย KKP Research เพื่อวัตถุประสงค์ในการรายงานข้อมูลข่าวสารเศรษฐกิจและตลาดทุนเท่านั้น มิใช่การให้คำแนะนำการลงทุน</p></div></body></html>"""
     msg.attach(MIMEText(html, 'html'))
     try:
         with smtplib.SMTP('smtp.gmail.com', 587) as server:

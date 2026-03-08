@@ -41,8 +41,9 @@ function App() {
             </tbody>
           </table>
         </div>
-        <div style={{fontSize: '0.75rem', color: '#707070', marginTop: '1rem'}}>
-          * ดัชนีตลาดเอเชียเป็นระดับปิด ณ วันศุกร์ที่ผ่านมา | ราคาทองคำเป็น Spot Price
+        <div style={{fontSize: '0.75rem', color: '#707070', marginTop: '1rem', lineHeight: '1.5'}}>
+          * ดัชนีตลาดเอเชียเป็นระดับปิด ณ วันทำการล่าสุด | ราคาทองคำเป็น Spot Price<br />
+          แหล่งข้อมูล: Yahoo Finance, Reuters
         </div>
       </section>
 
@@ -50,10 +51,9 @@ function App() {
       <section className="section">
         <h2 className="section-title">
           <Globe size={24} />
-          ประเด็นหลักที่ขับเคลื่อนตลาด
+          เมื่อคืนเกิดอะไรขึ้นและทำไม (Market Focus)
         </h2>
         <div className="story-content">
-          <span className="market-tag">Market Focus</span>
           <p>{data.moverStory}</p>
         </div>
       </section>
@@ -75,7 +75,7 @@ function App() {
       <section className="section">
         <h2 className="section-title">
           <AlertCircle size={24} />
-          สิ่งที่อาจเกิดขึ้นและปัจจัยที่ต้องระมัดระวัง
+          มุมมองและผลกระทบต่อการลงทุน (Investment Implications)
         </h2>
         <div className="implication-content">
           {data.implications.map((item, index) => (
