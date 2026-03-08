@@ -1,5 +1,6 @@
 name: Daily Market Update
 
+# Workflow to fetch market data and update KKP Recap daily at 5 AM BKK
 on:
   schedule:
     # 22:00 UTC is 05:00 AM Bangkok Time
