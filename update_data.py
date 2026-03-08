@@ -14,6 +14,40 @@ client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 # Model fallback list for robustness
 MODELS_TO_TRY = ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro']
 
+def get_market_data():
+    tickers = {
+        "^GSPC": "S&P 500 (US)",
+        "^IXIC": "Nasdaq (US)",
+        "^N225": "Nikkei 225 (JP)*",
+        "^KS11": "KOSPI (KR)*",
+        "GC=F": "Gold (Spot)",
+        "^TNX": "US 10Y Yield"
+    }
+    
+    results = []
+    for ticker, name in tickers.items():
+        try:
+            t = yf.Ticker(ticker)
+            hist = t.history(period="2d")
+            if len(hist) >= 2:
+                close = hist['Close'].iloc[-1]
+                prev_close = hist['Close'].iloc[-2]
+                change_pct = ((close - prev_close) / prev_close) * 100
+                
+                price_str = f"{close:,.2f}"
+                if ticker == "GC=F": price_str = f"${close:,.2f}"
+                if ticker == "^TNX": price_str = f"{close:.2f}%"
+                
+                results.append({
+                    "name": name,
+                    "price": price_str,
+                    "change": f"{'+' if change_pct >= 0 else ''}{change_pct:.2f}%",
+                    "status": "up" if change_pct >= 0 else "down"
+                })
+        except:
+            continue
+    return results
+
 def generate_content(market_summary):
     prompt = f"""
     You are a professional researcher at KKP Research. 
