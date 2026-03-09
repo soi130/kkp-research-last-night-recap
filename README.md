@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# 📊 KKP Research - Last Night Recap
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A daily automated market recap dashboard designed specifically for Thai retail investors. This project provides a concise, AI-powered summary of international market movements and key economic indicators from the previous night.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 What is this project?
+**KKP Research - Last Night Recap** is a data-driven web application and automated reporting tool. It bridges the gap between complex global financial news and Thai investors by delivering high-quality, translated summaries of market-moving events.
 
-## React Compiler
+### Key Features:
+- **Live Market Dashboard:** Tracks S&P 500, Dow Jones, Nasdaq, Gold, Oil, Bitcoin, and USD/THB.
+- **AI-Powered Analysis:** Uses advanced LLMs to distill news from Reuters, CNBC, and Yahoo Finance into actionable Thai summaries.
+- **Automated Email Reports:** Sends a formatted HTML recap directly to subscribers every morning.
+- **Macro Focus:** Highlights critical economic data (NFP, Unemployment, Fed Rates) with actual figures.
+- **Risk Assessment:** Provides specific "Watchlist" items relevant to the Thai investment landscape.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ How it works
+The system is built on a fully automated pipeline:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Data Ingestion:** A Python script (`update_data.py`) fetches real-time market data via `yfinance` and parses RSS feeds from major financial news outlets.
+2.  **AI Orchestration:** The gathered context is processed by **OpenAI's GPT models** with a specialized prompt for "Senior Macro Strategists" to ensure professional and retail-friendly Thai analysis.
+3.  **Data Synchronization:** The script updates a centralized `src/data.json` file and dispatches automated emails via SMTP.
+4.  **Continuous Deployment:** 
+    - **GitHub Actions** triggers the update script daily at 22:00 UTC (05:00 AM Bangkok Time).
+    - The React frontend automatically reflects the latest data from the repository.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
+- **Frontend:** React 19, TypeScript, Vite, Lucide-React (Icons), Vanilla CSS.
+- **Automation:** Python 3.10, GitHub Actions.
+- **Data & AI:** OpenAI API, Yahoo Finance API (`yfinance`), RSS/XML parsing.
+- **Communication:** SMTP (Email delivery).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 👥 Who benefits from it?
+- **Thai Retail Investors:** Those who want a quick, 2-minute summary of global markets before the Thai market opens.
+- **Financial Analysts:** Professionals looking for a consolidated view of international macro trends.
+- **Investment Clubs:** Groups that need a consistent source of daily market intelligence.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (for frontend)
+- Python 3.10+ (for data script)
+- OpenAI API Key
+
+### Local Development
+1. **Frontend:**
+   ```bash
+   npm install
+   npm run dev
+   ```
+2. **Data Update Script:**
+   ```bash
+   pip install yfinance openai pytz requests
+   export OPENAI_API_KEY='your-key'
+   python update_data.py
+   ```
+
+---
+
+## 📝 Disclaimer
+*This project is for informational purposes only. The content is generated by AI and market data sources; it does not constitute financial advice or an invitation to trade securities.*
