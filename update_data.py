@@ -10,32 +10,34 @@ from email.mime.text import MIMEText
 import requests
 import xml.etree.ElementTree as ET
 
-# VERSION: 1.9 - Precise Macro Data (NFP/Rates/Unemployment)
-print("Starting script Version 1.9 (Precise Macro Data)...")
+# VERSION: 1.9.1 - Strict Geopolitical Grounding
+print("Starting script Version 1.9.1 (Strict Grounding)...")
 
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def get_latest_news_context():
-    print("Fetching deep market news context (Geopolitics + US Economy focus)...")
+    print("Fetching deep market news context (Verified BBC, NPR, The Hill)...")
     feeds = [
-        {"name": "Reuters Markets", "url": "https://www.reuters.com/tools/rssfeed/us/marketnews"},
-        {"name": "Reuters Business", "url": "https://www.reuters.com/tools/rssfeed/us/businessnews"},
-        {"name": "Reuters World (Geopolitics)", "url": "https://www.reuters.com/tools/rssfeed/us/worldnews"},
+        {"name": "BBC World", "url": "http://feeds.bbci.co.uk/news/world/rss.xml"},
+        {"name": "NPR World", "url": "https://feeds.npr.org/1004/rss.xml"},
+        {"name": "The Hill (US Politics)", "url": "https://thehill.com/feed/"},
         {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/news/rss"},
         {"name": "CNBC Markets", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=15839069"},
-        {"name": "CNBC Economy", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=10000063"},
-        {"name": "CNBC Politics (US Indicators)", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=10000113"}
+        {"name": "CNBC Economy", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=10000063"}
     ]
     news_items = []
     
-    # Keywords to prioritize for filtering (Market Movers)
-    keywords = ["Fed", "Rate", "Inflation", "CPI", "NFP", "Unemployment", "GDP", "Yield", "War", "Conflict", "Oil", "Geopolitical", "Treasury", "Election", "Tariff"]
+    # Headers to avoid 403 Forbidden
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    
+    # Keywords to prioritize (Crisis/Politics focus)
+    keywords = ["Fed", "Rate", "Inflation", "CPI", "NFP", "Unemployment", "GDP", "Yield", "War", "Conflict", "Oil", "Geopolitical", "Trump", "Election", "Tariff", "Iran", "Strike"]
     
     for feed in feeds:
         try:
-            resp = requests.get(feed['url'], timeout=10)
+            resp = requests.get(feed['url'], headers=headers, timeout=10)
             root = ET.fromstring(resp.content)
-            for item in root.findall('./channel/item')[:50]:
+            for item in root.findall('./channel/item')[:30]:
                 title = item.find('title').text
                 desc = item.find('description').text if item.find('description') is not None else ""
                 
@@ -46,7 +48,7 @@ def get_latest_news_context():
                 
                 content = f"Source: {feed['name']} | Headline: {title} | Summary: {desc}"
                 
-                # Prioritization: Add high-impact news to the front of the list
+                # Prioritize: Add high-impact news to the front
                 if any(kw.lower() in content.lower() for kw in keywords):
                     news_items.insert(0, content + "\n---")
                 else:
@@ -56,7 +58,6 @@ def get_latest_news_context():
             print(f"Error fetching {feed['name']}: {e}")
             continue
             
-    # Return top 200 items (after prioritization) to give AI a rich context
     return "\n".join(news_items[:200])
 
 def get_market_data_v2():
@@ -101,60 +102,57 @@ def generate_ai_content(market_summary, news_context, current_day_info):
     few_shot_example = """
 EXAMPLE OUTPUT (tone & structure ที่ต้องการ):
 {
-  "headline": "ดอลลาร์อ่อน + yield ดิ่ง ดันหุ้นสหรัฐฯ พุ่ง — แต่เอเชียเจ็บหนักจาก margin call และขาย cyclicals",
+  "headline": "Trump เลื่อนการโจมตีอิหร่าน + yield ดิ่ง ดันหุ้นสหรัฐฯ พุ่ง — แต่เอเชียเจ็บหนักจาก margin call และขาย cyclicals",
   "keyStory": {
-    "narrative": "คืนนี้ตลาดสหรัฐฯ ฟื้นตัวได้จากแรงสองทาง: อัตราผลตอบแทนพันธบัตร 10 ปีร่วงลงสู่ 4.33% ขณะที่ดัชนีดอลลาร์อ่อนแตะ 99.15 — ทั้งสองปัจจัยนี้ลดต้นทุนทางการเงินและดึงเงินกลับเข้าหุ้น growth สหรัฐฯ ฝั่งเอเชียกลับเป็นภาพตรงข้าม KOSPI ดิ่ง 6.49% และ Nikkei ร่วง 3.48% สะท้อน position unwind และแรงขาย sector พลังงาน/วัตถุดิบที่กระจายออกทั่วภูมิภาค"
+    "narrative": "คืนนี้ตลาดสหรัฐฯ ฟื้นตัวได้จากแรงสองทาง: ประธานาธิบดี Trump ประกาศเลื่อนการโจมตีโรงไฟฟ้าอิหร่านออกไป 5 วันเพื่อเจรจา ขณะที่อัตราผลตอบแทนพันธบัตร 10 ปีร่วงลงสู่ 4.33% — ทั้งสองปัจจัยนี้ช่วยลดแรงกดดันด้านความเสี่ยงภูมิรัฐศาสตร์และดึงเงินกลับเข้าหุ้น growth ฝั่งสหรัฐฯ ทันที"
   },
   "topNews": [
-    "Yield 10 ปีสหรัฐฯ ร่วงแตะ 4.33% หลังเงินเฟ้อเริ่มส่งสัญญาณชะลอตัว",
-    "หุ้นกลุ่ม Tech พุ่งแรงนำโดย Nvidia และ Microsoft รับกระแส AI Optimism",
-    "ราคาน้ำมัน WTI ดิ่ง 7% จากความกังวลอุปสงค์โลกชะลอตัวมากกว่าคาด",
-    "ดัชนีดอลลาร์ (DXY) หลุด 100 จุดเป็นครั้งแรกในปีนี้ กดดันทองคำถูกขายทำกำไร"
+    "Trump เลื่อนการโจมตีโรงไฟฟ้าอิหร่าน 5 วัน เพื่อเปิดช่องเจรจา (ที่มา: NPR)",
+    "Yield 10 ปีสหรัฐฯ ร่วงแตะ 4.33% หลังนักลงทุนคลายกังวลชั่วคราว",
+    "หุ้นกลุ่ม Tech พุ่งแรงรับกระแส De-escalation และ AI Optimism",
+    "ราคาน้ำมัน WTI ดิ่งแรงหลังคลายกังวลเรื่องอุปทานน้ำมันในตะวันออกกลาง"
   ],
-  "whyItMatters": "การที่ yield ลงพร้อมดอลลาร์อ่อนในวันเดียวกันเป็นสัญญาณ risk-on ชัดเจนสำหรับสหรัฐฯ แต่การที่เอเชียไม่ตาม บ่งชี้ว่ามีปัจจัยเฉพาะภูมิภาคกดดันอยู่",
-  "closingTakeaway": "Mental model วันนี้: ตลาดกำลังแยก 'สหรัฐฯ soft landing' ออกจาก 'เอเชีย commodity shock' — portfolio ที่กระจุกในพลังงานหรือส่งออกเอเชียต้องระวังเป็นพิเศษ"
+  "whyItMatters": "การที่ความเสี่ยงสงครามถูกเลื่อนออกไปพร้อม yield ลงในวันเดียวกันเป็นสัญญาณ risk-on ชัดเจน แต่ต้องระวังว่านี่อาจเป็นเพียงความสงบชั่วคราว",
+  "closingTakeaway": "Mental model วันนี้: ตลาดกำลังเล่นกับ 'News Baseline' — เมื่อข่าวร้าย (สงคราม) ไม่เกิดตามกำหนด ตลาดจะพุ่งสวนทันที"
 }
 """
 
-    prompt = f"""คุณคือนักวิเคราะห์มหภาคอาวุโสที่กำลังเล่าสรุปตลาดให้เพื่อนนักลงทุนรายย่อยฟังในช่วงเช้า
-    ไม่ใช่เขียน research report — เล่าเป็นเรื่องราว โดยมีตัวเลขตลาดเป็น anchor แต่ต้องมี "สาเหตุเชิงมหภาค" (Geopolitics/Policy/Macro) เป็นหัวใจของเรื่อง
-
+    prompt = f"""คุณคือนักวิเคราะห์มหภาคอาวุโสที่เล่าสรุปตลาดให้เพื่อนฟัง
     วันนี้คือ {current_day_info}
 
-    ข้อมูลตลาด:
+    ข้อมูลตลาด (Market Summary):
     {market_summary}
 
-    ข่าวและบริบท (สำคัญ: ค้นหาสัญญาณสงคราม, นโยบาย Trump, หรือความขัดแย้งทางภูมิรัฐศาสตร์):
+    บริบทข่าว (News Context - ข้อมูลจริงเท่านั้น):
     {news_context}
 
-    กฎเหล็ก (Strict Rules):
-    - **Connect the Dots**: ต้องเชื่อมโยงเหตุการณ์ใหญ่ (เช่น สงคราม, คำสั่งจาก Trump, ความขัดแย้งภูมิรัฐศาสตร์) เข้ากับตัวเลขตลาดโดยตรง ห้ามรายงานแต่ตัวเลขเศรษฐกิจ (Econ Data) เพียงอย่างเดียว
-    - **Primary Drivers**: หากมีข่าว Crisis หรือข่าวการเมืองระดับโลกที่ขับเคลื่อนตลาด (Market Driver) ต้องยกมาเป็นประเด็นหลักใน headline และ narrative
-    - **Top News**: เลือกข่าวที่สำคัญที่สุด 4 ข่าว (เน้น Geopolitics/US Policy ที่ drive ตลาด) สรุปสั้นๆ (One-liner)
-    - **No Direct Advice**: ห้ามให้คำแนะนำการลงทุนโดยตรง ("ซื้อ", "ขาย") เนื่องจากไม่มีใบอนุญาต
-    - **Closing Takeaway**: สรุปภาพรวมที่รวมทั้งตัวเลขตลาดและสถานการณ์โลก (Crisis/Politics) เข้าด้วยกัน
+    กฎเหล็กป้องกันการมโน (Strict Grounding Rules):
+    - **Source-Only Logic**: ต้องใช้ข้อมูลจาก "บริบทข่าว" ที่ให้ไปเท่านั้น **ห้ามนำข้อมูลภายนอกหรือความรู้รอบตัวอื่นมาเขียนเด็ดขาด** (Zero-Out-of-Context)
+    - **No Geopolitical Hallucination**: หากใน "บริบทข่าว" ไม่มีการเอ่ยถึงสงคราม, Trump, หรือความขัดแย้งภูมิรัฐศาสตร์ **ห้ามเขียนเรื่องพวกนี้เด็ดขาด** ให้เขียนสรุปเฉพาะตัวเลขเศรษฐกิจ (Econ Data) และข้อมูลตลาดที่มี
+    - **Fact-Check Headers**: ข่าวใน "Top News" ต้องมาจาก Headline ในบริบทข่าวเท่านั้น
+    - **Connect the Dots**: เชื่อมโยงเหตุการณ์ในข่าวเข้ากับตัวเลขตลาด **เฉพาะในกรณีที่มีข่าวรองรับจริง**
 
     {few_shot_example}
 
     ตอบเป็น JSON เท่านั้น ตาม schema นี้:
     {{
-    "headline": "string — ประโยคเดียว บอกเหตุ (Crisis/News) และผล (Market) รวมกัน",
+    "headline": "string — สรุปเหตุการณ์ข่าว (จาก context) และผลต่อตลาด",
     "keyStory": {{
-      "narrative": "string — 2-3 ประโยค เล่าเรื่องราวที่ Crisis หรือข่าวใหญ่ขับเคลื่อนราคาในคืนที่ผ่านมา"
+      "narrative": "string — 2-3 ประโยค เล่าสิ่งที่เกิดขึ้นจากข่าวและตัวเลข (ต้องมีที่มาจาก context)"
     }},
     "topNews": ["string 1", "string 2", "string 3", "string 4"],
-    "whyItMatters": "string — ความสำคัญของสถานการณ์ Crisis/Policy ต่อโครงสร้างตลาดในระยะถัดไป",
-    "closingTakeaway": "string — mental model ที่รวมภาพ Crisis และ Econ เข้าด้วยกัน"
+    "whyItMatters": "string — ความสำคัญของสถานการณ์ต่อโครงสร้างตลาด",
+    "closingTakeaway": "string — mental model สรุปภาพรวมจากข้อมูลที่มีจริง"
     }}"""
 
     try:
-        print("Generating narrative market recap...")
+        print("Generating narrative market recap with Strict Grounding...")
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
                 {
                     "role": "system", 
-                    "content": "คุณเล่าเรื่องตลาดเป็นภาษาไทยแบบนักวิเคราะห์เล่าให้เพื่อนฟัง ไม่ใช่เขียน report ตัวเลขต้องอยู่ในประโยค ไม่ใช่หัวข้อ"
+                    "content": "คุณเล่าเรื่องตลาดเป็นภาษาไทยแบบนักวิเคราะห์เล่าให้เพื่อนฟัง ห้ามนำข้อมูลภายนอกที่ไม่ได้อยู่ใน context มาใช้เด็ดขาด ถ้าไม่มีข่าวการเมืองให้เขียนเฉพาะเรื่องเศรษฐกิจ"
                 },
                 {"role": "user", "content": prompt}
             ],
@@ -188,7 +186,7 @@ def send_recap_email(data):
     except Exception as e: print(f"ERROR: Email failed: {e}")
 
 def main():
-    print("Main execution started (Version 1.9).")
+    print("Main execution started (Version 1.9.1).")
     tz = pytz.timezone('Asia/Bangkok')
     now = datetime.now(tz)
     
