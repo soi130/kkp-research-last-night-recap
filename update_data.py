@@ -16,15 +16,21 @@ print("Starting script Version 1.9 (Precise Macro Data)...")
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def get_latest_news_context():
-    print("Fetching deep market news context (50 items per feed)...")
+    print("Fetching deep market news context (Geopolitics + US Economy focus)...")
     feeds = [
         {"name": "Reuters Markets", "url": "https://www.reuters.com/tools/rssfeed/us/marketnews"},
         {"name": "Reuters Business", "url": "https://www.reuters.com/tools/rssfeed/us/businessnews"},
+        {"name": "Reuters World (Geopolitics)", "url": "https://www.reuters.com/tools/rssfeed/us/worldnews"},
         {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/news/rss"},
         {"name": "CNBC Markets", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=15839069"},
-        {"name": "CNBC Economy", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=10000063"}
+        {"name": "CNBC Economy", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=10000063"},
+        {"name": "CNBC Politics (US Indicators)", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=10000113"}
     ]
     news_items = []
+    
+    # Keywords to prioritize for filtering (Market Movers)
+    keywords = ["Fed", "Rate", "Inflation", "CPI", "NFP", "Unemployment", "GDP", "Yield", "War", "Conflict", "Oil", "Geopolitical", "Treasury", "Election", "Tariff"]
+    
     for feed in feeds:
         try:
             resp = requests.get(feed['url'], timeout=10)
@@ -32,17 +38,26 @@ def get_latest_news_context():
             for item in root.findall('./channel/item')[:50]:
                 title = item.find('title').text
                 desc = item.find('description').text if item.find('description') is not None else ""
-                if desc:
-                    if '<' in desc:
-                        try:
-                            desc = ET.fromstring(f"<div>{desc}</div>").text
-                        except:
-                            pass
-                news_items.append(f"Source: {feed['name']} | Headline: {title} | Summary: {desc}\n---")
+                
+                # Simple HTML cleaning
+                if desc and '<' in desc:
+                    try: desc = ET.fromstring(f"<div>{desc}</div>").text
+                    except: pass
+                
+                content = f"Source: {feed['name']} | Headline: {title} | Summary: {desc}"
+                
+                # Prioritization: Add high-impact news to the front of the list
+                if any(kw.lower() in content.lower() for kw in keywords):
+                    news_items.insert(0, content + "\n---")
+                else:
+                    news_items.append(content + "\n---")
+                    
         except Exception as e:
             print(f"Error fetching {feed['name']}: {e}")
             continue
-    return "\n".join(news_items[:150])
+            
+    # Return top 200 items (after prioritization) to give AI a rich context
+    return "\n".join(news_items[:200])
 
 def get_market_data_v2():
     print("Fetching market data...")
@@ -88,33 +103,16 @@ EXAMPLE OUTPUT (tone & structure ที่ต้องการ):
 {
   "headline": "ดอลลาร์อ่อน + yield ดิ่ง ดันหุ้นสหรัฐฯ พุ่ง — แต่เอเชียเจ็บหนักจาก margin call และขาย cyclicals",
   "keyStory": {
-    "narrative": "คืนนี้ตลาดสหรัฐฯ ฟื้นตัวได้จากแรงสองทาง: อัตราผลตอบแทนพันธบัตร 10 ปีร่วงลงสู่ 4.33% ขณะที่ดัชนีดอลลาร์อ่อนแตะ 99.15 — ทั้งสองปัจจัยนี้ลดต้นทุนทางการเงินและดึงเงินกลับเข้าหุ้น growth สหรัฐฯ ฝั่งเอเชียกลับเป็นภาพตรงข้าม KOSPI ดิ่ง 6.49% และ Nikkei ร่วง 3.48% สะท้อน position unwind และแรงขาย sector พลังงาน/วัตถุดิบที่กระจายออกทั่วภูมิภาค",
-    "dataPoints": [
-      {"label": "US 10Y Yield", "value": "4.33%", "change": "-1.30%"},
-      {"label": "DXY", "value": "99.15", "change": "-0.50%"},
-      {"label": "WTI Oil", "value": "$89.19", "change": "-9.29%"},
-      {"label": "KOSPI", "value": "5,405.75", "change": "-6.49%"}
-    ],
-    "whyItMatters": "การที่ yield ลงพร้อมดอลลาร์อ่อนในวันเดียวกันเป็นสัญญาณ risk-on ชัดเจนสำหรับสหรัฐฯ แต่การที่เอเชียไม่ตาม บ่งชี้ว่ามีปัจจัยเฉพาะภูมิภาค (ราคาโภคภัณฑ์ร่วง, ค่าเงิน) กดดันอยู่"
+    "narrative": "คืนนี้ตลาดสหรัฐฯ ฟื้นตัวได้จากแรงสองทาง: อัตราผลตอบแทนพันธบัตร 10 ปีร่วงลงสู่ 4.33% ขณะที่ดัชนีดอลลาร์อ่อนแตะ 99.15 — ทั้งสองปัจจัยนี้ลดต้นทุนทางการเงินและดึงเงินกลับเข้าหุ้น growth สหรัฐฯ ฝั่งเอเชียกลับเป็นภาพตรงข้าม KOSPI ดิ่ง 6.49% และ Nikkei ร่วง 3.48% สะท้อน position unwind และแรงขาย sector พลังงาน/วัตถุดิบที่กระจายออกทั่วภูมิภาค"
   },
-  "implications": [
-    {
-      "audience": "ผู้ถือหุ้นพลังงาน/ปิโตรเคมี",
-      "action": "ทบทวนสัดส่วน PTT, PTTEP, IRPC",
-      "reason": "WTI ร่วง 9.3% คืนเดียว — กำไร Q2 ของกลุ่มนี้มีความเสี่ยงถูกปรับลดจาก consensus"
-    },
-    {
-      "audience": "นักลงทุนที่มีหุ้นส่งออกไทย",
-      "action": "ตรวจสอบ FX hedge ratio",
-      "reason": "USD/THB อ่อนที่ 32.44 กดรายได้เมื่อแปลงกลับ โดยเฉพาะส่งออกที่ต้นทุนเป็นบาทแต่รายได้เป็นดอลลาร์"
-    },
-    {
-      "audience": "นักลงทุนที่กำลังพิจารณาเพิ่มหุ้นเอเชีย",
-      "action": "รอดูทิศทางอีก 1–2 วัน",
-      "reason": "KOSPI ดิ่ง 6.49% อาจมีแรง technical rebound — แต่ถ้าไม่มีข่าวดีรองรับ อาจเป็นแค่ dead cat bounce"
-    }
+  "topNews": [
+    "Yield 10 ปีสหรัฐฯ ร่วงแตะ 4.33% หลังเงินเฟ้อเริ่มส่งสัญญาณชะลอตัว",
+    "หุ้นกลุ่ม Tech พุ่งแรงนำโดย Nvidia และ Microsoft รับกระแส AI Optimism",
+    "ราคาน้ำมัน WTI ดิ่ง 7% จากความกังวลอุปสงค์โลกชะลอตัวมากกว่าคาด",
+    "ดัชนีดอลลาร์ (DXY) หลุด 100 จุดเป็นครั้งแรกในปีนี้ กดดันทองคำถูกขายทำกำไร"
   ],
-  "closingTakeaway": "Mental model วันนี้: ตลาดกำลังแยก 'สหรัฐฯ soft landing' ออกจาก 'เอเชีย commodity shock' — portfolio ที่กระจุกในพลังงานหรือส่งออกเอเชียต้องระวังเป็นพิเศษจนกว่าราคาน้ำมันจะนิ่ง"
+  "whyItMatters": "การที่ yield ลงพร้อมดอลลาร์อ่อนในวันเดียวกันเป็นสัญญาณ risk-on ชัดเจนสำหรับสหรัฐฯ แต่การที่เอเชียไม่ตาม บ่งชี้ว่ามีปัจจัยเฉพาะภูมิภาคกดดันอยู่",
+  "closingTakeaway": "Mental model วันนี้: ตลาดกำลังแยก 'สหรัฐฯ soft landing' ออกจาก 'เอเชีย commodity shock' — portfolio ที่กระจุกในพลังงานหรือส่งออกเอเชียต้องระวังเป็นพิเศษ"
 }
 """
 
@@ -131,9 +129,9 @@ EXAMPLE OUTPUT (tone & structure ที่ต้องการ):
 
     กฎเหล็ก (Strict Rules):
     - **News Synthesis**: ต้องนำข่าวจาก "ข่าวและบริบท" มาอธิบายสาเหตุการเคลื่อนไหวของตัวเลขใน "ข้อมูลตลาด" ให้เป็นเรื่องเดียวกัน
-    - **Data Anchored**: ต้องใส่ตัวเลขจริง (NFP, อัตราว่างงาน, อัตราดอกเบี้ย ฯลฯ) เมื่อมีในข้อมูล
+    - **Top News**: เลือกข่าวที่สำคัญที่สุด 4 ข่าว สรุปสั้นๆ (One-liner)
     - **No Direct Advice**: ห้ามให้คำแนะนำการลงทุนโดยตรง (เช่น "ซื้อ", "ขาย", "สะสม", "Take Profit") หรือระบุราคาเป้าหมาย เนื่องจากไม่มีใบอนุญาตแนะนำการลงทุน
-    - **Impact Analysis Only**: ให้เน้นการวิเคราะห์ "ผลกระทบ" (Impact) และ "สิ่งที่ควรระวัง/ตรวจสอบ" (What to watch/verify) แทนการสั่งให้ทำ
+    - **Closing Takeaway**: ต้องเป็นการสรุปเอาทุกอย่างมารวมกันให้เห็นภาพใหญ่ (Mental Model)
     - ห้ามใช้ภาษาทางการแบบ report ("ทั้งนี้", "อย่างไรก็ตาม", "กล่าวคือ")
 
     {few_shot_example}
@@ -142,20 +140,11 @@ EXAMPLE OUTPUT (tone & structure ที่ต้องการ):
     {{
     "headline": "string — ประโยคเดียว ≤15 คำ บอกเหตุและผลรวมกัน",
     "keyStory": {{
-    "narrative": "string — 2-3 ประโยค เล่าสิ่งที่เกิดขึ้นแบบ story เชื่อมโยงตัวเลขกับข่าว",
-    "dataPoints": [
-      {{"label": "ชื่อตัวชี้วัด", "value": "ค่าปัจจุบัน", "change": "การเปลี่ยนแปลง"}}
-    ],
-    "whyItMatters": "string — 1-2 ประโยค ความสำคัญต่อภาพรวม"
+      "narrative": "string — 2-3 ประโยค เล่าสิ่งที่เกิดขึ้นแบบ story เชื่อมโยงตัวเลขกับข่าว"
     }},
-    "implications": [
-    {{
-      "audience": "กลุ่มนักลงทุนที่ได้รับผลกระทบ",
-      "action": "สิ่งที่ควรตรวจสอบหรือติดตาม (ห้ามบอกให้ ซื้อ/ขาย)",
-      "reason": "เพราะ... (อ้างอิงข่าวหรือตัวเลขจริง)"
-    }}
-    ],
-    "closingTakeaway": "string — mental model 1-2 ประโยค ที่ติดมือกลับไปได้"
+    "topNews": ["string 1", "string 2", "string 3", "string 4"],
+    "whyItMatters": "string — 1-2 ประโยค ความสำคัญต่อภาพรวมและความเชื่อมโยงของข้อมูลทั้งหมด",
+    "closingTakeaway": "string — mental model 1-2 ประโยค ที่เป็นการรวมภาพทุกอย่างเข้าด้วยกัน"
     }}"""
 
     try:
@@ -187,9 +176,8 @@ def send_recap_email(data):
     msg['From'] = f"KKP Research <thanak.ratt@kkpfg.com>"
     msg['To'] = ", ".join(receivers)
     rows = "".join([f"<tr><td style='padding:12px;border-bottom:1px solid #e2e8f0;'>{item['name']}</td><td style='padding:12px;border-bottom:1px solid #e2e8f0;'>{item['price']}</td><td style='padding:12px;border-bottom:1px solid #e2e8f0;color:{'#059669' if item['status'] == 'up' else '#dc2626'};font-weight:bold;'>{item['change']}</td></tr>" for item in data['marketData']])
-    macro_items = "".join([f"<p style='margin-bottom:8px;'>• {item}</p>" for item in data['macroFocus']])
-    risk_items = "".join([f"<p style='margin-bottom:8px;'>• {item}</p>" for item in data['implications']])
-    html = f"""<html><body style="font-family:Arial,sans-serif;background-color:#f8fafc;padding:20px;color:#1e293b;"><div style="max-width:600px;margin:0 auto;background:#ffffff;padding:30px;border-radius:12px;border:1px solid #e2e8f0;border-top:8px solid #512D6D;"><h1 style="color:#512D6D;font-size:22px;">KKP Research Recap</h1><p style="color:#64748b;font-size:14px;">{data['lastUpdated']} (เวลาประเทศไทย)</p><hr style="border:none;border-top:1px solid #e2e8f0;margin:20px 0;"><h2 style="color:#512D6D;font-size:16px;">📊 สรุปตลาดและราคาสินทรัพย์</h2><table style="width:100%;border-collapse:collapse;"><tr style="background:#f3f0f7;"><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">สินทรัพย์</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">ล่าสุด</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">เปลี่ยนแปลง</th></tr>{rows}</table><p style='font-size:11px;color:#94a3b8;margin-top:8px;'>แหล่งข้อมูล: Yahoo Finance, Reuters, CNBC</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">MARKET FOCUS (WHAT & WHY)</h2><p style="font-size:15px;line-height:1.6;">{data['moverStory']}</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">🧠 สรุปประเด็นเศรษฐกิจสำคัญ</h2><div style="font-size:14px;line-height:1.6;">{macro_items}</div><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">⚠️ ข้อควรระวังสำหรับนักลงทุนไทย</h2><div style="font-size:14px;line-height:1.6;">{risk_items}</div><hr style="border:none;border-top:1px solid #e2e8f0;margin:30px 0;"><p style="font-size:11px;color:#94a3b8;line-height:1.6;">เนื้อหาข้างต้นจัดทำขึ้นโดย KKP Research เพื่อวัตถุประสงค์ในการรายงานข้อมูลข่าวสารเศรษฐกิจและตลาดทุนเท่านั้น มิใช่การให้คำแนะนำการลงทุน</p></div></body></html>"""
+    news_items = "".join([f"<p style='margin-bottom:8px;'>• {item}</p>" for item in data['topNews']])
+    html = f"""<html><body style="font-family:Arial,sans-serif;background-color:#f8fafc;padding:20px;color:#1e293b;"><div style="max-width:600px;margin:0 auto;background:#ffffff;padding:30px;border-radius:12px;border:1px solid #e2e8f0;border-top:8px solid #512D6D;"><h1 style="color:#512D6D;font-size:22px;">KKP Research Recap</h1><p style="color:#64748b;font-size:14px;">{data['lastUpdated']} (เวลาประเทศไทย)</p><hr style="border:none;border-top:1px solid #e2e8f0;margin:20px 0;"><h2 style="color:#512D6D;font-size:16px;">📊 สรุปตลาดและราคาสินทรัพย์</h2><table style="width:100%;border-collapse:collapse;"><tr style="background:#f3f0f7;"><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">สินทรัพย์</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">ล่าสุด</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">เปลี่ยนแปลง</th></tr>{rows}</table><p style='font-size:11px;color:#94a3b8;margin-top:8px;'>แหล่งข้อมูล: Yahoo Finance, Reuters, CNBC</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">MARKET FOCUS (WHAT & WHY)</h2><p style="font-size:15px;line-height:1.6;">{data['moverStory']}</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">🧠 สรุปข่าวสำคัญ</h2><div style="font-size:14px;line-height:1.6;">{news_items}<hr style="border:none;border-top:1px solid #e2e8f0;margin:15px 0;"><p><strong>Why it matters:</strong> {data['whyItMatters']}</p><p><strong>Closing Takeaway:</strong> {data['closingTakeaway']}</p></div><hr style="border:none;border-top:1px solid #e2e8f0;margin:30px 0;"><p style="font-size:11px;color:#94a3b8;line-height:1.6;">เนื้อหาข้างต้นจัดทำขึ้นโดย KKP Research เพื่อวัตถุประสงค์ในการรายงานข้อมูลข่าวสารเศรษฐกิจและตลาดทุนเท่านั้น มิใช่การให้คำแนะนำการลงทุน</p></div></body></html>"""
     msg.attach(MIMEText(html, 'html'))
     try:
         with smtplib.SMTP('smtp.gmail.com', 587) as server:
@@ -216,28 +204,16 @@ def main():
     ai_content = generate_ai_content(str(market_data), news_context, current_day_info)
     
     if ai_content:
-        # Map new schema to existing keys for frontend compatibility
+        # Map new schema for frontend compatibility
         mover_story = f"**{ai_content.get('headline', '')}**\n\n{ai_content.get('keyStory', {}).get('narrative', '')}"
-        
-        macro_focus = []
-        key_story = ai_content.get('keyStory', {})
-        for dp in key_story.get('dataPoints', []):
-            macro_focus.append(f"{dp['label']}: {dp['value']} ({dp['change']})")
-        if key_story.get('whyItMatters'):
-            macro_focus.append(f"Why it matters: {key_story['whyItMatters']}")
-        if ai_content.get('closingTakeaway'):
-            macro_focus.append(f"Closing Takeaway: {ai_content['closingTakeaway']}")
-            
-        implications = []
-        for imp in ai_content.get('implications', []):
-            implications.append(f"[{imp['audience']}] {imp['action']} — {imp['reason']}")
 
         final_data = {
             "lastUpdated": date_str, 
             "marketData": market_data, 
             "moverStory": mover_story, 
-            "macroFocus": macro_focus, 
-            "implications": implications
+            "topNews": ai_content.get('topNews', []),
+            "whyItMatters": ai_content.get('whyItMatters', ''),
+            "closingTakeaway": ai_content.get('closingTakeaway', '')
         }
         
         with open('src/data.json', 'w', encoding='utf-8') as f: 

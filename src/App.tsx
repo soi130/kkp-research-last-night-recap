@@ -1,4 +1,4 @@
-import { Globe, TrendingDown, TrendingUp, AlertCircle, BarChart3, Info, PieChart } from 'lucide-react';
+import { Globe, TrendingDown, TrendingUp, BarChart3, Info, PieChart, Newspaper } from 'lucide-react';
 import './App.css';
 import data from './data.json';
 
@@ -58,29 +58,32 @@ function App() {
         </div>
       </section>
 
-      {/* 3. ข้อมูลมหภาค */}
+      {/* 3. สรุปข่าวสำคัญ */}
       <section className="section">
         <h2 className="section-title">
-          <PieChart size={24} />
-          ข้อมูลมหภาคที่สำคัญ (Macro Focus)
+          <Newspaper size={24} />
+          สรุปข่าวสำคัญ
         </h2>
         <div className="story-content">
-          {data.macroFocus.map((item, index) => (
-            <p key={index}>• {item}</p>
+          {data.topNews.map((item, index) => (
+            <p key={index} style={{marginBottom: '0.75rem'}}>• {item}</p>
           ))}
-        </div>
-      </section>
-
-      {/* 4. ปัจจัยที่ต้องระมัดระวัง */}
-      <section className="section">
-        <h2 className="section-title">
-          <AlertCircle size={24} />
-          ปัจจัยที่ต้องระมัดระวังและประเด็นติดตาม (Risks & Watchlist)
-        </h2>
-        <div className="implication-content">
-          {data.implications.map((item, index) => (
-            <p key={index}>• {item}</p>
-          ))}
+          
+          <div style={{
+            marginTop: '1.5rem', 
+            padding: '1.25rem', 
+            background: '#f3f0f7', 
+            borderRadius: '8px',
+            borderLeft: '4px solid #512D6D'
+          }}>
+            <p style={{marginBottom: '0.75rem'}}>
+              <PieChart size={18} style={{verticalAlign: 'middle', marginRight: '8px', color: '#512D6D'}} />
+              <strong>Why it matters:</strong> {data.whyItMatters}
+            </p>
+            <p style={{marginBottom: 0}}>
+              <strong>Closing Takeaway:</strong> {data.closingTakeaway}
+            </p>
+          </div>
         </div>
       </section>
 
