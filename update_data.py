@@ -215,10 +215,36 @@ def main():
     ai_content = generate_ai_content(str(market_data), news_context, current_day_info)
     
     if ai_content:
-        final_data = {"lastUpdated": date_str, "marketData": market_data, "moverStory": ai_content['moverStory'], "macroFocus": ai_content['macroFocus'], "implications": ai_content['implications']}
-        with open('src/data.json', 'w', encoding='utf-8') as f: json.dump(final_data, f, ensure_ascii=False, indent=2)
+        # Map new schema to existing keys for frontend compatibility
+        mover_story = f"**{ai_content.get('headline', '')}**\n\n{ai_content.get('keyStory', {}).get('narrative', '')}"
+        
+        macro_focus = []
+        key_story = ai_content.get('keyStory', {})
+        for dp in key_story.get('dataPoints', []):
+            macro_focus.append(f"{dp['label']}: {dp['value']} ({dp['change']})")
+        if key_story.get('whyItMatters'):
+            macro_focus.append(f"Why it matters: {key_story['whyItMatters']}")
+        if ai_content.get('closingTakeaway'):
+            macro_focus.append(f"Closing Takeaway: {ai_content['closingTakeaway']}")
+            
+        implications = []
+        for imp in ai_content.get('implications', []):
+            implications.append(f"[{imp['audience']}] {imp['action']} — {imp['reason']}")
+
+        final_data = {
+            "lastUpdated": date_str, 
+            "marketData": market_data, 
+            "moverStory": mover_story, 
+            "macroFocus": macro_focus, 
+            "implications": implications
+        }
+        
+        with open('src/data.json', 'w', encoding='utf-8') as f: 
+            json.dump(final_data, f, ensure_ascii=False, indent=2)
+        
         send_recap_email(final_data)
         print("Workflow finished successfully.")
-    else: print("Workflow failed at AI generation.")
+    else: 
+        print("Workflow failed at AI generation.")
 
 if __name__ == "__main__": main()
