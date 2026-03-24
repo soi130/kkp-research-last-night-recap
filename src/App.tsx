@@ -1,4 +1,4 @@
-import { Globe, TrendingDown, TrendingUp, BarChart3, Info, PieChart, Newspaper } from 'lucide-react';
+import { Globe, TrendingDown, TrendingUp, BarChart3, Info, PieChart, Newspaper, ExternalLink } from 'lucide-react';
 import './App.css';
 import data from './data.json';
 
@@ -65,8 +65,30 @@ function App() {
           สรุปข่าวสำคัญ
         </h2>
         <div className="story-content">
-          {data.topNews.map((item, index) => (
-            <p key={index} style={{marginBottom: '0.75rem'}}>• {item}</p>
+          {data.topNews.map((item: any, index: number) => (
+            <div key={index} style={{marginBottom: '1rem', display: 'flex', alignItems: 'flex-start'}}>
+              <span style={{marginRight: '8px', color: '#512D6D'}}>•</span>
+              <div>
+                <span>{item.text}</span>
+                {item.url && (
+                  <a 
+                    href={item.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    style={{
+                      marginLeft: '8px', 
+                      color: '#512D6D', 
+                      textDecoration: 'none', 
+                      fontSize: '0.85rem',
+                      display: 'inline-flex',
+                      alignItems: 'center'
+                    }}
+                  >
+                    [อ่านต่อ <ExternalLink size={12} style={{marginLeft: '2px'}} />]
+                  </a>
+                )}
+              </div>
+            </div>
           ))}
           
           <div style={{
