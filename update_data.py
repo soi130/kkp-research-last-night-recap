@@ -160,7 +160,7 @@ EXAMPLE OUTPUT:
 def send_recap_email(data):
     sender = os.environ.get("EMAIL_SENDER")
     password = os.environ.get("EMAIL_PASSWORD") 
-    receivers = ["thanak.ratt@kkpfg.com"]
+    receivers = ["thanak.ratt@kkpfg.com", "pipat.luen@kkpfg.com"]
     if not sender or not password: return
     msg = MIMEMultipart('alternative')
     msg['Subject'] = f"KKP Research Recap - {data['lastUpdated'].split(',')[0]}"
