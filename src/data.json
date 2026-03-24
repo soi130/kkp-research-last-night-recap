@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "24 มีนาคม 2569, 10:11 น.",
+  "lastUpdated": "24 มีนาคม 2569, 15:04 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
@@ -21,51 +21,51 @@
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "51,910.42",
-      "change": "+0.77%",
+      "price": "52,252.28",
+      "change": "+1.43%",
       "status": "up"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "5,480.65",
-      "change": "+1.39%",
+      "price": "5,553.92",
+      "change": "+2.74%",
       "status": "up"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,355.20",
-      "change": "-4.71%",
-      "status": "down"
+      "price": "$4,425.40",
+      "change": "+0.48%",
+      "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$91.44",
-      "change": "-7.00%",
-      "status": "down"
+      "price": "$89.77",
+      "change": "+1.86%",
+      "status": "up"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$103.95",
-      "change": "-7.34%",
+      "price": "$97.57",
+      "change": "-2.37%",
       "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$70,438",
-      "change": "+3.82%",
+      "price": "$71,159",
+      "change": "+0.34%",
       "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.61 บาท",
-      "change": "-0.83%",
+      "price": "32.52 บาท",
+      "change": "-1.10%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "99.37",
-      "change": "-0.28%",
-      "status": "down"
+      "price": "99.19",
+      "change": "+0.24%",
+      "status": "up"
     },
     {
       "name": "US 10Y Yield",
@@ -74,24 +74,29 @@
       "status": "down"
     }
   ],
-  "moverStory": "**สรุปตลาดวันที่ 24 มีนาคม 2026**\n\nตลาดหุ้นสหรัฐฯ ในวันนี้มีการปรับตัวสูงขึ้น โดย S&P 500 เพิ่มขึ้น 1.15% และ Dow Jones เพิ่มขึ้น 1.38% ขณะที่ Nasdaq ก็ทำผลงานดีเช่นกันซึ่งเพิ่มขึ้น 1.38% โดยการฟื้นตัวนี้เกิดจากข่าวการเจรจากับอิหร่านของรัฐบาลทรัมป์ที่อาจช่วยลดความตึงเครียดในภูมิภาค รวมไปถึงการลดราคาน้ำมันดิบที่สามารถกระตุ้นการเติบโตทางเศรษฐกิจได้",
+  "moverStory": "**ตลาดปรับตัวขึ้นท่ามกลางความไม่แน่นอนของราคาน้ำมันและสงครามในอิหร่าน**\n\nในวันนี้ตลาดหลักทรัพย์สหรัฐฯ ได้ปรับตัวขึ้นอย่างต่อเนื่อง โดยทั้ง S&P 500, Dow Jones และ Nasdaq ต่างพุ่งสูงขึ้นกว่า 1% ท่ามกลางความคาดหวังที่จะมีการเจรจาเพื่อยุติสงครามในอิหร่าน และการต่อสู้ของราคาน้ำมันที่ผันผวน",
   "topNews": [
     {
-      "text": "ราคาน้ำมันร่วงและหุ้นฟื้นตัวหลังทรัมป์ระบุมีการเจรจาเพื่อลงนามยุติสงคราม",
-      "url": "https://www.bbc.com/news/articles/czex56kwxxzo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
+      "text": "ฟิวเจอร์ส Dow Jones และราคาน้ำมันไม่แน่นอนหลังทรัมป์ขู่จะ 'ทำลาย' โรงไฟฟ้าของอิหร่าน",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-yields-trump-iran-war-winding-down/?src=A00220&yptr=yahoo",
+      "source": "Yahoo Finance"
     },
     {
-      "text": "การเจรจาของทรัมป์กับอิหร่าน: การกำหนดขอบเขต, การทูต และการเดินทางไป Graceland",
+      "text": "ตลาดหุ้นปรับตัวสูงขึ้นและราคาน้ำมันลดลงหลังทรัมป์บอกจะมีการเจรจาหยุดสงคราม แม้ว่าอิหร่านจะปฏิเสธการพูดคุย",
+      "url": "https://finance.yahoo.com/markets/world-indices/articles/south-koreas-kospi-down-5-020310134.html",
+      "source": "Yahoo Finance"
+    },
+    {
+      "text": "การตั้งเงื่อนไข การเจรจา และการเดินทางไป Graceland ขณะทรัมป์มองหาโอกาสในการทำข้อตกลงกับอิหร่าน",
       "url": "https://www.bbc.com/news/articles/c895v5pq5p1o?at_medium=RSS&at_campaign=rss",
       "source": "BBC"
     },
     {
-      "text": "Signs emerge Trump ready to end Iran war as pressure mounts over Hormuz",
-      "url": "https://thehill.com/homenews/administration/5797035-trump-administration-iran-war/",
+      "text": "สหรัฐออกคำเตือน 'ทั่วโลก' ให้ระวังสำหรับนักเดินทาง",
+      "url": "https://thehill.com/homenews/administration/5797170-state-department-us-travelers-security-alert-iran/",
       "source": "The Hill"
     }
   ],
-  "whyItMatters": "การเจรจาเพื่อยุติสงครามกับอิหร่านถือเป็นปัจจัยสำคัญที่มีผลกระทบต่อเสถียรภาพของตลาดโลก การลดลงของราคาน้ำมันสามารถส่งผลให้ต้นทุนการผลิตลดลง และเพิ่มการฟื้นตัวของกิจกรรมเศรษฐกิจในอเมริกา",
-  "closingTakeaway": "โดยรวมแล้ว ตลาดหุ้นปรับตัวขึ้นเนื่องจากความหวังในเรื่องการเจราสันติภาพและความเป็นไปได้ในการกลับคืนสู่ภาวะปกติ แต่เราต้องจับตามองการพัฒนาในภูมิภาคนี้อย่างใกล้ชิดเพื่อประเมินความยั่งยืนของการเติบโตในตลาด"
+  "whyItMatters": "ข่าวเกี่ยวกับการเจรจาเพื่อยุติสงครามในอิหร่านมีผลกระทบต่อความเชื่อมั่นของนักลงทุน ซึ่งส่งผลต่อการเคลื่อนไหวของตลาดหุ้น รวมถึงราคาน้ำมันที่มีความเปราะบางในปัจจุบัน",
+  "closingTakeaway": "การพัฒนาสถานการณ์ในอิหร่านและนโยบายพลังงานของสหรัฐฯ ยังคงเป็นปัจจัยหลักที่ขับเคลื่อนตลาดในขณะนี้ ดังนั้นนักลงทุนควรติดตามความเคลื่อนไหวอย่างใกล้ชิด"
 }
