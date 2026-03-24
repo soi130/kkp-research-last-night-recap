@@ -82,43 +82,93 @@ def get_market_data_v2():
     return results
 
 def generate_ai_content(market_summary, news_context, current_day_info):
-    prompt = f"""
-    You are an expert Senior Macro Strategist for Thai retail investors.
     
-    CONTEXT: Today is {current_day_info}. 
-    
-    RAW DATA:
-    - Market Summary: {market_summary}
-    - Deep News Feed:
-    {news_context}
-    
-    YOUR MISSION:
-    1. **IDENTIFY KEY MACRO EVENTS**: คัดเลือกข่าวที่มีผลต่อตลาดรุนแรงที่สุด (เช่น NFP, อัตราดอกเบี้ย Fed, หรือตัวเลขเงินเฟ้อ)
-    2. **MUST INCLUDE ACTUAL NUMBERS**: หากมีการรายงานตัวเลขเศรษฐกิจสำคัญ **ต้องระบุตัวเลขจริงที่เกิดขึ้น** ลงในเนื้อหาด้วยเสมอ เช่น:
-       - "ตัวเลขจ้างงานนอกภาคเกษตร (NFP) เพิ่มขึ้น XXX,XXX ตำแหน่ง (สูง/ต่ำกว่าที่คาด)"
-       - "อัตราการว่างงานอยู่ที่ X.X%"
-       - "อัตราดอกเบี้ยคงที่ที่ระดับ X.XX% - X.XX%"
-    3. **RETAIL-FRIENDLY THAI**: ใช้ภาษาไทยที่เข้าใจง่าย กระชับ ลดคำศัพท์เทคนิคซับซ้อน และไม่ใช้ไทยคำอังกฤษคำโดยไม่จำเป็น
-    4. **NO REPETITION**: ไม่ต้องบรรยายการขึ้นลงของราคาหุ้นจากตารางซ้ำ ให้เน้น "สาเหตุ" และ "ตัวเลขเศรษฐกิจ" ที่เป็น Market Movers
-    5. **STRATEGIC JUDGMENT**: หากมีเหตุการณ์ใหญ่ในวันศุกร์ (เช่น NFP) ให้สรุปเป็นประเด็นหลักสำหรับวันจันทร์
-    
-    Provide the output in JSON format:
+    few_shot_example = """
+EXAMPLE OUTPUT (tone & structure ที่ต้องการ):
+{
+  "headline": "ดอลลาร์อ่อน + yield ดิ่ง ดันหุ้นสหรัฐฯ พุ่ง — แต่เอเชียเจ็บหนักจาก margin call และขาย cyclicals",
+  "keyStory": {
+    "narrative": "คืนนี้ตลาดสหรัฐฯ ฟื้นตัวได้จากแรงสองทาง: อัตราผลตอบแทนพันธบัตร 10 ปีร่วงลงสู่ 4.33% ขณะที่ดัชนีดอลลาร์อ่อนแตะ 99.15 — ทั้งสองปัจจัยนี้ลดต้นทุนทางการเงินและดึงเงินกลับเข้าหุ้น growth สหรัฐฯ ฝั่งเอเชียกลับเป็นภาพตรงข้าม KOSPI ดิ่ง 6.49% และ Nikkei ร่วง 3.48% สะท้อน position unwind และแรงขาย sector พลังงาน/วัตถุดิบที่กระจายออกทั่วภูมิภาค",
+    "dataPoints": [
+      {"label": "US 10Y Yield", "value": "4.33%", "change": "-1.30%"},
+      {"label": "DXY", "value": "99.15", "change": "-0.50%"},
+      {"label": "WTI Oil", "value": "$89.19", "change": "-9.29%"},
+      {"label": "KOSPI", "value": "5,405.75", "change": "-6.49%"}
+    ],
+    "whyItMatters": "การที่ yield ลงพร้อมดอลลาร์อ่อนในวันเดียวกันเป็นสัญญาณ risk-on ชัดเจนสำหรับสหรัฐฯ แต่การที่เอเชียไม่ตาม บ่งชี้ว่ามีปัจจัยเฉพาะภูมิภาค (ราคาโภคภัณฑ์ร่วง, ค่าเงิน) กดดันอยู่"
+  },
+  "implications": [
+    {
+      "audience": "ผู้ถือหุ้นพลังงาน/ปิโตรเคมี",
+      "action": "ทบทวนสัดส่วน PTT, PTTEP, IRPC",
+      "reason": "WTI ร่วง 9.3% คืนเดียว — กำไร Q2 ของกลุ่มนี้มีความเสี่ยงถูกปรับลดจาก consensus"
+    },
+    {
+      "audience": "นักลงทุนที่มีหุ้นส่งออกไทย",
+      "action": "ตรวจสอบ FX hedge ratio",
+      "reason": "USD/THB อ่อนที่ 32.44 กดรายได้เมื่อแปลงกลับ โดยเฉพาะส่งออกที่ต้นทุนเป็นบาทแต่รายได้เป็นดอลลาร์"
+    },
+    {
+      "audience": "นักลงทุนที่กำลังพิจารณาเพิ่มหุ้นเอเชีย",
+      "action": "รอดูทิศทางอีก 1–2 วัน",
+      "reason": "KOSPI ดิ่ง 6.49% อาจมีแรง technical rebound — แต่ถ้าไม่มีข่าวดีรองรับ อาจเป็นแค่ dead cat bounce"
+    }
+  ],
+  "closingTakeaway": "Mental model วันนี้: ตลาดกำลังแยก 'สหรัฐฯ soft landing' ออกจาก 'เอเชีย commodity shock' — portfolio ที่กระจุกในพลังงานหรือส่งออกเอเชียต้องระวังเป็นพิเศษจนกว่าราคาน้ำมันจะนิ่ง"
+}
+"""
+
+    prompt = f"""คุณคือนักวิเคราะห์มหภาคอาวุโสที่กำลังเล่าสรุปตลาดให้เพื่อนนักลงทุนรายย่อยฟังในช่วงเช้า
+ไม่ใช่เขียน research report — เล่าเป็นเรื่องราว มีตัวเลขเป็น anchor ไม่ใช่เป็นหัวข้อ
+
+วันนี้คือ {current_day_info}
+
+ข้อมูลตลาด:
+{market_summary}
+
+ข่าวและบริบท:
+{news_context}
+
+กฎเหล็ก:
+- ต้องใส่ตัวเลขจริง (NFP, อัตราว่างงาน, อัตราดอกเบี้ย ฯลฯ) เมื่อมีในข้อมูล
+- ห้ามขึ้นประโยคด้วย "ราคา X ลดลง Y%" โดยไม่บอกว่าทำไม
+- ห้ามใช้ภาษาทางการแบบ report ("ทั้งนี้", "อย่างไรก็ตาม", "กล่าวคือ")
+- implications ต้องระบุ audience ชัดเจน ไม่ใช่คำแนะนำกว้าง ๆ
+
+{few_shot_example}
+
+ตอบเป็น JSON เท่านั้น ตาม schema นี้:
+{{
+  "headline": "string — ประโยคเดียว ≤15 คำ บอกเหตุและผลรวมกัน",
+  "keyStory": {{
+    "narrative": "string — 2-3 ประโยค เล่าสิ่งที่เกิดขึ้นแบบ story มีตัวเลขแทรก",
+    "dataPoints": [
+      {{"label": "ชื่อตัวชี้วัด", "value": "ค่าปัจจุบัน", "change": "การเปลี่ยนแปลง"}}
+    ],
+    "whyItMatters": "string — 1-2 ประโยค ความสำคัญต่อภาพรวม"
+  }},
+  "implications": [
     {{
-      "moverStory": "สรุปเหตุการณ์สำคัญพร้อมตัวเลขเศรษฐกิจที่เกิดขึ้นจริง (เน้นข่าวใหญ่ที่มีผลกระทบสูง)",
-      "macroFocus": ["วิเคราะห์ตัวเลขเศรษฐกิจ 1", "วิเคราะห์ตัวเลขเศรษฐกิจ 2", "วิเคราะห์ตัวเลขเศรษฐกิจ 3"],
-      "implications": ["ข้อควรระวังสำหรับรายย่อยไทยจากตัวเลขข้างต้น 1", "ข้อควรระวังสำหรับรายย่อยไทยจากตัวเลขข้างต้น 2", "ข้อควรระวังสำหรับรายย่อยไทยจากตัวเลขข้างต้น 3"]
+      "audience": "กลุ่มนักลงทุนที่ได้รับผลกระทบโดยตรง",
+      "action": "สิ่งที่ควรทำหรือตรวจสอบ",
+      "reason": "เพราะ... (อ้างตัวเลขจริง)"
     }}
-    """
-    
+  ],
+  "closingTakeaway": "string — mental model 1-2 ประโยค ที่ติดมือกลับไปได้"
+}}"""
+
     try:
-        print("Generating precise analysis with AI Judgment (GPT-5-mini)...")
+        print("Generating narrative market recap...")
         response = client.chat.completions.create(
-            model="gpt-5-mini",
+            model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are a professional Senior Macro Strategist. You MUST include actual economic figures (NFP, Unemployment rates, Interest rates) in your analysis when available in the context. Pure Thai, retail-friendly."},
+                {
+                    "role": "system", 
+                    "content": "คุณเล่าเรื่องตลาดเป็นภาษาไทยแบบนักวิเคราะห์เล่าให้เพื่อนฟัง ไม่ใช่เขียน report ตัวเลขต้องอยู่ในประโยค ไม่ใช่หัวข้อ"
+                },
                 {"role": "user", "content": prompt}
             ],
-            response_format={ "type": "json_object" }
+            response_format={"type": "json_object"}
         )
         content = response.choices[0].message.content.strip()
         return json.loads(content)
@@ -129,7 +179,7 @@ def generate_ai_content(market_summary, news_context, current_day_info):
 def send_recap_email(data):
     sender = os.environ.get("EMAIL_SENDER")
     password = os.environ.get("EMAIL_PASSWORD") 
-    receivers = ["thanak.ratt@kkpfg.com", "mynameisnak@gmail.com"]
+    receivers = ["thanak.ratt@kkpfg.com"]
     if not sender or not password: return
     msg = MIMEMultipart('alternative')
     msg['Subject'] = f"KKP Research Recap - {data['lastUpdated'].split(',')[0]}"
