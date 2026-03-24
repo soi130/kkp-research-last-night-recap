@@ -62,7 +62,7 @@ function App() {
       <section className="section">
         <h2 className="section-title">
           <Newspaper size={24} />
-          สรุปข่าวสำคัญ
+          ข่าวสำคัญ
         </h2>
         <div className="story-content">
           {data.topNews.map((item: any, index: number) => (
@@ -98,12 +98,21 @@ function App() {
             borderRadius: '8px',
             borderLeft: '4px solid #512D6D'
           }}>
-            <p style={{marginBottom: '0.75rem'}}>
-              <PieChart size={18} style={{verticalAlign: 'middle', marginRight: '8px', color: '#512D6D'}} />
-              <strong>Why it matters:</strong> {data.whyItMatters}
-            </p>
             <p style={{marginBottom: 0}}>
-              <strong>Closing Takeaway:</strong> {data.closingTakeaway}
+              <PieChart size={18} style={{verticalAlign: 'middle', marginRight: '8px', color: '#512D6D'}} />
+              <strong>Why these matters:</strong> {data.whyItMatters}
+            </p>
+          </div>
+
+          <div style={{
+            marginTop: '1rem', 
+            padding: '1.25rem', 
+            background: '#f3f0f7', 
+            borderRadius: '8px',
+            borderLeft: '4px solid #512D6D'
+          }}>
+            <p style={{marginBottom: 0}}>
+              <strong>Takeaways:</strong> {data.closingTakeaway}
             </p>
           </div>
         </div>
