@@ -69,7 +69,7 @@ function App() {
             <div key={index} style={{marginBottom: '1rem', display: 'flex', alignItems: 'flex-start'}}>
               <span style={{marginRight: '8px', color: '#512D6D'}}>•</span>
               <div>
-                <span>{item.text}</span>
+                <span>[{item.source}] <strong>{item.text}</strong></span>
                 {item.url && (
                   <a 
                     href={item.url} 

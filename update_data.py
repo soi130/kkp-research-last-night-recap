@@ -18,11 +18,11 @@ client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 def get_latest_news_context():
     print("Fetching news feeds...")
     feeds = [
-        {"name": "BBC World", "url": "http://feeds.bbci.co.uk/news/world/rss.xml"},
-        {"name": "NPR World", "url": "https://feeds.npr.org/1004/rss.xml"},
+        {"name": "BBC", "url": "http://feeds.bbci.co.uk/news/world/rss.xml"},
+        {"name": "NPR", "url": "https://feeds.npr.org/1004/rss.xml"},
         {"name": "The Hill", "url": "https://thehill.com/feed/"},
         {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/news/rss"},
-        {"name": "CNBC Economy", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=10000063"}
+        {"name": "CNBC", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=401&id=10000063"}
     ]
     
     news_items = []
@@ -30,7 +30,7 @@ def get_latest_news_context():
     keywords = ["Fed", "Rate", "Inflation", "CPI", "NFP", "Unemployment", "GDP", "Yield", "War", "Conflict", "Oil", "Geopolitical", "Trump", "Election", "Tariff", "Iran", "Strike"]
     
     id_counter = 1
-    news_map = {} # To link IDs back to URLs
+    news_map = {} # To link IDs back to URLs and Source names
     
     for feed in feeds:
         try:
@@ -41,7 +41,7 @@ def get_latest_news_context():
                 link = item.find('link').text if item.find('link') is not None else ""
                 
                 content = f"[ID: {id_counter}] Source: {feed['name']} | Headline: {title}"
-                news_map[str(id_counter)] = {"text": title, "url": link}
+                news_map[str(id_counter)] = {"original_text": title, "url": link, "source": feed['name']}
                 
                 if any(kw.lower() in title.lower() for kw in keywords):
                     news_items.insert(0, content)
@@ -101,8 +101,17 @@ EXAMPLE OUTPUT:
   "keyStory": {
     "narrative": "คืนนี้ตลาดหุ้นสหรัฐฯ ปิดบวกแรงหลัง Trump ประกาศเลื่อนแผนโจมตีอิหร่าน ช่วยลดความเสี่ยงภูมิรัฐศาสตร์ ประกอบกับ yield 10 ปีที่ร่วงแตะ 4.33% ช่วยหนุนกลุ่มเทคโนโลยี"
   },
-  "selectedNewsIDs": ["1", "5", "12", "18"],
-  "whyItMatters": "การที่ Crisis คลี่คลาย (De-escalation) เป็นบวกต่อหุ้น แต่เป็นลบต่อทองคำ/น้ำมัน ต้องระบุทิศทางให้ถูก",
+  "topNews": [
+    {
+      "id": "1",
+      "translated_thai": "Trump เลื่อนการโจมตีโรงไฟฟ้าอิหร่าน 5 วัน เพื่อเปิดช่องเจรจา"
+    },
+    {
+      "id": "5",
+      "translated_thai": "Yield 10 ปีสหรัฐฯ ร่วงแตะ 4.33% หลังนักลงทุนคลายกังวลชั่วคราว"
+    }
+  ],
+  "whyItMatters": "การที่ Crisis คลี่คลาย (De-escalation) เป็นบวกต่อหุ้น แต่เป็นลบต่อทองคำ/น้ำมัน",
   "closingTakeaway": "Mental model: ตลาดเล่นตามข่าวสงคราม — หากไม่รุนแรง หุ้นไปต่อ"
 }
 """
@@ -117,25 +126,28 @@ EXAMPLE OUTPUT:
     {news_context}
 
     กฎเหล็ก:
-    - **Logic Check**: ตรรกะเหตุและผลต้องถูกต้อง (เช่น สงครามคลี่คลาย = หุ้นขึ้น/น้ำมันลง, สงครามดุเดือด = หุ้นลง/น้ำมันขึ้น)
-    - **News Selection**: เลือกข่าวที่ขับเคลื่อนตลาดที่สุด 4 ข่าว โดยระบุเป็น "selectedNewsIDs" จาก ID ที่ให้ไปเท่านั้น
-    - **Zero Hallucination**: ห้ามมโนข่าวเองเด็ดขาด ถ้าไม่มีข่าวสงครามใน Context ห้ามเขียนเรื่องสงคราม
+    - **Translate to Thai**: ในส่วน "topNews" ต้องแปล Headline จากภาษาอังกฤษเป็นภาษาไทยที่กระชับและน่าสนใจ
+    - **Logic Check**: ตรรกะเหตุและผลต้องถูกต้อง
+    - **News Selection**: เลือกข่าวที่ขับเคลื่อนตลาดที่สุด 4 ข่าว โดยระบุ ID และคำแปลภาษาไทย
+    - **Zero Hallucination**: ห้ามมโนข่าวเองเด็ดขาด
 
     ตอบเป็น JSON เท่านั้น ตาม schema นี้:
     {{
     "headline": "string",
     "keyStory": {{"narrative": "string"}},
-    "selectedNewsIDs": ["string id 1", "string id 2", "string id 3", "string id 4"],
+    "topNews": [
+      {{"id": "string id จาก context", "translated_thai": "string หัวข้อข่าวภาษาไทย"}}
+    ],
     "whyItMatters": "string",
     "closingTakeaway": "string"
     }}"""
 
     try:
-        print("Generating narrative market recap...")
+        print("Generating narrative market recap with translations...")
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "คุณเล่าเรื่องตลาดเป็นภาษาไทยแบบนักวิเคราะห์ ตรรกะภูมิรัฐศาสตร์ต้องเป๊ะ และเลือกข่าวตาม ID ที่ให้ไปเท่านั้น"},
+                {"role": "system", "content": "คุณเล่าเรื่องตลาดเป็นภาษาไทย แปลข่าวอังกฤษเป็นไทยให้เพื่อนฟังอย่างมืออาชีพ"},
                 {"role": "user", "content": prompt}
             ],
             response_format={"type": "json_object"}
@@ -156,7 +168,10 @@ def send_recap_email(data):
     msg['From'] = f"KKP Research <thanak.ratt@kkpfg.com>"
     msg['To'] = ", ".join(receivers)
     rows = "".join([f"<tr><td style='padding:12px;border-bottom:1px solid #e2e8f0;'>{item['name']}</td><td style='padding:12px;border-bottom:1px solid #e2e8f0;'>{item['price']}</td><td style='padding:12px;border-bottom:1px solid #e2e8f0;color:{'#059669' if item['status'] == 'up' else '#dc2626'};font-weight:bold;'>{item['change']}</td></tr>" for item in data['marketData']])
-    news_items = "".join([f"<p style='margin-bottom:8px;'>• {item['text']} <a href='{item['url']}' style='color:#512D6D;font-size:12px;text-decoration:none;'>[อ่านต่อ]</a></p>" for item in data['topNews']])
+    
+    # Updated news items with [Source]**Headline** format for email
+    news_items = "".join([f"<p style='margin-bottom:8px;'>• [{item['source']}] <strong>{item['text']}</strong> <a href='{item['url']}' style='color:#512D6D;font-size:12px;text-decoration:none;'>[อ่านต่อ]</a></p>" for item in data['topNews']])
+    
     html = f"""<html><body style="font-family:Arial,sans-serif;background-color:#f8fafc;padding:20px;color:#1e293b;"><div style="max-width:600px;margin:0 auto;background:#ffffff;padding:30px;border-radius:12px;border:1px solid #e2e8f0;border-top:8px solid #512D6D;"><h1 style="color:#512D6D;font-size:22px;">KKP Research Recap</h1><p style="color:#64748b;font-size:14px;">{data['lastUpdated']} (เวลาประเทศไทย)</p><hr style="border:none;border-top:1px solid #e2e8f0;margin:20px 0;"><h2 style="color:#512D6D;font-size:16px;">📊 สรุปตลาดและราคาสินทรัพย์</h2><table style="width:100%;border-collapse:collapse;"><tr style="background:#f3f0f7;"><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">สินทรัพย์</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">ล่าสุด</th><th style="text-align:left;padding:10px;font-size:11px;color:#512D6D;">เปลี่ยนแปลง</th></tr>{rows}</table><p style='font-size:11px;color:#94a3b8;margin-top:8px;'>แหล่งข้อมูล: Yahoo Finance, Reuters, CNBC</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">MARKET FOCUS (WHAT & WHY)</h2><p style="font-size:15px;line-height:1.6;">{data['moverStory']}</p><h2 style="color:#512D6D;font-size:16px;margin-top:25px;">🧠 สรุปข่าวสำคัญ</h2><div style="font-size:14px;line-height:1.6;">{news_items}<hr style="border:none;border-top:1px solid #e2e8f0;margin:15px 0;"><p><strong>Why it matters:</strong> {data['whyItMatters']}</p><p><strong>Closing Takeaway:</strong> {data['closingTakeaway']}</p></div><hr style="border:none;border-top:1px solid #e2e8f0;margin:30px 0;"><p style="font-size:11px;color:#94a3b8;line-height:1.6;">เนื้อหาข้างต้นจัดทำขึ้นโดย KKP Research เพื่อวัตถุประสงค์ในการรายงานข้อมูลข่าวสารเศรษฐกิจและตลาดทุนเท่านั้น มิใช่การให้คำแนะนำการลงทุน</p></div></body></html>"""
     msg.attach(MIMEText(html, 'html'))
     try:
@@ -184,15 +199,27 @@ def main():
     ai_content = generate_ai_content(str(market_data), news_context, current_day_info)
     
     if ai_content:
-        # Re-map selected IDs to actual text and URLs
+        # Re-map selected IDs to actual text and URLs, now including translation and source
         top_news = []
-        for nid in ai_content.get('selectedNewsIDs', []):
+        for n_item in ai_content.get('topNews', []):
+            nid = n_item.get('id')
+            translated = n_item.get('translated_thai')
             if nid in news_map:
-                top_news.append(news_map[nid])
+                source_news = news_map[nid]
+                top_news.append({
+                    "text": translated,
+                    "url": source_news["url"],
+                    "source": source_news["source"]
+                })
         
-        # Fallback if AI didn't select news
+        # Fallback if AI didn't select news correctly
         if not top_news:
-            top_news = list(news_map.values())[:4]
+            for nid, n_info in list(news_map.items())[:4]:
+                top_news.append({
+                    "text": n_info["original_text"],
+                    "url": n_info["url"],
+                    "source": n_info["source"]
+                })
 
         mover_story = f"**{ai_content.get('headline', '')}**\n\n{ai_content.get('keyStory', {}).get('narrative', '')}"
 
