@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "24 มีนาคม 2569, 15:04 น.",
+  "lastUpdated": "24 มีนาคม 2569, 15:13 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
@@ -33,38 +33,38 @@
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,425.40",
-      "change": "+0.48%",
+      "price": "$4,411.40",
+      "change": "+0.17%",
       "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$89.77",
-      "change": "+1.86%",
+      "price": "$89.68",
+      "change": "+1.76%",
       "status": "up"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$97.57",
-      "change": "-2.37%",
+      "price": "$97.50",
+      "change": "-2.44%",
       "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$71,159",
-      "change": "+0.34%",
+      "price": "$71,084",
+      "change": "+0.24%",
       "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.52 บาท",
-      "change": "-1.10%",
+      "price": "32.50 บาท",
+      "change": "-1.16%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "99.19",
-      "change": "+0.24%",
+      "price": "99.22",
+      "change": "+0.28%",
       "status": "up"
     },
     {
@@ -74,29 +74,29 @@
       "status": "down"
     }
   ],
-  "moverStory": "**ตลาดปรับตัวขึ้นท่ามกลางความไม่แน่นอนของราคาน้ำมันและสงครามในอิหร่าน**\n\nในวันนี้ตลาดหลักทรัพย์สหรัฐฯ ได้ปรับตัวขึ้นอย่างต่อเนื่อง โดยทั้ง S&P 500, Dow Jones และ Nasdaq ต่างพุ่งสูงขึ้นกว่า 1% ท่ามกลางความคาดหวังที่จะมีการเจรจาเพื่อยุติสงครามในอิหร่าน และการต่อสู้ของราคาน้ำมันที่ผันผวน",
+  "moverStory": "**ตลาดหุ้นปรับตัวขึ้นในวันนี้ท่ามกลางการเปลี่ยนแปลงในราคาเชื้อเพลิงและการเมือง**\n\nวันนี้ ตลาดหุ้นสหรัฐทั้ง S&P 500, Dow Jones และ Nasdaq ต่างก็ปรับตัวขึ้นอย่างต่อเนื่อง โดยที่ Dow Jones ได้ปรับเพิ่มขึ้นถึง 1.38% ขณะเดียวกันมีความหวังว่าการเจรจาเกี่ยวกับสงครามในอิหร่านจะนำมาซึ่งเสถียรภาพมากขึ้น",
   "topNews": [
     {
-      "text": "ฟิวเจอร์ส Dow Jones และราคาน้ำมันไม่แน่นอนหลังทรัมป์ขู่จะ 'ทำลาย' โรงไฟฟ้าของอิหร่าน",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-yields-trump-iran-war-winding-down/?src=A00220&yptr=yahoo",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "ตลาดหุ้นปรับตัวสูงขึ้นและราคาน้ำมันลดลงหลังทรัมป์บอกจะมีการเจรจาหยุดสงคราม แม้ว่าอิหร่านจะปฏิเสธการพูดคุย",
-      "url": "https://finance.yahoo.com/markets/world-indices/articles/south-koreas-kospi-down-5-020310134.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "การตั้งเงื่อนไข การเจรจา และการเดินทางไป Graceland ขณะทรัมป์มองหาโอกาสในการทำข้อตกลงกับอิหร่าน",
+      "text": "คำขาด, การเมือง และการเดินทางไป Graceland ขณะที่ทรัมป์มองหาโอกาสในการทำข้อตกลงกับอิหร่าน",
       "url": "https://www.bbc.com/news/articles/c895v5pq5p1o?at_medium=RSS&at_campaign=rss",
       "source": "BBC"
     },
     {
-      "text": "สหรัฐออกคำเตือน 'ทั่วโลก' ให้ระวังสำหรับนักเดินทาง",
-      "url": "https://thehill.com/homenews/administration/5797170-state-department-us-travelers-security-alert-iran/",
-      "source": "The Hill"
+      "text": "หุ้นฟื้นตัวและราคาน้ำมันลดลงหลังจากทรัมป์หมายถึงจุดจบของสงคราม แม้อิหร่านจะแย้งว่าไม่มีการพูดคุย",
+      "url": "https://finance.yahoo.com/markets/world-indices/articles/south-koreas-kospi-down-5-020310134.html",
+      "source": "Yahoo Finance"
+    },
+    {
+      "text": "'ภาษีพลังงาน': นักวิเคราะห์ชั่งน้ำหนักผลกระทบจากการขยับตัวขึ้นของราคาน้ำมันต่อภาวะเงินเฟ้อและผู้บริโภค",
+      "url": "https://finance.yahoo.com/news/the-energy-tax-analysts-weigh-impact-of-surging-gasoline-prices-on-inflation-consumers-143027350.html",
+      "source": "Yahoo Finance"
+    },
+    {
+      "text": "เตรียมพร้อมสำหรับน้ำมันเบนซินราคา $4 ตามคำกล่าวของ GasBuddy",
+      "url": "https://www.barrons.com/livecoverage/sundayshows0322/card/get-ready-for-4-gasoline-gasbuddy-says-q8Vj3LCXSzdHzTAgE2kV?siteid=yhoof2&yptr=yahoo",
+      "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "ข่าวเกี่ยวกับการเจรจาเพื่อยุติสงครามในอิหร่านมีผลกระทบต่อความเชื่อมั่นของนักลงทุน ซึ่งส่งผลต่อการเคลื่อนไหวของตลาดหุ้น รวมถึงราคาน้ำมันที่มีความเปราะบางในปัจจุบัน",
-  "closingTakeaway": "การพัฒนาสถานการณ์ในอิหร่านและนโยบายพลังงานของสหรัฐฯ ยังคงเป็นปัจจัยหลักที่ขับเคลื่อนตลาดในขณะนี้ ดังนั้นนักลงทุนควรติดตามความเคลื่อนไหวอย่างใกล้ชิด"
+  "whyItMatters": "การเปลี่ยนแปลงในตลาดน้ำมันและความตึงเครียดทางการเมืองสามารถสร้างแรงกระตุ้นสำคัญต่อภาวะเศรษฐกิจและความเชื่อมั่นของนักลงทุน",
+  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์ราคาน้ำมันและการเจรจาทางการเมือง เนื่องจากสิ่งเหล่านี้มีผลต่อการลงทุนและตลาดในระยะยาว"
 }
