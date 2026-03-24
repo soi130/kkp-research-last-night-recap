@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "24 มีนาคม 2569, 09:39 น.",
+  "lastUpdated": "24 มีนาคม 2569, 09:49 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
@@ -21,50 +21,50 @@
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "51,940.91",
-      "change": "+0.83%",
+      "price": "51,910.42",
+      "change": "+0.77%",
       "status": "up"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "5,449.33",
-      "change": "+0.81%",
+      "price": "5,468.31",
+      "change": "+1.16%",
       "status": "up"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,354.10",
-      "change": "-4.73%",
+      "price": "$4,364.30",
+      "change": "-4.51%",
       "status": "down"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$91.37",
-      "change": "-7.07%",
+      "price": "$91.30",
+      "change": "-7.14%",
       "status": "down"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$103.62",
-      "change": "-7.64%",
+      "price": "$103.70",
+      "change": "-7.57%",
       "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$70,616",
-      "change": "+4.08%",
+      "price": "$70,542",
+      "change": "+3.98%",
       "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.62 บาท",
-      "change": "-0.80%",
+      "price": "32.61 บาท",
+      "change": "-0.83%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "99.32",
-      "change": "-0.33%",
+      "price": "99.33",
+      "change": "-0.32%",
       "status": "down"
     },
     {
@@ -74,8 +74,25 @@
       "status": "down"
     }
   ],
-  "moverStory": "**ตลาดหุ้นสหรัฐปรับตัวขึ้นจากความกังวลสงครามอิหร่านลดลง ขณะที่น้ำมันดิ่งลงตามการคาดการณ์ที่ชัดเจน**\n\nตลาดหุ้นสหรัฐฯ ปรับตัวขึ้นในวันนี้ โดย S&P 500, Dow Jones และ Nasdaq เพิ่มขึ้นจากความกังวลเรื่องสงครามกับอิหร่านที่ลดลงหลังจากที่ Trump ประกาศเลื่อนการโจมตีเป็นระยะเวลา 5 วัน ขณะที่อัตราผลตอบแทนพันธบัตร 10 ปีลดลงสู่ 4.33% ส่งผลให้ลงทุนในสินทรัพย์เสี่ยงมีความน่าสนใจมากขึ้น.",
-  "topNews": [],
-  "whyItMatters": "การลดลงของความตึงเครียดในสงครามมีผลต่อการฟื้นตัวของตลาดหุ้นในขณะที่น้ำมันดิบดิ่งลง การเปลี่ยนแปลงเหล่านี้ส่งผลกระทบต่อดุลยภาพระหว่างตลาดสินทรัพย์เสี่ยงและสินทรัพย์ป้องกันความเสี่ยง.",
-  "closingTakeaway": "Mental model: การลดลงของความเสี่ยงภูมิรัฐศาสตร์ทำให้ตลาดหุ้นสามารถฟื้นตัวได้ เนื่องจากความมั่นใจของนักลงทุนปรับตัวดีขึ้น"
+  "moverStory": "**ตลาดหุ้นสหรัฐฯ ปรับตัวขึ้น ท่ามกลางความไม่แน่นอนจากสงครามกับอิหร่าน**\n\nตลาดหุ้นในสหรัฐฯ อย่าง S&P 500, Dow Jones, และ Nasdaq ต่างปรับตัวขึ้นอย่างแข็งแกร่ง ในขณะที่ราคาน้ำมันดิบปรับตัวลงอย่างมีนัยสำคัญ เนื่องจากข่าวที่ระบุว่า ประธานาธิบดีทรัมป์กำลังมองหาช่องทางเพื่อยุติสงครามกับอิหร่าน ทำให้ sentiment ตลาดดีขึ้น นักลงทุนมีความหวังว่าสถานการณ์จะคลี่คลาย ส่งผลให้การลงทุนในตลาดหุ้นเป็นที่น่าสนใจมากขึ้น โดยเฉพาะในภาคการบินเช่น Delta Airlines ที่กำลังถูกจับตามอง",
+  "topNews": [
+    {
+      "text": "Trump threatens Iran's power plants as war enters fourth week with no end in sight",
+      "url": "https://www.npr.org/2026/03/22/nx-s1-5753005/trump-threatens-irans-power-plants-as-war-enters-fourth-week-with-no-end-in-sight"
+    },
+    {
+      "text": "Oil falls and shares rebound after Trump says talks have been held to end war",
+      "url": "https://www.bbc.com/news/articles/czex56kwxxzo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "text": "Signs emerge Trump ready to end Iran war as pressure mounts over Hormuz",
+      "url": "https://thehill.com/homenews/administration/5797035-trump-administration-iran-war/"
+    },
+    {
+      "text": "Trump says the U.S. is in talks with Iran to end the war, which Iran denies",
+      "url": "https://www.npr.org/2026/03/23/nx-s1-5757172/iran-defiant-trump-hormuz"
+    }
+  ],
+  "whyItMatters": "การที่นักลงทุนเห็นสัญญาณบวกจากการเจรจาทางการทูตอาจช่วยบรรเทาความวิตกกังวลเกี่ยวกับความไม่มั่นคงทางภูมิรัฐศาสตร์ และส่งผลดีต่อแนวโน้มการลงทุนในตลาดหุ้นสหรัฐฯ",
+  "closingTakeaway": "ในขณะที่ตลาดหุ้นดูเหมือนจะมีแนวโน้มที่ดี แต่ความเสี่ยงจากสงครามและราคาน้ำมันยังคงเป็นปัจจัยที่ต้องติดตามอย่างใกล้ชิด เพื่อสังเกตทิศทางตลาดในอนาคต"
 }
