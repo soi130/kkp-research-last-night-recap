@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "28 มีนาคม 2569, 05:28 น.",
+  "lastUpdated": "29 มีนาคม 2569, 05:26 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
@@ -21,50 +21,50 @@
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "53,603.65",
-      "change": "-0.27%",
+      "price": "53,373.07",
+      "change": "-0.43%",
       "status": "down"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "nan",
-      "change": "nan%",
-      "status": "down"
-    },
-    {
-      "name": "Gold (Spot)",
-      "price": "$4,521.30",
-      "change": "+3.33%",
-      "status": "up"
-    },
-    {
-      "name": "Crude Oil (WTI)",
-      "price": "$101.18",
-      "change": "+7.09%",
-      "status": "up"
-    },
-    {
-      "name": "Crude Oil (Brent)",
-      "price": "$106.84",
-      "change": "-1.08%",
-      "status": "down"
-    },
-    {
-      "name": "Bitcoin (BTC)",
-      "price": "$65,943",
-      "change": "-4.14%",
-      "status": "down"
-    },
-    {
-      "name": "USD/THB",
-      "price": "32.64 บาท",
+      "price": "5,438.87",
       "change": "-0.40%",
       "status": "down"
     },
     {
+      "name": "Gold (Spot)",
+      "price": "$4,492.00",
+      "change": "+2.66%",
+      "status": "up"
+    },
+    {
+      "name": "Crude Oil (WTI)",
+      "price": "$99.64",
+      "change": "+5.46%",
+      "status": "up"
+    },
+    {
+      "name": "Crude Oil (Brent)",
+      "price": "$112.57",
+      "change": "+4.22%",
+      "status": "up"
+    },
+    {
+      "name": "Bitcoin (BTC)",
+      "price": "$66,707",
+      "change": "+0.56%",
+      "status": "up"
+    },
+    {
+      "name": "USD/THB",
+      "price": "32.96 บาท",
+      "change": "+0.58%",
+      "status": "up"
+    },
+    {
       "name": "Dollar Index (DXY)",
-      "price": "100.19",
-      "change": "+0.29%",
+      "price": "100.15",
+      "change": "+0.25%",
       "status": "up"
     },
     {
@@ -74,29 +74,29 @@
       "status": "up"
     }
   ],
-  "moverStory": "**ตลาดหุ้นสหรัฐฯ ปิดลดลง ขณะทองคำและน้ำมันดิบขึ้น**\n\nดาวโจนส์และเอสแอนด์พี 500 ปิดลบโดยมีอัตราการลดลงสูงถึง 1.73% และ 1.67% ตามลำดับ เนื่องจากความกังวลเกี่ยวกับสงครามอิหร่านและปัจจัยกดดันทางเศรษฐกิจอย่างต่อเนื่อง ในขณะเดียวกันราคาทองคำและน้ำมันดิบกลับพุ่งสูงขึ้น",
+  "moverStory": "**ตลาดหุ้นปิดลดลงพร้อมกับราคาทองคำและน้ำมันที่ปรับเพิ่มขึ้น**\n\nในวันอาทิตย์ที่ 29 มีนาคม 2026 ตลาดหุ้นสหรัฐฯ รายงานการปรับลดลงทั่วหน้า โดย S&P 500 ลดลง 1.67% ขณะที่ราคาทองคำและน้ำมันเพิ่มขึ้นอย่างมีนัยสำคัญ",
   "topNews": [
     {
-      "text": "สมิธฟิลด์ใกล้แตกตัวเมื่อสงครามอิหร่านผลักดันราคาข้าวของและพลาสติก",
-      "url": "https://www.investors.com/news/smithfield-foods-stock-iran-war-pork-prices-oil-gas-hormuz-inflation/?src=A00220&yptr=yahoo",
-      "source": "Yahoo Finance"
+      "text": "รูบิโอเผยสหรัฐหวังจบสงครามอิหร่าน 'ในอีกไม่กี่สัปดาห์ข้างหน้า'",
+      "url": "https://www.bbc.com/news/articles/c1l9vz064nqo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
     },
     {
-      "text": "ความสงสัยเกี่ยวกับการหยุดยิงอิหร่านกดดันตลาดหุ้น",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/iran-ceasefire-skepticism-weighs-stocks-151800462.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "ดาวโจนส์เข้าสู่สถานะแก้ไขเมื่อสงครามอิหร่านสั่นคลอนวอลล์สตรีท",
-      "url": "https://thehill.com/business/5804965-dow-jones-iran-war-impact/",
+      "text": "ทหารเรือและนาวิกโยธินสหรัฐถูกส่งไปยังภูมิภาคเซนต์คอมท่ามกลางสงครามอิหร่าน",
+      "url": "https://thehill.com/policy/defense/5805819-uss-tripoli-central-command-middle-east/",
       "source": "The Hill"
     },
     {
-      "text": "ทำไมราคาน้ำตาลถึงสูงขึ้นจากการเพิ่มราคาน้ำมัน",
-      "url": "https://finance.yahoo.com/markets/commodities/articles/why-sugar-prices-oil-price-151218944.html",
-      "source": "Yahoo Finance"
+      "text": "พรรครีพับลิกันในสภาผู้แทนปฏิเสธข้อตกลงในวุฒิสภา ยืดเยื้อการปิดหน่วยงานรัฐบาลสหรัฐ",
+      "url": "https://www.bbc.com/news/articles/cgj052l1j2no?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
+    },
+    {
+      "text": "แฮกเกอร์ที่สนับสนุนอิหร่านเข้าถึงอีเมลส่วนตัวของผู้อำนวยการ FBI",
+      "url": "https://www.bbc.com/news/articles/cvgl4yk7vgpo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
     }
   ],
-  "whyItMatters": "สถานการณ์ในตะวันออกกลาง โดยเฉพาะสงครามอิหร่าน ส่งผลกระทบต่อความเชื่อมั่นของนักลงทุนและส่งผลให้ตลาดหุ้นสหรัฐฯ ปรับตัวลง ขณะเดียวกันราคาสินค้าโภคภัณฑ์เช่น ทองคำและน้ำมันก็มีแนวโน้มขาขึ้น",
-  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์ในสงครามอิหร่านและปฏิกิริยาต่อราคาสินค้าโภคภัณฑ์ เนื่องจากจะมีผลต่อทิศทางของตลาดหุ้นในระยะต่อไป"
+  "whyItMatters": "ข่าวเกี่ยวกับการพัฒนาของสงครามอิหร่านและผลกระทบต่อการเมืองและเศรษฐกิจสหรัฐฯ มีผลต่อความเชื่อมั่นของนักลงทุน ส่งผลให้ตลาดหุ้นปรับลดลงในวันนี้",
+  "closingTakeaway": "แม้ตลาดหุ้นจะมีการปรับตัวลง แต่ราคาทองคำและน้ำมันกลับมีการเพิ่มขึ้น ซึ่งอาจสะท้อนถึงความไม่แน่นอนในสถานการณ์โลก โดยเฉพาะความตึงเครียดในตะวันออกกลาง"
 }
