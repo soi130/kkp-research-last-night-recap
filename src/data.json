@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "29 มีนาคม 2569, 05:26 น.",
+  "lastUpdated": "30 มีนาคม 2569, 05:28 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
@@ -33,38 +33,38 @@
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,492.00",
-      "change": "+2.66%",
+      "price": "$4,518.60",
+      "change": "+0.59%",
       "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$99.64",
-      "change": "+5.46%",
+      "price": "$102.72",
+      "change": "+3.09%",
       "status": "up"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$112.57",
-      "change": "+4.22%",
-      "status": "up"
+      "price": "$107.85",
+      "change": "-4.19%",
+      "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$66,707",
-      "change": "+0.56%",
-      "status": "up"
+      "price": "$66,319",
+      "change": "-0.00%",
+      "status": "down"
     },
     {
       "name": "USD/THB",
-      "price": "32.96 บาท",
-      "change": "+0.58%",
-      "status": "up"
+      "price": "32.83 บาท",
+      "change": "-0.39%",
+      "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "100.15",
-      "change": "+0.25%",
+      "price": "100.30",
+      "change": "+0.15%",
       "status": "up"
     },
     {
@@ -74,29 +74,29 @@
       "status": "up"
     }
   ],
-  "moverStory": "**ตลาดหุ้นปิดลดลงพร้อมกับราคาทองคำและน้ำมันที่ปรับเพิ่มขึ้น**\n\nในวันอาทิตย์ที่ 29 มีนาคม 2026 ตลาดหุ้นสหรัฐฯ รายงานการปรับลดลงทั่วหน้า โดย S&P 500 ลดลง 1.67% ขณะที่ราคาทองคำและน้ำมันเพิ่มขึ้นอย่างมีนัยสำคัญ",
+  "moverStory": "**ตลาดหุ้นสหรัฐฯ ปรับตัวลงในวันจันทร์ ขณะที่ราคาน้ำมันพุ่งเกิน $100**\n\nวันนี้ตลาดหุ้นหลักในสหรัฐฯ อย่าง S&P 500, Dow Jones และ Nasdaq ต่างมีกระแสลดลง ส่งผลให้บรรยากาศการลงทุนมีความกังวลเกี่ยวกับสถานการณ์ความตึงเครียดในอิหร่าน ขณะเดียวกันราคาน้ำมัน WTI ก็มีการปรับตัวสูงขึ้นอย่างมีนัยสำคัญ",
   "topNews": [
     {
-      "text": "รูบิโอเผยสหรัฐหวังจบสงครามอิหร่าน 'ในอีกไม่กี่สัปดาห์ข้างหน้า'",
-      "url": "https://www.bbc.com/news/articles/c1l9vz064nqo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
+      "text": "ฟิวเจอร์สดาวโจนส์ลดลง ขณะที่ราคาน้ำมันพุ่งเกิน $100 เนื่องจากสหรัฐฯ พิจารณาการส่งทหารไปอิหร่าน",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-near-100-iran-war-drags-tesla-deliveries/?src=A00220&yptr=yahoo",
+      "source": "Yahoo Finance"
     },
     {
-      "text": "ทหารเรือและนาวิกโยธินสหรัฐถูกส่งไปยังภูมิภาคเซนต์คอมท่ามกลางสงครามอิหร่าน",
-      "url": "https://thehill.com/policy/defense/5805819-uss-tripoli-central-command-middle-east/",
+      "text": "ชาวอเมริกันต้องจ่ายเงินเพิ่มจากสงครามอิหร่าน: วุฒิสมาชิกพรรคเดโมแครต",
+      "url": "https://thehill.com/homenews/senate/5806431-kim-trump-iran-war-costs/",
       "source": "The Hill"
     },
     {
-      "text": "พรรครีพับลิกันในสภาผู้แทนปฏิเสธข้อตกลงในวุฒิสภา ยืดเยื้อการปิดหน่วยงานรัฐบาลสหรัฐ",
-      "url": "https://www.bbc.com/news/articles/cgj052l1j2no?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
+      "text": "นักการเมืองอิหรัน-อเมริกันชี้ให้ทรัมป์หาทางออกจากสงครามอิหร่านอย่างรวดเร็ว",
+      "url": "https://thehill.com/policy/healthcare/5806752-ansari-calls-for-iran-offramp/",
+      "source": "The Hill"
     },
     {
-      "text": "แฮกเกอร์ที่สนับสนุนอิหร่านเข้าถึงอีเมลส่วนตัวของผู้อำนวยการ FBI",
-      "url": "https://www.bbc.com/news/articles/cvgl4yk7vgpo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
+      "text": "สมาชิกสภาผู้แทนราษฎรเตือนถึงความยุ่งเหยิงของการส่งทหารสู่พื้นดินในอิหร่าน",
+      "url": "https://thehill.com/homenews/house/5806767-auchincloss-warns-against-iran-invasion/",
+      "source": "The Hill"
     }
   ],
-  "whyItMatters": "ข่าวเกี่ยวกับการพัฒนาของสงครามอิหร่านและผลกระทบต่อการเมืองและเศรษฐกิจสหรัฐฯ มีผลต่อความเชื่อมั่นของนักลงทุน ส่งผลให้ตลาดหุ้นปรับลดลงในวันนี้",
-  "closingTakeaway": "แม้ตลาดหุ้นจะมีการปรับตัวลง แต่ราคาทองคำและน้ำมันกลับมีการเพิ่มขึ้น ซึ่งอาจสะท้อนถึงความไม่แน่นอนในสถานการณ์โลก โดยเฉพาะความตึงเครียดในตะวันออกกลาง"
+  "whyItMatters": "การตัดสินใจเกี่ยวกับการส่งทหารเข้าสู่พื้นที่ความขัดแย้งมีผลกระทบอย่างมากต่อเศรษฐกิจและบรรยากาศการลงทุน ส่งผลให้ตลาดเกิดความวิตกกังวลและราคาน้ำมันปรับตัวสูงขึ้น",
+  "closingTakeaway": "ปัจจัยด้านภูมิรัฐศาสตร์ที่ผสมผสานกันในขณะนี้ยังคงส่งผลกระทบต่อความเชื่อมั่นในตลาดและอาจนำไปสู่การเคลื่อนไหวที่ผันผวนของราคาหุ้นและสินค้าโภคภัณฑ์"
 }
