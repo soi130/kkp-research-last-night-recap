@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "30 มีนาคม 2569, 05:28 น.",
+  "lastUpdated": "31 มีนาคม 2569, 05:32 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "6,368.85",
-      "change": "-1.67%",
+      "price": "6,343.72",
+      "change": "-0.39%",
       "status": "down"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "45,166.64",
-      "change": "-1.73%",
-      "status": "down"
+      "price": "45,216.14",
+      "change": "+0.11%",
+      "status": "up"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "20,948.36",
-      "change": "-2.15%",
+      "price": "20,794.64",
+      "change": "-0.73%",
       "status": "down"
     },
     {
@@ -33,70 +33,70 @@
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,518.60",
-      "change": "+0.59%",
+      "price": "$4,536.10",
+      "change": "+0.98%",
       "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$102.72",
-      "change": "+3.09%",
+      "price": "$104.70",
+      "change": "+5.08%",
       "status": "up"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$107.85",
-      "change": "-4.19%",
+      "price": "$108.73",
+      "change": "-3.41%",
       "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$66,319",
-      "change": "-0.00%",
-      "status": "down"
+      "price": "$66,776",
+      "change": "+1.24%",
+      "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.83 บาท",
-      "change": "-0.39%",
+      "price": "32.79 บาท",
+      "change": "-0.52%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "100.30",
-      "change": "+0.15%",
+      "price": "100.49",
+      "change": "+0.34%",
       "status": "up"
     },
     {
       "name": "US 10Y Yield",
-      "price": "4.44%",
-      "change": "+0.54%",
-      "status": "up"
+      "price": "4.34%",
+      "change": "-2.21%",
+      "status": "down"
     }
   ],
-  "moverStory": "**ตลาดหุ้นสหรัฐฯ ปรับตัวลงในวันจันทร์ ขณะที่ราคาน้ำมันพุ่งเกิน $100**\n\nวันนี้ตลาดหุ้นหลักในสหรัฐฯ อย่าง S&P 500, Dow Jones และ Nasdaq ต่างมีกระแสลดลง ส่งผลให้บรรยากาศการลงทุนมีความกังวลเกี่ยวกับสถานการณ์ความตึงเครียดในอิหร่าน ขณะเดียวกันราคาน้ำมัน WTI ก็มีการปรับตัวสูงขึ้นอย่างมีนัยสำคัญ",
+  "moverStory": "**ตลาดมีการเคลื่อนไหวที่หลากหลายในวันนี้**\n\nดัชนีตลาดหุ้น S&P 500 และ Nasdaq ปรับตัวลดลง ขณะที่ Dow Jones มีการปรับตัวขึ้นเล็กน้อย ส่วนทองคำและน้ำมันดิบ (WTI) สามารถแสดงการเพิ่มขึ้นได้เช่นกัน เนื่องจากความกังวลเกี่ยวกับสถานการณ์ในอิหร่านและผลกระทบต่อราคาน้ำมัน",
   "topNews": [
     {
-      "text": "ฟิวเจอร์สดาวโจนส์ลดลง ขณะที่ราคาน้ำมันพุ่งเกิน $100 เนื่องจากสหรัฐฯ พิจารณาการส่งทหารไปอิหร่าน",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-near-100-iran-war-drags-tesla-deliveries/?src=A00220&yptr=yahoo",
+      "text": "ฟิลิปปินส์ประกาศสงครามอิหร่านเป็น 'อันตรายที่ใกล้จะเกิดขึ้น' — ต้องพึ่งพาถ่านหิน",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/philippines-declares-iran-war-poses-164500501.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ชาวอเมริกันต้องจ่ายเงินเพิ่มจากสงครามอิหร่าน: วุฒิสมาชิกพรรคเดโมแครต",
-      "url": "https://thehill.com/homenews/senate/5806431-kim-trump-iran-war-costs/",
-      "source": "The Hill"
+      "text": "อิหร่าน ราคาน้ำมัน และสิ่งสำคัญอื่น ๆ ที่ต้องติดตามในสัปดาห์นี้",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/iran-oil-prices-other-key-170002306.html",
+      "source": "Yahoo Finance"
     },
     {
-      "text": "นักการเมืองอิหรัน-อเมริกันชี้ให้ทรัมป์หาทางออกจากสงครามอิหร่านอย่างรวดเร็ว",
-      "url": "https://thehill.com/policy/healthcare/5806752-ansari-calls-for-iran-offramp/",
-      "source": "The Hill"
+      "text": "โรเบิร์ต คิโยซากิ เตือนถึงการเกิดภาวะเงินเฟ้อรุนแรงในสหรัฐฯ แต่เห็นช่องทางการลงทุนที่ดีใน 3 สินทรัพย์",
+      "url": "https://finance.yahoo.com/economy/policy/articles/may-god-mercy-robert-kiyosaki-120000841.html",
+      "source": "Yahoo Finance"
     },
     {
-      "text": "สมาชิกสภาผู้แทนราษฎรเตือนถึงความยุ่งเหยิงของการส่งทหารสู่พื้นดินในอิหร่าน",
-      "url": "https://thehill.com/homenews/house/5806767-auchincloss-warns-against-iran-invasion/",
-      "source": "The Hill"
+      "text": "ชมการตอบสนองของเฟดต่อวิกฤตน้ำมันในอดีต",
+      "url": "https://finance.yahoo.com/news/how-the-fed-has--and-hasnt--responded-to-previous-oil-price-shocks-090035039.html",
+      "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "การตัดสินใจเกี่ยวกับการส่งทหารเข้าสู่พื้นที่ความขัดแย้งมีผลกระทบอย่างมากต่อเศรษฐกิจและบรรยากาศการลงทุน ส่งผลให้ตลาดเกิดความวิตกกังวลและราคาน้ำมันปรับตัวสูงขึ้น",
-  "closingTakeaway": "ปัจจัยด้านภูมิรัฐศาสตร์ที่ผสมผสานกันในขณะนี้ยังคงส่งผลกระทบต่อความเชื่อมั่นในตลาดและอาจนำไปสู่การเคลื่อนไหวที่ผันผวนของราคาหุ้นและสินค้าโภคภัณฑ์"
+  "whyItMatters": "กรณีความตึงเครียดในอิหร่านและการเปลี่ยนแปลงส่วนประกอบทางเศรษฐกิจมีผลกระทบที่สำคัญต่อความผันผวนของตลาด หากเกิดวิกฤตขึ้นจริง จะทำให้ราคาน้ำมันและค่าเงินถูกกระทบอย่างมาก ซึ่งสามารถส่งผลถึงเศรษฐกิจทั่วโลกได้",
+  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์โลกและทำความเข้าใจในความสัมพันธ์ระหว่างปัจจัยทางภูมิรัฐศาสตร์และตลาดการเงิน"
 }
