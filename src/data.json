@@ -1,102 +1,102 @@
 {
-  "lastUpdated": "31 มีนาคม 2569, 05:32 น.",
+  "lastUpdated": "1 เมษายน 2569, 05:32 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "6,343.72",
-      "change": "-0.39%",
-      "status": "down"
+      "price": "6,528.52",
+      "change": "+2.91%",
+      "status": "up"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "45,216.14",
-      "change": "+0.11%",
+      "price": "46,341.51",
+      "change": "+2.49%",
       "status": "up"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "20,794.64",
-      "change": "-0.73%",
-      "status": "down"
+      "price": "21,590.63",
+      "change": "+3.83%",
+      "status": "up"
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "53,373.07",
-      "change": "-0.43%",
+      "price": "51,885.85",
+      "change": "-2.79%",
       "status": "down"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "5,438.87",
-      "change": "-0.40%",
+      "price": "5,277.30",
+      "change": "-2.97%",
       "status": "down"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,536.10",
-      "change": "+0.98%",
+      "price": "$4,694.00",
+      "change": "+3.71%",
       "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$104.70",
-      "change": "+5.08%",
-      "status": "up"
+      "price": "$102.49",
+      "change": "-0.38%",
+      "status": "down"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$108.73",
-      "change": "-3.41%",
+      "price": "$104.86",
+      "change": "-7.02%",
       "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$66,776",
-      "change": "+1.24%",
+      "price": "$68,090",
+      "change": "+2.10%",
       "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.79 บาท",
-      "change": "-0.52%",
+      "price": "32.55 บาท",
+      "change": "-0.91%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "100.49",
-      "change": "+0.34%",
-      "status": "up"
+      "price": "99.86",
+      "change": "-0.65%",
+      "status": "down"
     },
     {
       "name": "US 10Y Yield",
-      "price": "4.34%",
-      "change": "-2.21%",
+      "price": "4.31%",
+      "change": "-0.71%",
       "status": "down"
     }
   ],
-  "moverStory": "**ตลาดมีการเคลื่อนไหวที่หลากหลายในวันนี้**\n\nดัชนีตลาดหุ้น S&P 500 และ Nasdaq ปรับตัวลดลง ขณะที่ Dow Jones มีการปรับตัวขึ้นเล็กน้อย ส่วนทองคำและน้ำมันดิบ (WTI) สามารถแสดงการเพิ่มขึ้นได้เช่นกัน เนื่องจากความกังวลเกี่ยวกับสถานการณ์ในอิหร่านและผลกระทบต่อราคาน้ำมัน",
+  "moverStory": "**ตลาดหุ้นสหรัฐฯ และสินทรัพย์เสี่ยงเติบโตดี ขณะที่น้ำมันและค่าเงินดอลลาร์อ่อนตัว**\n\nตลาดหุ้นสหรัฐฯ ปรับตัวขึ้นอย่างมีนัยสำคัญ โดย S&P 500 เพิ่มขึ้น 2.91% ขณะที่ Nasdaq ปรับเพิ่มขึ้น 3.83% ความเคลื่อนไหวนี้สอดคล้องกับการลดลงของอัตราผลตอบแทนพันธบัตรรัฐบาลสหรัฐ ทั้งนี้ราคาทองคำเพิ่มขึ้น 3.71% เมื่อเทียบกับหุ้นโซนเอเชียอย่าง Nikkei 225 และ KOSPI ที่ตกลงตามความตึงเครียดในภูมิภาค",
   "topNews": [
     {
-      "text": "ฟิลิปปินส์ประกาศสงครามอิหร่านเป็น 'อันตรายที่ใกล้จะเกิดขึ้น' — ต้องพึ่งพาถ่านหิน",
-      "url": "https://finance.yahoo.com/sectors/energy/articles/philippines-declares-iran-war-poses-164500501.html",
+      "text": "หุ้นฟื้นตัวเมื่อผลตอบแทนพันธบัตรลดต่ำลง",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/stocks-rebound-t-note-yields-140833102.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "อิหร่าน ราคาน้ำมัน และสิ่งสำคัญอื่น ๆ ที่ต้องติดตามในสัปดาห์นี้",
-      "url": "https://finance.yahoo.com/sectors/energy/articles/iran-oil-prices-other-key-170002306.html",
+      "text": "วอลล์สตรีทอัปเกรด Celsius Holdings: คดีของ Costco ไม่น่าเป็นห่วง และแฟรนไชส์ยังเติบโต",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-upgrades-celsius-holdings-141014283.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "โรเบิร์ต คิโยซากิ เตือนถึงการเกิดภาวะเงินเฟ้อรุนแรงในสหรัฐฯ แต่เห็นช่องทางการลงทุนที่ดีใน 3 สินทรัพย์",
-      "url": "https://finance.yahoo.com/economy/policy/articles/may-god-mercy-robert-kiyosaki-120000841.html",
+      "text": "Arm เดินหน้าทำการตลาดด้วยชิปใหม่ และวอลล์สตรีทรักใคร่ ทำไม Needham แนะให้ซื้อหุ้น ARM",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/arm-making-bold-moves-house-140742286.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ชมการตอบสนองของเฟดต่อวิกฤตน้ำมันในอดีต",
-      "url": "https://finance.yahoo.com/news/how-the-fed-has--and-hasnt--responded-to-previous-oil-price-shocks-090035039.html",
+      "text": "Sysco กำลังซื้อตึกเก็บของที่ไม่สามารถสร้างได้",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sysco-buying-warehouse-could-never-140555268.html",
       "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "กรณีความตึงเครียดในอิหร่านและการเปลี่ยนแปลงส่วนประกอบทางเศรษฐกิจมีผลกระทบที่สำคัญต่อความผันผวนของตลาด หากเกิดวิกฤตขึ้นจริง จะทำให้ราคาน้ำมันและค่าเงินถูกกระทบอย่างมาก ซึ่งสามารถส่งผลถึงเศรษฐกิจทั่วโลกได้",
-  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์โลกและทำความเข้าใจในความสัมพันธ์ระหว่างปัจจัยทางภูมิรัฐศาสตร์และตลาดการเงิน"
+  "whyItMatters": "การปรับตัวขึ้นของตลาดหุ้นสหรัฐฯ สะท้อนถึงความเชื่อมั่นที่เพิ่มขึ้นของนักลงทุน ต่อไปนี้มีผลต่อการตัดสินใจลงทุนทั้งในหุ้นและสินทรัพย์อื่น โดยเฉพาะเมื่อความกังวลเกี่ยวกับอัตราผลตอบแทนพันธบัตรลดลง ทำให้การลงทุนในตลาดเสี่ยงกลับมาได้รับความนิยมอีกครั้ง",
+  "closingTakeaway": "การติดตามสถานการณ์ต่าง ๆ รวมถึงนโยบายและการดำเนินกิจการของบริษัทใหญ่ จะมีผลต่อการตัดสินใจในตลาดอย่างมีนัยสำคัญ"
 }
