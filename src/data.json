@@ -1,102 +1,102 @@
 {
-  "lastUpdated": "1 เมษายน 2569, 05:32 น.",
+  "lastUpdated": "4 เมษายน 2569, 05:29 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "6,528.52",
-      "change": "+2.91%",
+      "price": "6,582.69",
+      "change": "+0.11%",
       "status": "up"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "46,341.51",
-      "change": "+2.49%",
-      "status": "up"
+      "price": "46,504.67",
+      "change": "-0.13%",
+      "status": "down"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "21,590.63",
-      "change": "+3.83%",
+      "price": "21,879.18",
+      "change": "+0.18%",
       "status": "up"
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "51,885.85",
-      "change": "-2.79%",
+      "price": "52,463.27",
+      "change": "-2.38%",
       "status": "down"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "5,277.30",
-      "change": "-2.97%",
+      "price": "nan",
+      "change": "nan%",
       "status": "down"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,694.00",
-      "change": "+3.71%",
-      "status": "up"
+      "price": "$4,651.50",
+      "change": "-2.75%",
+      "status": "down"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$102.49",
-      "change": "-0.38%",
-      "status": "down"
-    },
-    {
-      "name": "Crude Oil (Brent)",
-      "price": "$104.86",
-      "change": "-7.02%",
-      "status": "down"
-    },
-    {
-      "name": "Bitcoin (BTC)",
-      "price": "$68,090",
-      "change": "+2.10%",
+      "price": "$111.54",
+      "change": "+11.41%",
       "status": "up"
     },
     {
-      "name": "USD/THB",
-      "price": "32.55 บาท",
-      "change": "-0.91%",
+      "name": "Crude Oil (Brent)",
+      "price": "$109.03",
+      "change": "+7.78%",
+      "status": "up"
+    },
+    {
+      "name": "Bitcoin (BTC)",
+      "price": "$66,873",
+      "change": "-0.02%",
       "status": "down"
     },
     {
+      "name": "USD/THB",
+      "price": "32.64 บาท",
+      "change": "+0.12%",
+      "status": "up"
+    },
+    {
       "name": "Dollar Index (DXY)",
-      "price": "99.86",
-      "change": "-0.65%",
-      "status": "down"
+      "price": "100.19",
+      "change": "+0.16%",
+      "status": "up"
     },
     {
       "name": "US 10Y Yield",
       "price": "4.31%",
-      "change": "-0.71%",
+      "change": "-0.14%",
       "status": "down"
     }
   ],
-  "moverStory": "**ตลาดหุ้นสหรัฐฯ และสินทรัพย์เสี่ยงเติบโตดี ขณะที่น้ำมันและค่าเงินดอลลาร์อ่อนตัว**\n\nตลาดหุ้นสหรัฐฯ ปรับตัวขึ้นอย่างมีนัยสำคัญ โดย S&P 500 เพิ่มขึ้น 2.91% ขณะที่ Nasdaq ปรับเพิ่มขึ้น 3.83% ความเคลื่อนไหวนี้สอดคล้องกับการลดลงของอัตราผลตอบแทนพันธบัตรรัฐบาลสหรัฐ ทั้งนี้ราคาทองคำเพิ่มขึ้น 3.71% เมื่อเทียบกับหุ้นโซนเอเชียอย่าง Nikkei 225 และ KOSPI ที่ตกลงตามความตึงเครียดในภูมิภาค",
+  "moverStory": "**สรุปตลาดประจำวันที่ 4 เมษายน 2026**\n\nตลาดหุ้นสหรัฐฯ ในวันนี้มีการเคลื่อนไหวที่หลากหลาย โดย S&P 500 และ Nasdaq ขึ้นเล็กน้อย ขณะที่ Dow Jones และตลาดหุ้นญี่ปุ่น Nikkei 225 ร่วงหลุดแนวรับสำคัญ ส่วนราคาน้ำมันดิบพุ่งสูงขึ้น ในขณะที่ทองคำกลับลงมาอย่างชัดเจน",
   "topNews": [
     {
-      "text": "หุ้นฟื้นตัวเมื่อผลตอบแทนพันธบัตรลดต่ำลง",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/stocks-rebound-t-note-yields-140833102.html",
+      "text": "คำขู่ใหม่จากทรัมป์เกี่ยวกับอิหร่านทำให้นักลงทุนต้องระมัดระวังมากขึ้น",
+      "url": "https://finance.yahoo.com/economy/policy/articles/trumps-fresh-iran-threats-investors-064515350.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "วอลล์สตรีทอัปเกรด Celsius Holdings: คดีของ Costco ไม่น่าเป็นห่วง และแฟรนไชส์ยังเติบโต",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-upgrades-celsius-holdings-141014283.html",
+      "text": "ประมาณครึ่งหนึ่งคาดว่าความไม่สงบในตะวันออกกลางจะแย่ลง: ผลสำรวจ",
+      "url": "https://thehill.com/blogs/in-the-know/5815308-iranian-civilians-casualties/",
+      "source": "The Hill"
+    },
+    {
+      "text": "Eli Lilly เตรียมซื้อ Centessa Pharmaceuticals ในดีลมูลค่า 7.8 พันล้านดอลลาร์",
+      "url": "https://finance.yahoo.com/sectors/healthcare/articles/eli-lilly-lly-acquire-centessa-150229973.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "Arm เดินหน้าทำการตลาดด้วยชิปใหม่ และวอลล์สตรีทรักใคร่ ทำไม Needham แนะให้ซื้อหุ้น ARM",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/arm-making-bold-moves-house-140742286.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "Sysco กำลังซื้อตึกเก็บของที่ไม่สามารถสร้างได้",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/sysco-buying-warehouse-could-never-140555268.html",
+      "text": "การคาดการณ์ผลประกอบการ: คาดหวังอะไรจากรายงานของ F5?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/earnings-preview-expect-f5s-report-150908310.html",
       "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "การปรับตัวขึ้นของตลาดหุ้นสหรัฐฯ สะท้อนถึงความเชื่อมั่นที่เพิ่มขึ้นของนักลงทุน ต่อไปนี้มีผลต่อการตัดสินใจลงทุนทั้งในหุ้นและสินทรัพย์อื่น โดยเฉพาะเมื่อความกังวลเกี่ยวกับอัตราผลตอบแทนพันธบัตรลดลง ทำให้การลงทุนในตลาดเสี่ยงกลับมาได้รับความนิยมอีกครั้ง",
-  "closingTakeaway": "การติดตามสถานการณ์ต่าง ๆ รวมถึงนโยบายและการดำเนินกิจการของบริษัทใหญ่ จะมีผลต่อการตัดสินใจในตลาดอย่างมีนัยสำคัญ"
+  "whyItMatters": "ข่าวเกี่ยวกับคำขู่จากทรัมป์และสถานการณ์ในตะวันออกกลางส่งผลต่อนักลงทุนที่มีความกังวลเกี่ยวกับความไม่แน่นอนในตลาด ในขณะที่ดีลระหว่าง Eli Lilly และ Centessa ซึ่งมีมูลค่าสูงอาจสะท้อนถึงการเติบโตและความหวังในภาคการแพทย์",
+  "closingTakeaway": "การติดตามข่าวสารและแนวโน้มในตลาดเป็นสิ่งที่สำคัญสำหรับนักลงทุน เพื่อทำการตัดสินใจที่ชาญฉลาดในสภาวะตลาดที่มีความผันผวน"
 }
