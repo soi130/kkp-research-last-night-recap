@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "4 เมษายน 2569, 05:29 น.",
+  "lastUpdated": "5 เมษายน 2569, 05:26 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
@@ -21,15 +21,15 @@
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "52,463.27",
-      "change": "-2.38%",
-      "status": "down"
+      "price": "53,123.49",
+      "change": "+1.26%",
+      "status": "up"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "nan",
-      "change": "nan%",
-      "status": "down"
+      "price": "5,377.30",
+      "change": "+2.74%",
+      "status": "up"
     },
     {
       "name": "Gold (Spot)",
@@ -51,9 +51,9 @@
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$66,873",
-      "change": "-0.02%",
-      "status": "down"
+      "price": "$67,376",
+      "change": "+0.66%",
+      "status": "up"
     },
     {
       "name": "USD/THB",
@@ -74,29 +74,29 @@
       "status": "down"
     }
   ],
-  "moverStory": "**สรุปตลาดประจำวันที่ 4 เมษายน 2026**\n\nตลาดหุ้นสหรัฐฯ ในวันนี้มีการเคลื่อนไหวที่หลากหลาย โดย S&P 500 และ Nasdaq ขึ้นเล็กน้อย ขณะที่ Dow Jones และตลาดหุ้นญี่ปุ่น Nikkei 225 ร่วงหลุดแนวรับสำคัญ ส่วนราคาน้ำมันดิบพุ่งสูงขึ้น ในขณะที่ทองคำกลับลงมาอย่างชัดเจน",
+  "moverStory": "**ตลาดหุ้นสหรัฐฯ มีความผันผวน พร้อมกลับมาทำกำไร**\n\nวันนี้ตลาดหุ้นสหรัฐฯ มีแนวโน้มผสมผสาน โดย S&P 500 และ Nasdaq ยังคงมีการปรับตัวขึ้น ขณะที่ Dow Jones ยังคงแรงกดดัน โดยราคาน้ำมันดิบเพิ่มสูงขึ้นอย่างมากถึง 11.41% ทำให้หุ้นที่เกี่ยวข้องกับพลังงานมีการตอบรับที่ดี แม้ว่าในทางกลับกันราคาทองคำกลับลดลง",
   "topNews": [
     {
-      "text": "คำขู่ใหม่จากทรัมป์เกี่ยวกับอิหร่านทำให้นักลงทุนต้องระมัดระวังมากขึ้น",
-      "url": "https://finance.yahoo.com/economy/policy/articles/trumps-fresh-iran-threats-investors-064515350.html",
+      "text": "สหรัฐฯ และอิหร่านแลกเปลี่ยนคำขู่หลังการค้นหาอากาศยานที่หายไปของสหรัฐฯ ยังดำเนินต่อไป",
+      "url": "https://www.bbc.com/news/articles/c5y90jl8veyo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
+    },
+    {
+      "text": "เซเนกัลห้ามรัฐมนตรีเดินทางต่างประเทศหลังราคาน้ำมันสูงขึ้น",
+      "url": "https://www.bbc.com/news/articles/cp84z5r4d32o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
+    },
+    {
+      "text": "เพนตากอนได้รับการสนับสนุนจาก Boeing และ Lockheed ให้ผลิตขีปนาวุธเพิ่มขึ้นถึงสามเท่า",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/pentagon-taps-boeing-lockheed-triple-220254992.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ประมาณครึ่งหนึ่งคาดว่าความไม่สงบในตะวันออกกลางจะแย่ลง: ผลสำรวจ",
-      "url": "https://thehill.com/blogs/in-the-know/5815308-iranian-civilians-casualties/",
+      "text": "อเมริกากำลังมุ่งหน้าไปสู่ภาวะถดถอย — และอาจเป็นภาวะที่เลวร้ายที่สุด",
+      "url": "https://thehill.com/opinion/finance/5814974-middle-class-decline-permanent-crisis/",
       "source": "The Hill"
-    },
-    {
-      "text": "Eli Lilly เตรียมซื้อ Centessa Pharmaceuticals ในดีลมูลค่า 7.8 พันล้านดอลลาร์",
-      "url": "https://finance.yahoo.com/sectors/healthcare/articles/eli-lilly-lly-acquire-centessa-150229973.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "การคาดการณ์ผลประกอบการ: คาดหวังอะไรจากรายงานของ F5?",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/earnings-preview-expect-f5s-report-150908310.html",
-      "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "ข่าวเกี่ยวกับคำขู่จากทรัมป์และสถานการณ์ในตะวันออกกลางส่งผลต่อนักลงทุนที่มีความกังวลเกี่ยวกับความไม่แน่นอนในตลาด ในขณะที่ดีลระหว่าง Eli Lilly และ Centessa ซึ่งมีมูลค่าสูงอาจสะท้อนถึงการเติบโตและความหวังในภาคการแพทย์",
-  "closingTakeaway": "การติดตามข่าวสารและแนวโน้มในตลาดเป็นสิ่งที่สำคัญสำหรับนักลงทุน เพื่อทำการตัดสินใจที่ชาญฉลาดในสภาวะตลาดที่มีความผันผวน"
+  "whyItMatters": "การเปลี่ยนแปลงในตลาดพลังงานและการเมืองระหว่างประเทศส่งผลกระทบต่อความเชื่อมั่นของนักลงทุน โดยเฉพาะในสถานการณ์ที่มีตึงเครียดระหว่างสหรัฐฯ กับอิหร่าน",
+  "closingTakeaway": "ตลาดมีความผันผวน อย่างไรก็ตาม การเพิ่มขึ้นของหุ้นพลังงานอาจเป็นสัญญาณที่ดีในอนาคต แม้จะมีความไม่แน่นอนในสถานการณ์การเมือง"
 }
