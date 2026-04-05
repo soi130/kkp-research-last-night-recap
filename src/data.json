@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "5 เมษายน 2569, 05:26 น.",
+  "lastUpdated": "6 เมษายน 2569, 05:27 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
@@ -33,38 +33,38 @@
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,651.50",
-      "change": "-2.75%",
-      "status": "down"
+      "price": "$4,664.10",
+      "change": "+0.27%",
+      "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$111.54",
-      "change": "+11.41%",
+      "price": "$114.72",
+      "change": "+2.85%",
       "status": "up"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$109.03",
-      "change": "+7.78%",
+      "price": "$111.20",
+      "change": "+1.99%",
       "status": "up"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$67,376",
-      "change": "+0.66%",
+      "price": "$67,342",
+      "change": "+0.08%",
       "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.64 บาท",
-      "change": "+0.12%",
+      "price": "32.63 บาท",
+      "change": "+0.09%",
       "status": "up"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "100.19",
-      "change": "+0.16%",
+      "price": "100.25",
+      "change": "+0.22%",
       "status": "up"
     },
     {
@@ -74,29 +74,29 @@
       "status": "down"
     }
   ],
-  "moverStory": "**ตลาดหุ้นสหรัฐฯ มีความผันผวน พร้อมกลับมาทำกำไร**\n\nวันนี้ตลาดหุ้นสหรัฐฯ มีแนวโน้มผสมผสาน โดย S&P 500 และ Nasdaq ยังคงมีการปรับตัวขึ้น ขณะที่ Dow Jones ยังคงแรงกดดัน โดยราคาน้ำมันดิบเพิ่มสูงขึ้นอย่างมากถึง 11.41% ทำให้หุ้นที่เกี่ยวข้องกับพลังงานมีการตอบรับที่ดี แม้ว่าในทางกลับกันราคาทองคำกลับลดลง",
+  "moverStory": "**ตลาดหุ้นปรับตัวขึ้นเล็กน้อย แม้ว่าสถานการณ์ต่างประเทศจะตึงเครียด**\n\nวันนี้ตลาดหุ้นสหรัฐฯ แสดงสัญญาณที่ผสมกัน โดย S&P 500 และ Nasdaq ขยับขึ้นเล็กน้อย ขณะที่ Dow Jones ลดลงเล็กน้อย สาเหตุหลักมาจากความวิตกกังวลเกี่ยวกับสถานการณ์ในอิหร่านที่ส่งผลกระทบต่อไวน์ระหว่างประเทศและราคาน้ำมันที่สูงขึ้น",
   "topNews": [
     {
-      "text": "สหรัฐฯ และอิหร่านแลกเปลี่ยนคำขู่หลังการค้นหาอากาศยานที่หายไปของสหรัฐฯ ยังดำเนินต่อไป",
-      "url": "https://www.bbc.com/news/articles/c5y90jl8veyo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
-    },
-    {
-      "text": "เซเนกัลห้ามรัฐมนตรีเดินทางต่างประเทศหลังราคาน้ำมันสูงขึ้น",
-      "url": "https://www.bbc.com/news/articles/cp84z5r4d32o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
-    },
-    {
-      "text": "เพนตากอนได้รับการสนับสนุนจาก Boeing และ Lockheed ให้ผลิตขีปนาวุธเพิ่มขึ้นถึงสามเท่า",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/pentagon-taps-boeing-lockheed-triple-220254992.html",
+      "text": "'ไม่แปลกใจหากตลาดกระทิงยังคงดำเนินต่อไป': วอลล์สตรีทมองข้ามความขัดแย้งในอิหร่าน",
+      "url": "https://finance.yahoo.com/news/wouldnt-be-shocked-if-bull-market-continues-wall-street-aims-to-look-past-iran-conflict-150025546.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "อเมริกากำลังมุ่งหน้าไปสู่ภาวะถดถอย — และอาจเป็นภาวะที่เลวร้ายที่สุด",
-      "url": "https://thehill.com/opinion/finance/5814974-middle-class-decline-permanent-crisis/",
+      "text": "ฟิวเจอร์ส Dow Jones ลดลงหลังทรัมป์กล่าวว่าอิหร่านต้องเผชิญกับ 'นรก' หากไม่มีข้อตกลง",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-trump-threatens-iran-hell-hormuz-oil-prices-sandisk/?src=A00220&yptr=yahoo",
+      "source": "Yahoo Finance"
+    },
+    {
+      "text": "ทรัมป์ทำให้ NATO วุ่นวายเมื่อแรงกดดันเพิ่มขึ้นเกี่ยวกับช่องแคบฮอร์มุซ",
+      "url": "https://thehill.com/policy/defense/5815848-trump-nato-tensions-rise-withdrawal-threats/",
+      "source": "The Hill"
+    },
+    {
+      "text": "สงครามในอิหร่านแสดงให้เห็นว่าทำไมสหรัฐจึงต้องมีแหล่งพลังงานที่หลากหลาย",
+      "url": "https://thehill.com/opinion/energy-environment/5815286-renewable-energy-diversity-importance/",
       "source": "The Hill"
     }
   ],
-  "whyItMatters": "การเปลี่ยนแปลงในตลาดพลังงานและการเมืองระหว่างประเทศส่งผลกระทบต่อความเชื่อมั่นของนักลงทุน โดยเฉพาะในสถานการณ์ที่มีตึงเครียดระหว่างสหรัฐฯ กับอิหร่าน",
-  "closingTakeaway": "ตลาดมีความผันผวน อย่างไรก็ตาม การเพิ่มขึ้นของหุ้นพลังงานอาจเป็นสัญญาณที่ดีในอนาคต แม้จะมีความไม่แน่นอนในสถานการณ์การเมือง"
+  "whyItMatters": "ราคาน้ำมันที่สูงขึ้นมีผลกระทบโดยตรงต่อเศรษฐกิจทั่วโลก ส่งผลให้ความวิตกกังวลเกี่ยวกับอัตราเงินเฟ้อและการเติบโตทางเศรษฐกิจเพิ่มสูงขึ้น",
+  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์ในอิหร่านอย่างใกล้ชิด เนื่องจากความตึงเครียดในภูมิภาคอาจส่งผลกระทบต่อเสถียรภาพทางเศรษฐกิจและตลาดในอนาคต"
 }
