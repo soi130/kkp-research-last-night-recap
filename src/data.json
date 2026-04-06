@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "6 เมษายน 2569, 05:27 น.",
+  "lastUpdated": "7 เมษายน 2569, 05:33 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "6,582.69",
-      "change": "+0.11%",
+      "price": "6,611.83",
+      "change": "+0.44%",
       "status": "up"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "46,504.67",
-      "change": "-0.13%",
-      "status": "down"
+      "price": "46,669.88",
+      "change": "+0.36%",
+      "status": "up"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "21,879.18",
-      "change": "+0.18%",
+      "price": "21,996.34",
+      "change": "+0.54%",
       "status": "up"
     },
     {
@@ -33,70 +33,70 @@
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,664.10",
-      "change": "+0.27%",
+      "price": "$4,687.60",
+      "change": "+0.78%",
       "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$114.72",
-      "change": "+2.85%",
+      "price": "$112.87",
+      "change": "+1.19%",
       "status": "up"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$111.20",
-      "change": "+1.99%",
+      "price": "$109.69",
+      "change": "+0.61%",
       "status": "up"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$67,342",
-      "change": "+0.08%",
+      "price": "$69,393",
+      "change": "+0.60%",
       "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.63 บาท",
-      "change": "+0.09%",
-      "status": "up"
+      "price": "32.54 บาท",
+      "change": "-0.18%",
+      "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "100.25",
-      "change": "+0.22%",
-      "status": "up"
+      "price": "99.99",
+      "change": "-0.04%",
+      "status": "down"
     },
     {
       "name": "US 10Y Yield",
-      "price": "4.31%",
-      "change": "-0.14%",
-      "status": "down"
+      "price": "4.34%",
+      "change": "+0.51%",
+      "status": "up"
     }
   ],
-  "moverStory": "**ตลาดหุ้นปรับตัวขึ้นเล็กน้อย แม้ว่าสถานการณ์ต่างประเทศจะตึงเครียด**\n\nวันนี้ตลาดหุ้นสหรัฐฯ แสดงสัญญาณที่ผสมกัน โดย S&P 500 และ Nasdaq ขยับขึ้นเล็กน้อย ขณะที่ Dow Jones ลดลงเล็กน้อย สาเหตุหลักมาจากความวิตกกังวลเกี่ยวกับสถานการณ์ในอิหร่านที่ส่งผลกระทบต่อไวน์ระหว่างประเทศและราคาน้ำมันที่สูงขึ้น",
+  "moverStory": "**ตลาดหุ้นปรับตัวเพิ่มขึ้นในวันอังคารนี้**\n\nดัชนีหลักในตลาดหุ้นสหรัฐอเมริกาทั้ง S&P 500, Dow Jones และ Nasdaq ต่างเพิ่มขึ้นอย่างต่อเนื่อง โดยเฉพาะ Nasdaq ขึ้น 0.54% ขณะที่ตลาดเอเชียอย่าง Nikkei 225 และ KOSPI ก็แสดงสัญญาณการเติบโตเช่นกัน การปรับตัวนี้อาจได้รับแรงหนุนจากแนวโน้มเชิงบวกในตลาดพันธบัตรที่ช่วยสร้างความมั่นใจให้กับนักลงทุน",
   "topNews": [
     {
-      "text": "'ไม่แปลกใจหากตลาดกระทิงยังคงดำเนินต่อไป': วอลล์สตรีทมองข้ามความขัดแย้งในอิหร่าน",
-      "url": "https://finance.yahoo.com/news/wouldnt-be-shocked-if-bull-market-continues-wall-street-aims-to-look-past-iran-conflict-150025546.html",
+      "text": "ตลาดพันธบัตรช่วยผ่อนคลายปัญหาอัตราดอกเบี้ยของเฟด",
+      "url": "https://finance.yahoo.com/economy/article/the-bond-market-is-helping-resolve-the-feds-interest-rate-dilemma-103000702.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ฟิวเจอร์ส Dow Jones ลดลงหลังทรัมป์กล่าวว่าอิหร่านต้องเผชิญกับ 'นรก' หากไม่มีข้อตกลง",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-trump-threatens-iran-hell-hormuz-oil-prices-sandisk/?src=A00220&yptr=yahoo",
+      "text": "JPMorgan มีข้อความชัดเจนเกี่ยวกับการปรับลดอัตราดอกเบี้ยของเฟด",
+      "url": "https://finance.yahoo.com/economy/policy/articles/jpmorgan-stark-message-next-fed-180300978.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ทรัมป์ทำให้ NATO วุ่นวายเมื่อแรงกดดันเพิ่มขึ้นเกี่ยวกับช่องแคบฮอร์มุซ",
-      "url": "https://thehill.com/policy/defense/5815848-trump-nato-tensions-rise-withdrawal-threats/",
-      "source": "The Hill"
+      "text": "ราคาน้ำมันพุ่ง อาจส่งผลกระทบต่อเศรษฐกิจ ทำให้ผู้ลงทุนควรซื้อหุ้นปันผลที่มีความทนทาน",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/worried-surging-oil-prices-cause-135000618.html",
+      "source": "Yahoo Finance"
     },
     {
-      "text": "สงครามในอิหร่านแสดงให้เห็นว่าทำไมสหรัฐจึงต้องมีแหล่งพลังงานที่หลากหลาย",
-      "url": "https://thehill.com/opinion/energy-environment/5815286-renewable-energy-diversity-importance/",
-      "source": "The Hill"
+      "text": "รายได้ไตรมาสแรกของ Foxconn เพิ่มสูงขึ้น แต่เตือนเรื่องภูมิรัฐศาสตร์",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/foxconn-first-quarter-revenue-jumps-074035924.html",
+      "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "ราคาน้ำมันที่สูงขึ้นมีผลกระทบโดยตรงต่อเศรษฐกิจทั่วโลก ส่งผลให้ความวิตกกังวลเกี่ยวกับอัตราเงินเฟ้อและการเติบโตทางเศรษฐกิจเพิ่มสูงขึ้น",
-  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์ในอิหร่านอย่างใกล้ชิด เนื่องจากความตึงเครียดในภูมิภาคอาจส่งผลกระทบต่อเสถียรภาพทางเศรษฐกิจและตลาดในอนาคต"
+  "whyItMatters": "การปรับตัวของตลาดหุ้นในวันนี้แสดงให้เห็นถึงความมั่นใจของนักลงทุน แม้ว่าจะมีปัจจัยเสี่ยงจากราคาน้ำมันที่พุ่งสูงและความกังวลเกี่ยวกับการปรับลดอัตราดอกเบี้ยในอนาคต ซึ่งสามารถมีผลกระทบต่อการเติบโตทางเศรษฐกิจ",
+  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์น้ำมันและการตอบสนองของเฟดต่อข้อมูลเศรษฐกิจที่มีการเปลี่ยนแปลงอย่างรวดเร็ว เพื่อเตรียมรับมือกับความผันผวนในอนาคต"
 }
