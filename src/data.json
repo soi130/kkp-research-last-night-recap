@@ -1,102 +1,102 @@
 {
-  "lastUpdated": "7 เมษายน 2569, 05:33 น.",
+  "lastUpdated": "8 เมษายน 2569, 05:35 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "6,611.83",
-      "change": "+0.44%",
+      "price": "6,616.85",
+      "change": "+0.08%",
       "status": "up"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "46,669.88",
-      "change": "+0.36%",
-      "status": "up"
-    },
-    {
-      "name": "Nasdaq (US)",
-      "price": "21,996.34",
-      "change": "+0.54%",
-      "status": "up"
-    },
-    {
-      "name": "Nikkei 225 (JP)*",
-      "price": "53,123.49",
-      "change": "+1.26%",
-      "status": "up"
-    },
-    {
-      "name": "KOSPI (KR)*",
-      "price": "5,377.30",
-      "change": "+2.74%",
-      "status": "up"
-    },
-    {
-      "name": "Gold (Spot)",
-      "price": "$4,687.60",
-      "change": "+0.78%",
-      "status": "up"
-    },
-    {
-      "name": "Crude Oil (WTI)",
-      "price": "$112.87",
-      "change": "+1.19%",
-      "status": "up"
-    },
-    {
-      "name": "Crude Oil (Brent)",
-      "price": "$109.69",
-      "change": "+0.61%",
-      "status": "up"
-    },
-    {
-      "name": "Bitcoin (BTC)",
-      "price": "$69,393",
-      "change": "+0.60%",
-      "status": "up"
-    },
-    {
-      "name": "USD/THB",
-      "price": "32.54 บาท",
+      "price": "46,584.46",
       "change": "-0.18%",
       "status": "down"
     },
     {
+      "name": "Nasdaq (US)",
+      "price": "22,017.85",
+      "change": "+0.10%",
+      "status": "up"
+    },
+    {
+      "name": "Nikkei 225 (JP)*",
+      "price": "53,413.68",
+      "change": "+0.55%",
+      "status": "up"
+    },
+    {
+      "name": "KOSPI (KR)*",
+      "price": "5,450.33",
+      "change": "+1.36%",
+      "status": "up"
+    },
+    {
+      "name": "Gold (Spot)",
+      "price": "$4,755.40",
+      "change": "+2.12%",
+      "status": "up"
+    },
+    {
+      "name": "Crude Oil (WTI)",
+      "price": "$108.22",
+      "change": "-3.73%",
+      "status": "down"
+    },
+    {
+      "name": "Crude Oil (Brent)",
+      "price": "$103.30",
+      "change": "-5.89%",
+      "status": "down"
+    },
+    {
+      "name": "Bitcoin (BTC)",
+      "price": "$70,691",
+      "change": "+2.66%",
+      "status": "up"
+    },
+    {
+      "name": "USD/THB",
+      "price": "32.40 บาท",
+      "change": "-0.89%",
+      "status": "down"
+    },
+    {
       "name": "Dollar Index (DXY)",
-      "price": "99.99",
-      "change": "-0.04%",
+      "price": "99.52",
+      "change": "-0.46%",
       "status": "down"
     },
     {
       "name": "US 10Y Yield",
       "price": "4.34%",
-      "change": "+0.51%",
+      "change": "+0.18%",
       "status": "up"
     }
   ],
-  "moverStory": "**ตลาดหุ้นปรับตัวเพิ่มขึ้นในวันอังคารนี้**\n\nดัชนีหลักในตลาดหุ้นสหรัฐอเมริกาทั้ง S&P 500, Dow Jones และ Nasdaq ต่างเพิ่มขึ้นอย่างต่อเนื่อง โดยเฉพาะ Nasdaq ขึ้น 0.54% ขณะที่ตลาดเอเชียอย่าง Nikkei 225 และ KOSPI ก็แสดงสัญญาณการเติบโตเช่นกัน การปรับตัวนี้อาจได้รับแรงหนุนจากแนวโน้มเชิงบวกในตลาดพันธบัตรที่ช่วยสร้างความมั่นใจให้กับนักลงทุน",
+  "moverStory": "**ตลาดหุ้นปรับตัวขึ้นท่ามกลางความหวังในการหยุดยิงในอิหร่าน**\n\nวันนี้ตลาดหลักทรัพย์สหรัฐฯ ฟื้นตัวเล็กน้อย โดย S&P 500 และ Nasdaq ปรับตัวขึ้น ขณะที่ Dow Jones ร่วงเล็กน้อย เงินดอลลาร์อ่อนค่าลง เนื่องจากตลาดมีความหวังเกี่ยวกับการหยุดยิงในอิหร่าน ส่งผลกระทบต่อการคาดการณ์นโยบายการเงินของเฟด ส่วนราคาทองคำและบิตคอยน์ยังคงเติบโตต่อเนื่อง",
   "topNews": [
     {
-      "text": "ตลาดพันธบัตรช่วยผ่อนคลายปัญหาอัตราดอกเบี้ยของเฟด",
-      "url": "https://finance.yahoo.com/economy/article/the-bond-market-is-helping-resolve-the-feds-interest-rate-dilemma-103000702.html",
+      "text": "ดอลลาร์อ่อนค่าหลังมีความหวังเรื่องการหยุดยิงในอิหร่าน",
+      "url": "https://finance.yahoo.com/markets/currencies/articles/dollar-slips-hopes-ceasefire-iran-143338936.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "JPMorgan มีข้อความชัดเจนเกี่ยวกับการปรับลดอัตราดอกเบี้ยของเฟด",
+      "text": "ตลาดหุ้นปรับตัวขึ้นจากการผลักดันการหยุดยิงในอิหร่าน",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/stocks-climb-push-ceasefire-iran-140532758.html",
+      "source": "Yahoo Finance"
+    },
+    {
+      "text": "JPMorgan แสดงความเห็นชัดเจนเกี่ยวกับการลดดอกเบี้ยครั้งถัดไปของเฟด",
       "url": "https://finance.yahoo.com/economy/policy/articles/jpmorgan-stark-message-next-fed-180300978.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ราคาน้ำมันพุ่ง อาจส่งผลกระทบต่อเศรษฐกิจ ทำให้ผู้ลงทุนควรซื้อหุ้นปันผลที่มีความทนทาน",
-      "url": "https://finance.yahoo.com/sectors/energy/articles/worried-surging-oil-prices-cause-135000618.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "รายได้ไตรมาสแรกของ Foxconn เพิ่มสูงขึ้น แต่เตือนเรื่องภูมิรัฐศาสตร์",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/foxconn-first-quarter-revenue-jumps-074035924.html",
-      "source": "Yahoo Finance"
+      "text": "คูเวตแจ้งประชาชนให้อยู่บ้านขณะเส้นตายของทรัมป์เกี่ยวกับอิหร่านใกล้เข้ามา",
+      "url": "https://thehill.com/policy/international/5820070-trump-deadline-iran-kuwait-curfew/",
+      "source": "The Hill"
     }
   ],
-  "whyItMatters": "การปรับตัวของตลาดหุ้นในวันนี้แสดงให้เห็นถึงความมั่นใจของนักลงทุน แม้ว่าจะมีปัจจัยเสี่ยงจากราคาน้ำมันที่พุ่งสูงและความกังวลเกี่ยวกับการปรับลดอัตราดอกเบี้ยในอนาคต ซึ่งสามารถมีผลกระทบต่อการเติบโตทางเศรษฐกิจ",
-  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์น้ำมันและการตอบสนองของเฟดต่อข้อมูลเศรษฐกิจที่มีการเปลี่ยนแปลงอย่างรวดเร็ว เพื่อเตรียมรับมือกับความผันผวนในอนาคต"
+  "whyItMatters": "ความกังวลเกี่ยวกับความขัดแย้งในอิหร่านส่งผลต่อความเชื่อมั่นในตลาด และเหตุการณ์นี้อาจมีผลกระทบต่อการตัดสินใจทางการเงินและการลงทุนในอนาคต",
+  "closingTakeaway": "การเจรจาสันติภาพในอิหร่านอาจช่วยหนุนให้ตลาดหุ้นขยับตัวดีขึ้น แต่การติดตามสถานการณ์อย่างใกล้ชิดยังคงมีความสำคัญต่อการตัดสินใจลงทุน"
 }
