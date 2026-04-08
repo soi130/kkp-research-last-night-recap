@@ -1,102 +1,102 @@
 {
-  "lastUpdated": "8 เมษายน 2569, 05:35 น.",
+  "lastUpdated": "9 เมษายน 2569, 05:36 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "6,616.85",
-      "change": "+0.08%",
+      "price": "6,782.81",
+      "change": "+2.51%",
       "status": "up"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "46,584.46",
-      "change": "-0.18%",
-      "status": "down"
+      "price": "47,909.92",
+      "change": "+2.85%",
+      "status": "up"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "22,017.85",
-      "change": "+0.10%",
+      "price": "22,634.99",
+      "change": "+2.80%",
       "status": "up"
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "53,413.68",
-      "change": "+0.55%",
+      "price": "53,429.56",
+      "change": "+0.03%",
       "status": "up"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "5,450.33",
-      "change": "+1.36%",
+      "price": "5,494.78",
+      "change": "+0.82%",
       "status": "up"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,755.40",
-      "change": "+2.12%",
+      "price": "$4,736.00",
+      "change": "+1.69%",
       "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$108.22",
-      "change": "-3.73%",
+      "price": "$96.97",
+      "change": "-14.15%",
       "status": "down"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$103.30",
-      "change": "-5.89%",
+      "price": "$97.28",
+      "change": "-10.97%",
       "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$70,691",
-      "change": "+2.66%",
-      "status": "up"
+      "price": "$71,214",
+      "change": "-1.01%",
+      "status": "down"
     },
     {
       "name": "USD/THB",
-      "price": "32.40 บาท",
-      "change": "-0.89%",
+      "price": "32.03 บาท",
+      "change": "-1.69%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "99.52",
-      "change": "-0.46%",
+      "price": "99.00",
+      "change": "-0.64%",
       "status": "down"
     },
     {
       "name": "US 10Y Yield",
-      "price": "4.34%",
-      "change": "+0.18%",
-      "status": "up"
+      "price": "4.29%",
+      "change": "-1.20%",
+      "status": "down"
     }
   ],
-  "moverStory": "**ตลาดหุ้นปรับตัวขึ้นท่ามกลางความหวังในการหยุดยิงในอิหร่าน**\n\nวันนี้ตลาดหลักทรัพย์สหรัฐฯ ฟื้นตัวเล็กน้อย โดย S&P 500 และ Nasdaq ปรับตัวขึ้น ขณะที่ Dow Jones ร่วงเล็กน้อย เงินดอลลาร์อ่อนค่าลง เนื่องจากตลาดมีความหวังเกี่ยวกับการหยุดยิงในอิหร่าน ส่งผลกระทบต่อการคาดการณ์นโยบายการเงินของเฟด ส่วนราคาทองคำและบิตคอยน์ยังคงเติบโตต่อเนื่อง",
+  "moverStory": "**ตลาดหุ้นสหรัฐปรับตัวขึ้นอย่างแข็งแกร่งแม้น้ำมันร่วง**\n\nวันนี้ตลาดหุ้นสหรัฐปรับตัวขึ้นทุกดัชนี โดย S&P 500 เพิ่มขึ้น 2.51% นำโดย Dow Jones ที่เพิ่มขึ้น 2.85% และ Nasdaq ที่เพิ่มขึ้น 2.80% แม้ว่าราคาน้ำมันจะลดลงอย่างหนัก โดยเฉพาะน้ำมัน WTI และ Brent ที่ร่วงมากกว่า 10%.",
   "topNews": [
     {
-      "text": "ดอลลาร์อ่อนค่าหลังมีความหวังเรื่องการหยุดยิงในอิหร่าน",
-      "url": "https://finance.yahoo.com/markets/currencies/articles/dollar-slips-hopes-ceasefire-iran-143338936.html",
+      "text": "ราคาน้ำมันดิ่งลง และหุ้นพุ่งตามแผนหยุดยิงสหรัฐ-อิหร่าน",
+      "url": "https://www.bbc.com/news/articles/c8r40y3rv75o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
+    },
+    {
+      "text": "ข้อตกลงหยุดยิงอิหร่านเปิดทางให้ทรัมป์หนีสงคราม แต่ต้องมีค่าใช้จ่ายสูง",
+      "url": "https://www.bbc.com/news/articles/cwyvp55xrlro?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
+    },
+    {
+      "text": "ดอลลาร์อ่อนค่าลงเล็กน้อยก่อนสิ้นสุดกำหนดเวลาของอิหร่านคืนนี้",
+      "url": "https://finance.yahoo.com/markets/currencies/articles/dollar-slightly-lower-ahead-tonight-143605438.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ตลาดหุ้นปรับตัวขึ้นจากการผลักดันการหยุดยิงในอิหร่าน",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/stocks-climb-push-ceasefire-iran-140532758.html",
+      "text": "หุ้น Intel พุ่งสูงหลังประกาศความร่วมมือกับ NVIDIA",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/intel-corporation-intc-surged-following-143458219.html",
       "source": "Yahoo Finance"
-    },
-    {
-      "text": "JPMorgan แสดงความเห็นชัดเจนเกี่ยวกับการลดดอกเบี้ยครั้งถัดไปของเฟด",
-      "url": "https://finance.yahoo.com/economy/policy/articles/jpmorgan-stark-message-next-fed-180300978.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "คูเวตแจ้งประชาชนให้อยู่บ้านขณะเส้นตายของทรัมป์เกี่ยวกับอิหร่านใกล้เข้ามา",
-      "url": "https://thehill.com/policy/international/5820070-trump-deadline-iran-kuwait-curfew/",
-      "source": "The Hill"
     }
   ],
-  "whyItMatters": "ความกังวลเกี่ยวกับความขัดแย้งในอิหร่านส่งผลต่อความเชื่อมั่นในตลาด และเหตุการณ์นี้อาจมีผลกระทบต่อการตัดสินใจทางการเงินและการลงทุนในอนาคต",
-  "closingTakeaway": "การเจรจาสันติภาพในอิหร่านอาจช่วยหนุนให้ตลาดหุ้นขยับตัวดีขึ้น แต่การติดตามสถานการณ์อย่างใกล้ชิดยังคงมีความสำคัญต่อการตัดสินใจลงทุน"
+  "whyItMatters": "การหยุดยิงระหว่างสหรัฐและอิหร่านส่งผลให้ตลาดหุ้นดีดตัวขึ้นในขณะที่นักลงทุนตอบสนองต่อสถานการณ์ตลาดน้ำมันที่ไม่แน่นอน ส่งผลให้ราคาน้ำมันลดต่ำลงซึ่งเข้ามาเป็นปัจจัยกดดันตลาดน้ำมันอย่างหนัก",
+  "closingTakeaway": "นักลงทุนควรจับตาดูสถานการณ์น้ำมันและผลกระทบต่อเศรษฐกิจอย่างใกล้ชิดเนื่องจากความผันผวนในตลาดน้ำมันอาจสร้างความไม่มั่นคงในตลาดหุ้นต่อไปในอนาคต."
 }
