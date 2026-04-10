@@ -1,102 +1,102 @@
 {
-  "lastUpdated": "10 เมษายน 2569, 05:37 น.",
+  "lastUpdated": "11 เมษายน 2569, 05:34 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "6,824.66",
-      "change": "+0.62%",
-      "status": "up"
+      "price": "6,816.89",
+      "change": "-0.11%",
+      "status": "down"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "48,185.80",
-      "change": "+0.58%",
-      "status": "up"
+      "price": "47,916.57",
+      "change": "-0.56%",
+      "status": "down"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "22,822.42",
-      "change": "+0.83%",
+      "price": "22,902.89",
+      "change": "+0.35%",
       "status": "up"
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "56,308.42",
-      "change": "+5.39%",
-      "status": "up"
+      "price": "55,895.32",
+      "change": "-0.73%",
+      "status": "down"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "5,872.34",
-      "change": "+6.87%",
-      "status": "up"
+      "price": "nan",
+      "change": "nan%",
+      "status": "down"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,791.30",
-      "change": "+0.88%",
-      "status": "up"
+      "price": "$4,771.00",
+      "change": "-0.44%",
+      "status": "down"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$98.30",
-      "change": "+4.12%",
-      "status": "up"
+      "price": "$95.63",
+      "change": "-2.29%",
+      "status": "down"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$96.54",
-      "change": "+1.89%",
-      "status": "up"
+      "price": "$94.45",
+      "change": "-1.53%",
+      "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$72,408",
-      "change": "+1.81%",
+      "price": "$73,027",
+      "change": "+1.75%",
       "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.00 บาท",
-      "change": "-0.22%",
+      "price": "31.98 บาท",
+      "change": "-0.28%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "98.79",
-      "change": "-0.34%",
+      "price": "98.70",
+      "change": "-0.12%",
       "status": "down"
     },
     {
       "name": "US 10Y Yield",
-      "price": "4.29%",
-      "change": "+0.05%",
+      "price": "4.32%",
+      "change": "+0.56%",
       "status": "up"
     }
   ],
-  "moverStory": "**ตลาดหุ้นปรับตัวขึ้นท่ามกลางข่าวดีเกี่ยวกับสหรัฐฯ และอิหร่าน**\n\nตลาดหุ้นส่วนใหญ่ในสหรัฐฯ และเอเชียปรับตัวขึ้นในวันนี้ โดยมีปัจจัยจากการตกลงหยุดยิงระหว่างสหรัฐฯ กับอิหร่าน ซึ่งทำให้ราคาทองคำและน้ำมันพุ่งสูงขึ้น ขณะที่อัตราผลตอบแทนพันธบัตร 10 ปีของสหรัฐฯ ขยับขึ้นเล็กน้อย",
+  "moverStory": "**ตลาดหุ้นมีความผันผวนหลังพบข้อมูลเศรษฐกิจและข่าวสำคัญ**\n\nในตลาดหุ้นวันนี้ S&P 500 และ Dow Jones ปรับตัวลดลงในขณะที่ Nasdaq ฟื้นตัวขึ้นเล็กน้อย โดยมีปัจจัยหนุนจากราคาน้ำมันที่พุ่งสูงขึ้นและความกังวลเกี่ยวกับความเสี่ยงใหม่ในตลาด AI ส่วนทองคำและน้ำมันดิบก็มีการปรับตัวลดลงเช่นกัน",
   "topNews": [
     {
-      "text": "ดอลลาร์สหรัฐอ่อนค่าลง ขณะที่ทองคำพุ่งขึ้นจากการหยุดยิงระหว่างสหรัฐฯ กับอิหร่าน",
-      "url": "https://finance.yahoo.com/markets/currencies/articles/dollar-tumbles-gold-surges-us-143755401.html",
+      "text": "หุ้นซอฟต์แวร์สหรัฐตกต่ำจากความวิตกเรื่อง AI",
+      "url": "https://finance.yahoo.com/sectors/technology/articles/us-software-stocks-fall-anthropics-152738477.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "การซื้อขายที่ควรทำขณะนี้ หลังสหรัฐฯ และอิหร่านตกลงหยุดยิงสองสัปดาห์",
-      "url": "https://finance.yahoo.com/markets/options/articles/1-trade-now-u-iran-145040026.html",
+      "text": "Occidental พบแหล่งน้ำมันใหม่ในอ่าวเม็กซิโก",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/occidental-strikes-oil-gulf-mexico-151939374.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "CEO ของ Howard Hanna เผชิญกับความวิตกเกี่ยวกับการล่มสลายของตลาดที่อยู่อาศัย",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/howard-hanna-ceo-confronts-housing-200049242.html",
+      "text": "ดัชนีหุ้นฟื้นตัวแม้ราคาน้ำมันพุ่งสูง",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/stock-indexes-rebound-despite-rising-151535273.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ผู้จัดจำหน่ายสุราขนาดใหญ่ปิดกิจการ เลิกจ้างพนักงานกว่า 500 คน",
-      "url": "https://finance.yahoo.com/economy/policy/articles/major-alcohol-distributor-shuts-down-161700316.html",
+      "text": "Nexus Mutual ต้องการเป็นประกันที่คริปโตไม่เคยมี",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/nexus-mutual-wants-insurance-policy-214900982.html",
       "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "การหยุดยิงระหว่างสหรัฐฯ และอิหร่านสามารถลดความตึงเครียดในภูมิภาค ทำให้ตลาดน้ำมันและทองคำฟื้นตัว และช่วยสนับสนุนตลาดหุ้นโดยรวม",
-  "closingTakeaway": "ในขณะที่ตลาดหุ้นทั่วโลกดูเหมือนจะอยู่ในแนวโน้มขึ้น นักลงทุนควรเฝ้าติดตามสถานการณ์ทางภูมิรัฐศาสตร์ที่ยังคงมีความผันผวน"
+  "whyItMatters": "การปรับตัวของหุ้นซอฟต์แวร์และการค้นพบแหล่งน้ำมันใหม่ในอ่าวเม็กซิโกมีผลกระทบโดยตรงต่อการเคลื่อนไหวของตลาดและความเชื่อมั่นต่อเศรษฐกิจในอนาคต ขณะที่ราคาน้ำมันยังคงเป็นปัจจัยที่สำคัญในการขับเคลื่อนดัชนีหุ้นโดยรวม",
+  "closingTakeaway": "ตลาดยังคงอยู่ในช่วงผันผวน เราต้องจับตาดูปัจจัยที่สำคัญ เช่น ราคาน้ำมัน และการพัฒนาในด้าน AI ที่อาจมีผลต่อการลงทุนในอนาคต"
 }
