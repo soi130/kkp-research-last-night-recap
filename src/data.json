@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "12 เมษายน 2569, 05:28 น.",
+  "lastUpdated": "13 เมษายน 2569, 05:30 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
@@ -33,39 +33,39 @@
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,761.90",
-      "change": "-0.63%",
+      "price": "$4,692.90",
+      "change": "-1.45%",
       "status": "down"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$96.57",
-      "change": "-1.33%",
-      "status": "down"
-    },
-    {
-      "name": "Crude Oil (Brent)",
-      "price": "$95.20",
-      "change": "-0.75%",
-      "status": "down"
-    },
-    {
-      "name": "Bitcoin (BTC)",
-      "price": "$73,480",
-      "change": "+0.69%",
+      "price": "$104.15",
+      "change": "+7.85%",
       "status": "up"
     },
     {
-      "name": "USD/THB",
-      "price": "31.98 บาท",
-      "change": "-0.28%",
+      "name": "Crude Oil (Brent)",
+      "price": "$101.91",
+      "change": "+7.05%",
+      "status": "up"
+    },
+    {
+      "name": "Bitcoin (BTC)",
+      "price": "$70,700",
+      "change": "-3.22%",
       "status": "down"
     },
     {
+      "name": "USD/THB",
+      "price": "32.25 บาท",
+      "change": "+0.62%",
+      "status": "up"
+    },
+    {
       "name": "Dollar Index (DXY)",
-      "price": "98.65",
-      "change": "-0.17%",
-      "status": "down"
+      "price": "99.12",
+      "change": "+0.47%",
+      "status": "up"
     },
     {
       "name": "US 10Y Yield",
@@ -74,29 +74,29 @@
       "status": "up"
     }
   ],
-  "moverStory": "**สรุปตลาดประจำวันที่ 12 เมษายน 2026**\n\nตลาดหุ้นในสหรัฐอเมริกามีน้ำหนักของความผันผวนในวันนี้ โดย S&P 500 และ Dow Jones ปิดตัวลงในขณะที่ Nasdaq ยังคงเติบโต ด้านตลาดในเอเชียเช่น Nikkei 225 และ KOSPI มีแนวโน้มการขึ้นสวนทางกับตลาดหลักในสหรัฐฯ ขณะที่ราคาน้ำมันและทองคำลดลงอย่างต่อเนื่อง ส่วนตลาดคริปโตแสดงให้เห็นสัญญาณการฟื้นตัวบางประการจาก Bitcoin",
+  "moverStory": "**ตลาดหุ้นมีความผันผวนในวันนี้**\n\nในวันจันทร์ที่ 13 เมษายน 2026 ตลาดหุ้นมีการเคลื่อนไหวที่หลากหลาย โดย S&P 500 และ Dow Jones ปรับตัวลดลง ขณะที่ Nasdaq, Nikkei 225 และ KOSPI มีการปรับตัวขึ้น อย่างไรก็ตาม ราคาทองคำและ Bitcoin ยังคงมีแนวโน้มลดลงอย่างมีนัยสำคัญ ขณะที่ราคาน้ำมันดิบทั้ง WTI และ Brent ปรับตัวเพิ่มขึ้นโดดเด่น",
   "topNews": [
     {
-      "text": "UBS ปรับเพิ่มเป้าหมายการลงทุนใน Petco ขึ้นตามกลยุทธ์การเติบโต",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/ubs-raises-petco-health-wellness-220804234.html",
+      "text": "ฟิวเจอร์ส Dow Jones ลดลง ขณะที่ราคาน้ำมันพุ่ง; กองทัพเรือสหรัฐฯ เตรียมปิดล้อมท่าเรืออิหร่านหลังการเจรจาล้มเหลว",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-us-iran-talks-no-deal-vp-jd-vance/?src=A00220&yptr=yahoo",
       "source": "Yahoo Finance"
     },
     {
-      "text": "Aehr Test (AEHR) พุ่งขึ้น 59% จากความต้องการชิปที่สูง",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/aehr-test-aehr-soars-59-220847295.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "Organon (OGN) เพิ่มขึ้น 39% จากกระแสข่าวการควบรวมกิจการมูลค่า 12 พันล้านดอลลาร์",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/organon-ogn-climbs-39-12-220504580.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "เกิดความกังวลหลังผู้ให้บริการดาวเทียมจำกัดภาพถ่ายจากอิหร่านตามแรงกดดันจากสหรัฐ",
-      "url": "https://www.bbc.com/news/articles/c5y721yqe6ro?at_medium=RSS&at_campaign=rss",
+      "text": "คำขู่ปิดล้อมของทรัมป์เพิ่มความเสี่ยงและทำให้สถานการณ์ยังคงไม่เปลี่ยนแปลง",
+      "url": "https://www.bbc.com/news/articles/c8dl5mly2rzo?at_medium=RSS&at_campaign=rss",
       "source": "BBC"
+    },
+    {
+      "text": "หลังจากการเจรจาอิหร่านไม่สำเร็จ คำถามใหญ่คืออะไรจะเกิดขึ้นต่อไป?",
+      "url": "https://www.bbc.com/news/articles/c5y943x2g8qo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
+    },
+    {
+      "text": "'Warflation' จะส่งผลกระทบมากกว่าราคาน้ำมัน",
+      "url": "https://thehill.com/business/economy/5827781-warflation-hit-more-than-just-gas-prices/",
+      "source": "The Hill"
     }
   ],
-  "whyItMatters": "การปรับเป้าหมายการลงทุนในบริษัทที่เกี่ยวข้องกับสุขภาพและการลงทุนในเทคโนโลยีชั้นสูงแสดงให้เห็นถึงแนวโน้มการเติบโตในภาคต่างๆ ที่สามารถเป็นแรงกระตุ้นให้ตลาดฟื้นตัวได้ อีกทั้งเหตุการณ์ต่างๆ ในระดับโลกมีผลกระทบต่อราคาสินค้าโภคภัณฑ์และราคาหุ้น",
-  "closingTakeaway": "โดยรวมแล้ว ตลาดแสดงความไม่แน่นอนโดยมีปัจจัยหลายอย่างที่กระทบต่อการเคลื่อนไหวของค่าเงิน ราคาสินค้าโภคภัณฑ์และการลงทุนในหุ้น จึงต้องติดตามสถานการณ์อย่างใกล้ชิดในสัปดาห์หน้า"
+  "whyItMatters": "ข่าวการปิดล้อมของสหรัฐฯ ต่ออิหร่านและสถานการณ์ที่ไม่แน่นอนในตลาดน้ำมันส่งผลกระทบต่อมุมมองการลงทุน โดยเฉพาะกับราคาน้ำมันและหุ้นในองค์กรที่มีความเกี่ยวข้อง",
+  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์ตลาดและข่าวเชิงภูมิรัฐศาสตร์อย่างใกล้ชิด เพื่อประเมินความเสี่ยงและโอกาสในการลงทุนในอนาคต"
 }
