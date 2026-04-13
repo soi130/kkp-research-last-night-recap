@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "13 เมษายน 2569, 05:30 น.",
+  "lastUpdated": "14 เมษายน 2569, 05:40 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "6,816.89",
-      "change": "-0.11%",
-      "status": "down"
+      "price": "6,886.24",
+      "change": "+1.02%",
+      "status": "up"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "47,916.57",
-      "change": "-0.56%",
-      "status": "down"
+      "price": "48,218.25",
+      "change": "+0.63%",
+      "status": "up"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "22,902.89",
-      "change": "+0.35%",
+      "price": "23,183.74",
+      "change": "+1.23%",
       "status": "up"
     },
     {
@@ -33,70 +33,70 @@
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,692.90",
-      "change": "-1.45%",
-      "status": "down"
+      "price": "$4,773.00",
+      "change": "+0.23%",
+      "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$104.15",
-      "change": "+7.85%",
+      "price": "$97.78",
+      "change": "+1.25%",
       "status": "up"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$101.91",
-      "change": "+7.05%",
+      "price": "$98.06",
+      "change": "+3.00%",
       "status": "up"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$70,700",
-      "change": "-3.22%",
-      "status": "down"
+      "price": "$74,246",
+      "change": "+4.94%",
+      "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.25 บาท",
-      "change": "+0.62%",
-      "status": "up"
+      "price": "31.98 บาท",
+      "change": "-0.22%",
+      "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "99.12",
-      "change": "+0.47%",
-      "status": "up"
+      "price": "98.37",
+      "change": "-0.28%",
+      "status": "down"
     },
     {
       "name": "US 10Y Yield",
-      "price": "4.32%",
-      "change": "+0.56%",
-      "status": "up"
+      "price": "4.30%",
+      "change": "-0.46%",
+      "status": "down"
     }
   ],
-  "moverStory": "**ตลาดหุ้นมีความผันผวนในวันนี้**\n\nในวันจันทร์ที่ 13 เมษายน 2026 ตลาดหุ้นมีการเคลื่อนไหวที่หลากหลาย โดย S&P 500 และ Dow Jones ปรับตัวลดลง ขณะที่ Nasdaq, Nikkei 225 และ KOSPI มีการปรับตัวขึ้น อย่างไรก็ตาม ราคาทองคำและ Bitcoin ยังคงมีแนวโน้มลดลงอย่างมีนัยสำคัญ ขณะที่ราคาน้ำมันดิบทั้ง WTI และ Brent ปรับตัวเพิ่มขึ้นโดดเด่น",
+  "moverStory": "**ตลาดหุ้นทั่วโลกยังคงปรับตัวขึ้นในวันนี้**\n\nสถานการณ์ตลาดวันนี้แสดงให้เห็นถึงการฟื้นตัวที่แข็งแกร่ง โดยดัชนี S&P 500, Dow Jones, และ Nasdaq ต่างทำสถิติใหม่ ทำให้บรรยากาศการลงทุนมีความมั่นใจ เนื่องจากนักลงทุนยังคงมองโลกในแง่ดีเกี่ยวกับแนวโน้มเศรษฐกิจหลังจากข่าวดีในการลงทุนและการสนับสนุนจากรัฐบาล.",
   "topNews": [
     {
-      "text": "ฟิวเจอร์ส Dow Jones ลดลง ขณะที่ราคาน้ำมันพุ่ง; กองทัพเรือสหรัฐฯ เตรียมปิดล้อมท่าเรืออิหร่านหลังการเจรจาล้มเหลว",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-us-iran-talks-no-deal-vp-jd-vance/?src=A00220&yptr=yahoo",
+      "text": "วอร์เรน บัฟฟ์เฟตกล่าวว่า 'ช่วงเวลาที่น่าทึ่ง' ของเศรษฐกิจสหรัฐกำลังจะสิ้นสุดลง คาดการณ์ของเขากำลังเป็นจริงในปี 2026?",
+      "url": "https://finance.yahoo.com/economy/articles/incredible-period-us-economy-ending-120000150.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "คำขู่ปิดล้อมของทรัมป์เพิ่มความเสี่ยงและทำให้สถานการณ์ยังคงไม่เปลี่ยนแปลง",
-      "url": "https://www.bbc.com/news/articles/c8dl5mly2rzo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
+      "text": "ตระกูลทรัมป์ขาดทุนมากกว่า 1 พันล้านดอลลาร์จากบิตคอยน์นับตั้งแต่ประธานาธิบดีเข้ารับตำแหน่งอีกครั้ง เหตุใดถึงเกิดการสูญเสียใหญ่ขนาดนี้?",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/trumps-lost-more-1-billion-123000992.html",
+      "source": "Yahoo Finance"
     },
     {
-      "text": "หลังจากการเจรจาอิหร่านไม่สำเร็จ คำถามใหญ่คืออะไรจะเกิดขึ้นต่อไป?",
-      "url": "https://www.bbc.com/news/articles/c5y943x2g8qo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
+      "text": "เจพีมอร์แกนเดิมพันที่ 'ความฝันอเมริกัน' ด้วยโครงการใหม่มูลค่า 1.5 ล้านล้านดอลลาร์ ว่านี่หมายความว่าอย่างไร?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-betting-american-dream-1-140002160.html",
+      "source": "Yahoo Finance"
     },
     {
-      "text": "'Warflation' จะส่งผลกระทบมากกว่าราคาน้ำมัน",
-      "url": "https://thehill.com/business/economy/5827781-warflation-hit-more-than-just-gas-prices/",
-      "source": "The Hill"
+      "text": "ไมครอนลงทุนใน SiMa.ai นี่หมายความว่าอย่างไรสำหรับหุ้น MU?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/micron-investing-sima-ai-does-134502804.html",
+      "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "ข่าวการปิดล้อมของสหรัฐฯ ต่ออิหร่านและสถานการณ์ที่ไม่แน่นอนในตลาดน้ำมันส่งผลกระทบต่อมุมมองการลงทุน โดยเฉพาะกับราคาน้ำมันและหุ้นในองค์กรที่มีความเกี่ยวข้อง",
-  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์ตลาดและข่าวเชิงภูมิรัฐศาสตร์อย่างใกล้ชิด เพื่อประเมินความเสี่ยงและโอกาสในการลงทุนในอนาคต"
+  "whyItMatters": "การฟื้นตัวของตลาดหุ้นและการลงทุนในเทคโนโลยีจะส่งผลต่อแนวโน้มเศรษฐกิจในอนาคต โดยเฉพาะในยุคที่นักลงทุนยังคงกลัวต่อการผันผวนในสถานการณ์โลกอย่างต่อเนื่อง.",
+  "closingTakeaway": "สิ่งที่ควรจับตามองคือทิศทางเศรษฐกิจและการลงทุนของสหรัฐฯ ที่อาจมีผลกระทบต่อการตัดสินใจของนักลงทุนในช่วงเวลาที่กำลังจะมาถึง."
 }
