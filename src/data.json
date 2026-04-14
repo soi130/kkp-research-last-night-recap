@@ -1,102 +1,102 @@
 {
-  "lastUpdated": "14 เมษายน 2569, 05:40 น.",
+  "lastUpdated": "15 เมษายน 2569, 05:41 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "6,886.24",
-      "change": "+1.02%",
+      "price": "6,967.38",
+      "change": "+1.18%",
       "status": "up"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "48,218.25",
-      "change": "+0.63%",
+      "price": "48,535.99",
+      "change": "+0.66%",
       "status": "up"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "23,183.74",
-      "change": "+1.23%",
+      "price": "23,639.08",
+      "change": "+1.96%",
       "status": "up"
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "56,924.11",
-      "change": "+1.84%",
-      "status": "up"
+      "price": "56,502.77",
+      "change": "-0.74%",
+      "status": "down"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "5,858.87",
-      "change": "+1.40%",
-      "status": "up"
+      "price": "5,808.62",
+      "change": "-0.86%",
+      "status": "down"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,773.00",
-      "change": "+0.23%",
+      "price": "$4,865.30",
+      "change": "+2.59%",
       "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$97.78",
-      "change": "+1.25%",
-      "status": "up"
+      "price": "$91.49",
+      "change": "-7.66%",
+      "status": "down"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$98.06",
-      "change": "+3.00%",
-      "status": "up"
+      "price": "$94.95",
+      "change": "-4.44%",
+      "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$74,246",
-      "change": "+4.94%",
-      "status": "up"
+      "price": "$74,063",
+      "change": "-0.57%",
+      "status": "down"
     },
     {
       "name": "USD/THB",
-      "price": "31.98 บาท",
-      "change": "-0.22%",
+      "price": "31.96 บาท",
+      "change": "-1.11%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "98.37",
-      "change": "-0.28%",
+      "price": "98.11",
+      "change": "-0.27%",
       "status": "down"
     },
     {
       "name": "US 10Y Yield",
-      "price": "4.30%",
-      "change": "-0.46%",
+      "price": "4.26%",
+      "change": "-0.95%",
       "status": "down"
     }
   ],
-  "moverStory": "**ตลาดหุ้นทั่วโลกยังคงปรับตัวขึ้นในวันนี้**\n\nสถานการณ์ตลาดวันนี้แสดงให้เห็นถึงการฟื้นตัวที่แข็งแกร่ง โดยดัชนี S&P 500, Dow Jones, และ Nasdaq ต่างทำสถิติใหม่ ทำให้บรรยากาศการลงทุนมีความมั่นใจ เนื่องจากนักลงทุนยังคงมองโลกในแง่ดีเกี่ยวกับแนวโน้มเศรษฐกิจหลังจากข่าวดีในการลงทุนและการสนับสนุนจากรัฐบาล.",
+  "moverStory": "**ตลาดหุ้นวันนี้มีแนวโน้มเชิงบวก ขณะทองคำพุ่งสูงขึ้น**\n\nในวันนี้ ตลาดหุ้นส่วนใหญ่ในสหรัฐฯ ขึ้นอย่างรวดเร็ว โดย S&P 500 และ Nasdaq มีการเพิ่มขึ้นสูงกว่า 1% ขณะที่ทองคำมีการปรับตัวสูงขึ้นเกือบ 2.6% ท่ามกลางความไม่แน่นอนจากสถานการณ์ทางการเมืองในตะวันออกกลาง ขณะที่ราคาน้ำมันดิบ WTI และปรากฏการณ์การลดลงของดอลลาร์สหรัฐฯ ยังคงสร้างความกังวลต่อนักลงทุน",
   "topNews": [
     {
-      "text": "วอร์เรน บัฟฟ์เฟตกล่าวว่า 'ช่วงเวลาที่น่าทึ่ง' ของเศรษฐกิจสหรัฐกำลังจะสิ้นสุดลง คาดการณ์ของเขากำลังเป็นจริงในปี 2026?",
-      "url": "https://finance.yahoo.com/economy/articles/incredible-period-us-economy-ending-120000150.html",
+      "text": "ดอลลาร์แข็งค่าหลังการเจรจาสันติภาพสหรัฐ-อิหร่านล้มเหลว",
+      "url": "https://finance.yahoo.com/markets/currencies/articles/dollar-strengthens-us-iran-peace-143512081.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ตระกูลทรัมป์ขาดทุนมากกว่า 1 พันล้านดอลลาร์จากบิตคอยน์นับตั้งแต่ประธานาธิบดีเข้ารับตำแหน่งอีกครั้ง เหตุใดถึงเกิดการสูญเสียใหญ่ขนาดนี้?",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/trumps-lost-more-1-billion-123000992.html",
+      "text": "ราคาทองคำยังคงลดลงเมื่อความตึงเครียดในตะวันออกกลางรุนแรงขึ้น",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/gold-continues-fall-middle-east-142400008.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "เจพีมอร์แกนเดิมพันที่ 'ความฝันอเมริกัน' ด้วยโครงการใหม่มูลค่า 1.5 ล้านล้านดอลลาร์ ว่านี่หมายความว่าอย่างไร?",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-betting-american-dream-1-140002160.html",
+      "text": "หุ้นเทคโนโลยีเติบโตท่ามกลางความขัดแย้งในอิหร่าน",
+      "url": "https://finance.yahoo.com/news/these-tech-stocks-have-been-on-a-tear-with-the-iran-conflict-raging-142840743.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ไมครอนลงทุนใน SiMa.ai นี่หมายความว่าอย่างไรสำหรับหุ้น MU?",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/micron-investing-sima-ai-does-134502804.html",
+      "text": "JPMorgan เตือนนักลงทุนเกี่ยวกับจุดอ่อนในตลาด",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-stark-message-investors-market-174700070.html",
       "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "การฟื้นตัวของตลาดหุ้นและการลงทุนในเทคโนโลยีจะส่งผลต่อแนวโน้มเศรษฐกิจในอนาคต โดยเฉพาะในยุคที่นักลงทุนยังคงกลัวต่อการผันผวนในสถานการณ์โลกอย่างต่อเนื่อง.",
-  "closingTakeaway": "สิ่งที่ควรจับตามองคือทิศทางเศรษฐกิจและการลงทุนของสหรัฐฯ ที่อาจมีผลกระทบต่อการตัดสินใจของนักลงทุนในช่วงเวลาที่กำลังจะมาถึง."
+  "whyItMatters": "ความตึงเครียดในตะวันออกกลางมีผลกระทบต่อความเคลื่อนไหวของตลาด โดยเฉพาะราคาทองคำที่เป็นสินทรัพย์ปลอดภัย ในขณะที่การลดลงของราคาน้ำมันส่งผลกระทบต่ออุตสาหกรรมต่าง ๆ อย่างมีนัยสำคัญ",
+  "closingTakeaway": "นักลงทุนควรจับตาดูกิจกรรมทางการเมืองและเศรษฐกิจอย่างใกล้ชิด เนื่องจากปัจจัยเหล่านี้อาจส่งผลกระทบต่อทิศทางของตลาดในอนาคต"
 }
