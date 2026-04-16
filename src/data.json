@@ -1,102 +1,102 @@
 {
-  "lastUpdated": "16 เมษายน 2569, 05:38 น.",
+  "lastUpdated": "17 เมษายน 2569, 05:36 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "7,022.95",
-      "change": "+0.80%",
+      "price": "7,041.28",
+      "change": "+0.26%",
       "status": "up"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "48,463.72",
-      "change": "-0.15%",
-      "status": "down"
+      "price": "48,578.72",
+      "change": "+0.24%",
+      "status": "up"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "24,016.02",
-      "change": "+1.59%",
+      "price": "24,102.70",
+      "change": "+0.36%",
       "status": "up"
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "57,877.39",
-      "change": "+2.43%",
+      "price": "58,134.24",
+      "change": "+0.44%",
       "status": "up"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "5,967.75",
-      "change": "+2.74%",
+      "price": "6,091.39",
+      "change": "+2.07%",
       "status": "up"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,820.90",
-      "change": "-0.08%",
-      "status": "down"
+      "price": "$4,815.30",
+      "change": "+0.32%",
+      "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$91.08",
-      "change": "-0.22%",
+      "price": "$89.89",
+      "change": "-1.53%",
       "status": "down"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$94.81",
-      "change": "+0.02%",
+      "price": "$98.22",
+      "change": "+3.47%",
       "status": "up"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$75,029",
-      "change": "+1.14%",
+      "price": "$74,963",
+      "change": "+0.21%",
       "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "32.01 บาท",
-      "change": "+0.00%",
-      "status": "up"
-    },
-    {
-      "name": "Dollar Index (DXY)",
-      "price": "98.05",
-      "change": "-0.07%",
+      "price": "31.94 บาท",
+      "change": "-0.13%",
       "status": "down"
     },
     {
+      "name": "Dollar Index (DXY)",
+      "price": "98.18",
+      "change": "+0.12%",
+      "status": "up"
+    },
+    {
       "name": "US 10Y Yield",
-      "price": "4.28%",
-      "change": "+0.61%",
+      "price": "4.31%",
+      "change": "+0.63%",
       "status": "up"
     }
   ],
-  "moverStory": "**ตลาดหุ้นเคลื่อนไหวไม่สม่ำเสมอในวันนี้**\n\nโดยรวมตลาดหุ้นในสหรัฐอเมริกามีการผสมกัน โดย S&P 500 และ Nasdaq ปรับตัวขึ้น ขณะที่ Dow Jones ลดลงเล็กน้อย ส่วนตลาดหุ้นในเอเชีย เช่น Nikkei 225 และ KOSPI แสดงให้เห็นการเติบโตที่มีความแข็งแกร่ง ราคาทองคำและน้ำมันยังคงอยู่ในภาวะผันผวน ซึ่งส่งผลต่อแนวโน้มของนักลงทุน",
+  "moverStory": "**สรุปตลาดประจำวันศุกร์ที่ 17 เมษายน 2026**\n\nตลาดหลักทรัพย์ในสหรัฐอเมริกาแสดงสัญญาณการฟื้นตัวอย่างต่อเนื่อง โดย S&P 500, Dow Jones และ Nasdaq ปรับตัวเพิ่มขึ้นในช่วงเปิดตลาด ขณะที่ตลาดต่างประเทศอย่าง Nikkei 225 และ KOSPI ก็เห็นการเพิ่มขึ้นด้วย การลงทุนในทองคำและสินทรัพย์ดิจิทัลก็ได้รับความนิยมเช่นกัน อย่างไรก็ตาม ราคาน้ำมัน WTI ลดลง ขณะที่ราคาน้ำมัน Brent กลับปรับตัวเพิ่มขึ้น",
   "topNews": [
     {
-      "text": "หุ้น Rubrik อาจเป็นผู้ชนะจากสงครามอิหร่านและนักวิเคราะห์คาดว่าจะเพิ่มขึ้น 80% จากนี้",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/rubrik-stock-could-iran-war-144107824.html",
+      "text": "อิสราเอลและเลบานอนตกลง ceasefire 10 วัน",
+      "url": "https://www.bbc.com/news/articles/c8x7w1w9gd2o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
+    },
+    {
+      "text": "ความขัดแย้งระหว่างทรัมป์และโป๊ปกระทบการสนับสนุน",
+      "url": "https://www.bbc.com/news/articles/c070jxyjrmeo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
+    },
+    {
+      "text": "ดอลลาร์ไม่มีการเปลี่ยนแปลงรอข่าวการเจรจาสันติภาพสหรัฐ-อิหร่าน",
+      "url": "https://finance.yahoo.com/markets/currencies/articles/dollar-little-changed-awaiting-news-143811505.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "หุ้น Glencore ขึ้น 120% ในปีที่ผ่านมา จะอยู่รอดจากสงครามอิหร่านได้หรือไม่?",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/glencore-stock-120-past-survive-141502056.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "ราคาน้ำมันยังไม่จบสภาวะขึ้นลง นักลงทุนพลังงานควรทำตัวอย่างไรในตอนนี้",
-      "url": "https://finance.yahoo.com/sectors/energy/articles/oil-price-rollercoaster-probably-isnt-143500141.html",
-      "source": "Yahoo Finance"
-    },
-    {
-      "text": "IMF เตือนว่าสงครามในตะวันออกกลางเพิ่มความเสี่ยงต่อเสถียรภาพทางการเงิน",
-      "url": "https://finance.yahoo.com/news/imf-warns-middle-east-war-142141366.html",
-      "source": "Yahoo Finance"
+      "text": "รัสเซียโจมตีกองกำลังอากาศรุนแรงที่สุดในหลายเดือนที่ยูเครน",
+      "url": "https://www.bbc.com/news/articles/cm29plylqnvo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC"
     }
   ],
-  "whyItMatters": "การเปลี่ยนแปลงของราคาหุ้นและสินทรัพย์เช่นทองคำและน้ำมันมีผลต่อเศรษฐกิจทั่วโลก โดยเฉพาะอย่างยิ่งในช่วงที่เกิดสงคราม เช่น สงครามในอิหร่าน ซึ่งกระทบต่อความเชื่อมั่นของนักลงทุน",
-  "closingTakeaway": "นักลงทุนควรติดตามสถานการณ์ในตะวันออกกลางอย่างใกล้ชิด และพิจารณาการกระจายความเสี่ยงในการลงทุนของตนในช่วงเวลาเช่นนี้"
+  "whyItMatters": "การเปลี่ยนแปลงในตลาดหุ้นและเศรษฐกิจทั่วโลกมีผลต่อการลงทุนและความเชื่อมั่นของนักลงทุน โดยเฉพาะอย่างยิ่งความไม่แน่นอนทางการเมืองและการเจรจาสำคัญสามารถสร้างผลกระทบอย่างรุนแรงต่อความเคลื่อนไหวของตลาด",
+  "closingTakeaway": "การติดตามพัฒนาการทางการเมืองและเศรษฐกิจในปัจจุบันจะเป็นปัจจัยสำคัญที่มีผลต่อการลงทุนและกำหนดทิศทางตลาดในอนาคต"
 }
