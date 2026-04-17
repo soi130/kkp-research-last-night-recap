@@ -1,102 +1,102 @@
 {
-  "lastUpdated": "17 เมษายน 2569, 05:36 น.",
+  "lastUpdated": "18 เมษายน 2569, 05:35 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "7,041.28",
-      "change": "+0.26%",
+      "price": "7,126.06",
+      "change": "+1.20%",
       "status": "up"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "48,578.72",
-      "change": "+0.24%",
+      "price": "49,447.43",
+      "change": "+1.79%",
       "status": "up"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "24,102.70",
-      "change": "+0.36%",
+      "price": "24,468.48",
+      "change": "+1.52%",
       "status": "up"
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "58,134.24",
-      "change": "+0.44%",
+      "price": "59,518.34",
+      "change": "+2.38%",
       "status": "up"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "6,091.39",
-      "change": "+2.07%",
-      "status": "up"
+      "price": "nan",
+      "change": "nan%",
+      "status": "down"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,815.30",
-      "change": "+0.32%",
+      "price": "$4,849.40",
+      "change": "+1.34%",
       "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$89.89",
-      "change": "-1.53%",
+      "price": "$84.00",
+      "change": "-11.29%",
       "status": "down"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$98.22",
-      "change": "+3.47%",
-      "status": "up"
+      "price": "$91.87",
+      "change": "-7.57%",
+      "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$74,963",
-      "change": "+0.21%",
+      "price": "$77,492",
+      "change": "+3.11%",
       "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "31.94 บาท",
-      "change": "-0.13%",
+      "price": "31.89 บาท",
+      "change": "-0.31%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "98.18",
-      "change": "+0.12%",
+      "price": "98.23",
+      "change": "+0.01%",
       "status": "up"
     },
     {
       "name": "US 10Y Yield",
-      "price": "4.31%",
-      "change": "+0.63%",
-      "status": "up"
+      "price": "4.25%",
+      "change": "-1.46%",
+      "status": "down"
     }
   ],
-  "moverStory": "**สรุปตลาดประจำวันศุกร์ที่ 17 เมษายน 2026**\n\nตลาดหลักทรัพย์ในสหรัฐอเมริกาแสดงสัญญาณการฟื้นตัวอย่างต่อเนื่อง โดย S&P 500, Dow Jones และ Nasdaq ปรับตัวเพิ่มขึ้นในช่วงเปิดตลาด ขณะที่ตลาดต่างประเทศอย่าง Nikkei 225 และ KOSPI ก็เห็นการเพิ่มขึ้นด้วย การลงทุนในทองคำและสินทรัพย์ดิจิทัลก็ได้รับความนิยมเช่นกัน อย่างไรก็ตาม ราคาน้ำมัน WTI ลดลง ขณะที่ราคาน้ำมัน Brent กลับปรับตัวเพิ่มขึ้น",
+  "moverStory": "**สรุปตลาดประจำวันที่ 18 เมษายน 2026**\n\nตลาดหุ้นสหรัฐฯ และตลาดหลักทรัพย์อื่น ๆ ในเชิงบวก โดย S&P 500 ปรับตัวขึ้น +1.20% ขณะที่ราคาน้ำมันดิบ WTI และ Brent ปรับตัวลดลงอย่างมีนัยสำคัญ เนื่องจากอิหร่านประกาศว่าสถานที่สำคัญในช่องแคบฮอร์มุซเปิดให้เดินเรือ ทำให้เกิดความหวังในเสถียรภาพตลาดน้ำมัน",
   "topNews": [
     {
-      "text": "อิสราเอลและเลบานอนตกลง ceasefire 10 วัน",
-      "url": "https://www.bbc.com/news/articles/c8x7w1w9gd2o?at_medium=RSS&at_campaign=rss",
+      "text": "ราคาน้ำมันดิ่งลงหลังอิหร่านบอกช่องแคบเปิด",
+      "url": "https://www.bbc.com/news/articles/ckg045z73z1o?at_medium=RSS&at_campaign=rss",
       "source": "BBC"
     },
     {
-      "text": "ความขัดแย้งระหว่างทรัมป์และโป๊ปกระทบการสนับสนุน",
-      "url": "https://www.bbc.com/news/articles/c070jxyjrmeo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
+      "text": "อังกฤษและฝรั่งเศสจัดซัมมิตเข้มข้นเกี่ยวกับช่องแคบฮอร์มุซ",
+      "url": "https://thehill.com/policy/international/5836910-england-france-hormuz-strait-summit/",
+      "source": "The Hill"
     },
     {
-      "text": "ดอลลาร์ไม่มีการเปลี่ยนแปลงรอข่าวการเจรจาสันติภาพสหรัฐ-อิหร่าน",
-      "url": "https://finance.yahoo.com/markets/currencies/articles/dollar-little-changed-awaiting-news-143811505.html",
-      "source": "Yahoo Finance"
+      "text": "ทำเนียบขาวกล่าวการประชุมกับ Anthropic ประสบผลสำเร็จ",
+      "url": "https://thehill.com/policy/technology/5837086-anthropic-ai-white-house-meeting/",
+      "source": "The Hill"
     },
     {
-      "text": "รัสเซียโจมตีกองกำลังอากาศรุนแรงที่สุดในหลายเดือนที่ยูเครน",
-      "url": "https://www.bbc.com/news/articles/cm29plylqnvo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
+      "text": "Washington Post วิจารณ์ทรัมป์เรื่องความตึงเครียดโดยไร้ความหมาย",
+      "url": "https://thehill.com/homenews/media/5837021-washington-post-editorial-board-trump-powell/",
+      "source": "The Hill"
     }
   ],
-  "whyItMatters": "การเปลี่ยนแปลงในตลาดหุ้นและเศรษฐกิจทั่วโลกมีผลต่อการลงทุนและความเชื่อมั่นของนักลงทุน โดยเฉพาะอย่างยิ่งความไม่แน่นอนทางการเมืองและการเจรจาสำคัญสามารถสร้างผลกระทบอย่างรุนแรงต่อความเคลื่อนไหวของตลาด",
-  "closingTakeaway": "การติดตามพัฒนาการทางการเมืองและเศรษฐกิจในปัจจุบันจะเป็นปัจจัยสำคัญที่มีผลต่อการลงทุนและกำหนดทิศทางตลาดในอนาคต"
+  "whyItMatters": "การประกาศของอิหร่านว่าจะเปิดช่องแคบฮอร์มุซส่งผลกระทบต่อราคาน้ำมันทั่วโลก เนื่องจากมันเป็นเส้นทางการขนส่งน้ำมันหลัก รวมถึงการดำเนินนโยบายของรัฐบาลสหรัฐที่มีการประชุมกับบริษัทเทคโนโลยีเพื่อหารือเกี่ยวกับกฎระเบียบ AI อาจช่วยแจ้งตลาดทุนในปัจจุบันให้มีทิศทางชัดเจนยิ่งขึ้น",
+  "closingTakeaway": "โดยทั่วไปแล้วตลาดหุ้นปรับตัวขึ้นได้ดีในวันนี้ขณะที่การพัฒนาในด้านการเมืองและเศรษฐกิจระหว่างประเทศยังคงเป็นตัวแปรสำคัญที่ต้องติดตามอย่างใกล้ชิด"
 }
