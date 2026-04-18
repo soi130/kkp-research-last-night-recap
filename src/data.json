@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "18 เมษายน 2569, 05:35 น.",
+  "lastUpdated": "19 เมษายน 2569, 05:31 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
@@ -21,39 +21,39 @@
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "59,518.34",
-      "change": "+2.38%",
-      "status": "up"
+      "price": "58,475.90",
+      "change": "-1.75%",
+      "status": "down"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "nan",
-      "change": "nan%",
+      "price": "6,191.92",
+      "change": "-0.55%",
       "status": "down"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,849.40",
-      "change": "+1.34%",
+      "price": "$4,857.60",
+      "change": "+1.51%",
       "status": "up"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$84.00",
-      "change": "-11.29%",
+      "price": "$83.85",
+      "change": "-11.45%",
       "status": "down"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$91.87",
-      "change": "-7.57%",
+      "price": "$90.38",
+      "change": "-9.07%",
       "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$77,492",
-      "change": "+3.11%",
-      "status": "up"
+      "price": "$75,785",
+      "change": "-1.74%",
+      "status": "down"
     },
     {
       "name": "USD/THB",
@@ -63,9 +63,9 @@
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "98.23",
-      "change": "+0.01%",
-      "status": "up"
+      "price": "98.10",
+      "change": "-0.12%",
+      "status": "down"
     },
     {
       "name": "US 10Y Yield",
@@ -74,29 +74,29 @@
       "status": "down"
     }
   ],
-  "moverStory": "**สรุปตลาดประจำวันที่ 18 เมษายน 2026**\n\nตลาดหุ้นสหรัฐฯ และตลาดหลักทรัพย์อื่น ๆ ในเชิงบวก โดย S&P 500 ปรับตัวขึ้น +1.20% ขณะที่ราคาน้ำมันดิบ WTI และ Brent ปรับตัวลดลงอย่างมีนัยสำคัญ เนื่องจากอิหร่านประกาศว่าสถานที่สำคัญในช่องแคบฮอร์มุซเปิดให้เดินเรือ ทำให้เกิดความหวังในเสถียรภาพตลาดน้ำมัน",
+  "moverStory": "**สรุปตลาดวันนี้: หุ้นสหรัฐพุ่งแรง ขณะที่ราคาน้ำมันและคริปโตปรับลดลง**\n\nตลาดหุ้นสหรัฐฯ ปรับตัวขึ้นโดย S&P 500 เพิ่มขึ้น 1.20%, ดัชนี Dow Jones เพิ่มขึ้น 1.79% และ Nasdaq เพิ่มขึ้น 1.52% ส่งผลให้มีการฟื้นตัวในกลุ่มหุ้นเทคโนโลยีและหุ้นขนาดใหญ่ ในขณะที่ตลาดหุ้นเอเชียบางแห่งอย่าง Nikkei 225 และ KOSPI กลับได้รับแรงกดดันจากข้อมูลเศรษฐกิจที่ไม่แน่นอน",
   "topNews": [
     {
-      "text": "ราคาน้ำมันดิ่งลงหลังอิหร่านบอกช่องแคบเปิด",
-      "url": "https://www.bbc.com/news/articles/ckg045z73z1o?at_medium=RSS&at_campaign=rss",
+      "text": "ช่องแคบฮอร์มุซถูกปิดอีกครั้ง อิหร่านกล่าว หลังจากเรือถูกโจมตี",
+      "url": "https://www.bbc.com/news/articles/cx2631x6nelo?at_medium=RSS&at_campaign=rss",
       "source": "BBC"
     },
     {
-      "text": "อังกฤษและฝรั่งเศสจัดซัมมิตเข้มข้นเกี่ยวกับช่องแคบฮอร์มุซ",
-      "url": "https://thehill.com/policy/international/5836910-england-france-hormuz-strait-summit/",
+      "text": "กองทัพสหรัฐเตรียมบุกเรือที่เชื่อมโยงกับอิหร่าน",
+      "url": "https://thehill.com/homenews/sunday-talk-shows/5838036-trump-iran-negotiations-ceasefire/",
       "source": "The Hill"
     },
     {
-      "text": "ทำเนียบขาวกล่าวการประชุมกับ Anthropic ประสบผลสำเร็จ",
-      "url": "https://thehill.com/policy/technology/5837086-anthropic-ai-white-house-meeting/",
+      "text": "ความตึงเครียดในตะวันออกกลางทำให้ตลาดน้ำมันผิดปกติ",
+      "url": "https://thehill.com/policy/defense/5837883-trump-us-military-iran-linked-vessels-strait-of-hormuz/",
       "source": "The Hill"
     },
     {
-      "text": "Washington Post วิจารณ์ทรัมป์เรื่องความตึงเครียดโดยไร้ความหมาย",
-      "url": "https://thehill.com/homenews/media/5837021-washington-post-editorial-board-trump-powell/",
-      "source": "The Hill"
+      "text": "ตลาดหุ้นดาวโจนส์และราคาน้ำมันจะตอบสนองอย่างไรกับข่าวอิหร่านและช่องแคบฮอร์มุซ?",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-strait-of-hormuz-tesla-earnings/?src=A00220&yptr=yahoo",
+      "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "การประกาศของอิหร่านว่าจะเปิดช่องแคบฮอร์มุซส่งผลกระทบต่อราคาน้ำมันทั่วโลก เนื่องจากมันเป็นเส้นทางการขนส่งน้ำมันหลัก รวมถึงการดำเนินนโยบายของรัฐบาลสหรัฐที่มีการประชุมกับบริษัทเทคโนโลยีเพื่อหารือเกี่ยวกับกฎระเบียบ AI อาจช่วยแจ้งตลาดทุนในปัจจุบันให้มีทิศทางชัดเจนยิ่งขึ้น",
-  "closingTakeaway": "โดยทั่วไปแล้วตลาดหุ้นปรับตัวขึ้นได้ดีในวันนี้ขณะที่การพัฒนาในด้านการเมืองและเศรษฐกิจระหว่างประเทศยังคงเป็นตัวแปรสำคัญที่ต้องติดตามอย่างใกล้ชิด"
+  "whyItMatters": "การเคลื่อนไหวในตลาดหุ้นสหรัฐฯ มีความสัมพันธ์โดยตรงกับสถานการณ์ทางภูมิรัฐศาสตร์และราคาน้ำมัน ซึ่งส่งผลต่อความเชื่อมั่นของนักลงทุน ทั้งนี้ราคาน้ำมันที่ลดลงอาจส่งผลกระทบต่อบริษัทพลังงานและเศรษฐกิจโดยรวม",
+  "closingTakeaway": "การติดตามข่าวสารและสถานการณ์ตลาดจะช่วยให้เรามีความเข้าใจที่ดีขึ้นในสิ่งที่จะเกิดขึ้นในต่อไป รวมถึงโอกาสในการลงทุน"
 }
