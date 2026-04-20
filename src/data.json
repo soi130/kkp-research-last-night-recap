@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "20 เมษายน 2569, 05:31 น.",
+  "lastUpdated": "21 เมษายน 2569, 05:40 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "7,126.06",
-      "change": "+1.20%",
-      "status": "up"
+      "price": "7,109.14",
+      "change": "-0.24%",
+      "status": "down"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "49,447.43",
-      "change": "+1.79%",
-      "status": "up"
+      "price": "49,442.56",
+      "change": "-0.01%",
+      "status": "down"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "24,468.48",
-      "change": "+1.52%",
-      "status": "up"
+      "price": "24,404.39",
+      "change": "-0.26%",
+      "status": "down"
     },
     {
       "name": "Nikkei 225 (JP)*",
@@ -33,70 +33,70 @@
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,808.90",
-      "change": "-1.00%",
+      "price": "$4,849.00",
+      "change": "-0.18%",
       "status": "down"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$82.59",
-      "change": "-12.78%",
-      "status": "down"
+      "price": "$86.26",
+      "change": "+2.87%",
+      "status": "up"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$90.38",
-      "change": "-9.07%",
-      "status": "down"
+      "price": "$94.54",
+      "change": "+4.60%",
+      "status": "up"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$74,041",
-      "change": "-2.23%",
-      "status": "down"
+      "price": "$76,030",
+      "change": "+2.94%",
+      "status": "up"
     },
     {
       "name": "USD/THB",
-      "price": "31.98 บาท",
-      "change": "-0.19%",
+      "price": "32.01 บาท",
+      "change": "-0.09%",
       "status": "down"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "98.29",
-      "change": "+0.19%",
-      "status": "up"
+      "price": "98.05",
+      "change": "-0.05%",
+      "status": "down"
     },
     {
       "name": "US 10Y Yield",
       "price": "4.25%",
-      "change": "-1.46%",
-      "status": "down"
+      "change": "+0.09%",
+      "status": "up"
     }
   ],
-  "moverStory": "**ตลาดหุ้นปรับตัวขึ้นท่ามกลางความไม่แน่นอนจากเหตุการณ์ในอิหร่าน**\n\nในวันจันทร์ที่ 20 เมษายน 2026 ตลาดหุ้นทั่วสหรัฐอเมริกาปรับตัวขึ้น โดย S&P 500 เพิ่มขึ้น 1.20% และ Dow Jones เพิ่มขึ้นถึง 1.79% ขณะที่ Nasdaq เพิ่มขึ้น 1.52% สาเหตุหลักมาจากความคาดหวังต่อผลประกอบการที่ดีในไตรมาสนี้ ถึงแม้ว่าจะมีความตึงเครียดในตะวันออกกลาง ส่วนตลาดหุ้นในเอเชียกลับมีแนวโน้มลดลง เช่น Nikkei 225 และ KOSPI ที่มีการเคลื่อนไหวในทิศทางลบ",
+  "moverStory": "**ตลาดหุ้นทั่วโลกปรับตัวลดลง ในขณะที่ราคาน้ำมันขยับสูงขึ้น**\n\nในวันนี้ตลาดหุ้นหลักในสหรัฐอเมริกาและตลาดหุ้นเอเชียมีแนวโน้มปรับตัวลดลง โดย S&P 500 ลดลง 0.24% ขณะที่ราคาน้ำมันดิบ WTI และ Brent กลับมาเพิ่มขึ้นหลังจากเหตุการณ์ในเวเนซุเอลา",
   "topNews": [
     {
-      "text": "นักวิเคราะห์คาดการณ์ตลาดหุ้นที่แข็งแกร่งในไตรมาสนี้",
-      "url": "https://finance.yahoo.com/news/firing-on-all-cylinders-wall-street-strategists-expect-a-strong-quarter-of-earnings-growth-121555493.html",
+      "text": "ติดตามหุ้นน้ำมันหลังจากการบุกของทรัมป์ในเวเนซุเอลา",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/3-oil-stocks-watch-trumps-202345398.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ฟิวเจอร์สดาวโจนส์ลดลง ขณะที่ราคาน้ำมันพุ่งสูง; ทรัมป์ประกาศเจรจากับอิหร่าน",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-oil-prices-strait-of-hormuz-tesla-earnings/?src=A00220&yptr=yahoo",
+      "text": "วอลล์สตรีทส่งสัญญาณร้ายให้กับหุ้นน้ำมันหลังการเคลื่อนไหวของอิหร่าน",
+      "url": "https://finance.yahoo.com/sectors/energy/articles/wall-street-just-sent-oil-203300330.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ทรัมป์กล่าวหาอิหร่านละเมิดการหยุดยิง ประกาศเจรจาที่อิสลามาบัด",
-      "url": "https://thehill.com/homenews/administration/5838330-trump-iran-ceasefire-islamabad-talks/",
-      "source": "The Hill"
+      "text": "เน็ตฟลิกซ์สร้างกระแสเงินสดมหาศาลและคาดการณ์ราคาหุ้นสูงขึ้น",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-generates-massive-fcf-fcf-133002954.html",
+      "source": "Yahoo Finance"
     },
     {
-      "text": "สหรัฐฯ จับเรือบรรทุกสินค้าธงอิหร่าน พร้อมการประกาศจากทรัมป์",
-      "url": "https://www.bbc.com/news/articles/c239500dx8ro?at_medium=RSS&at_campaign=rss",
+      "text": "ราคาน้ำมันพุ่งขึ้นหลังจากทรัมป์กล่าวว่าเรืออิหร่านถูกยึด",
+      "url": "https://www.bbc.com/news/articles/c5yjzy35825o?at_medium=RSS&at_campaign=rss",
       "source": "BBC"
     }
   ],
-  "whyItMatters": "การพูดคุยเกี่ยวกับอิหร่านและการหยุดยิงมีผลกระทบต่อเสถียรภาพของราคาน้ำมัน ซึ่งส่งผลโดยตรงต่อเศรษฐกิจโลก และในขณะเดียวกันความคาดหวังต่อผลประกอบการที่ดีจากบริษัทใหญ่ในสหรัฐฯ สามารถช่วยหนุนตลาดให้คงทิศทางบวกได้",
-  "closingTakeaway": "ด้วยสถานการณ์ที่ไม่แน่นอนในตะวันออกกลางและผลประกอบการที่รอการเปิดเผย ตลาดหุ้นสหรัฐอเมริกายังคงมีแนวโน้มดี แต่ควรติดตามสถานการณ์อย่างใกล้ชิด"
+  "whyItMatters": "การขยับของราคาน้ำมันมีผลสำคัญต่อข้อมูลเศรษฐกิจทั่วโลก และความตึงเครียดในตะวันออกกลางยังส่งผลต่อความเชื่อมั่นของตลาดหุ้น",
+  "closingTakeaway": "นักลงทุนควรระมัดระวังการลงทุนในหุ้นที่ได้รับผลกระทบจากราคาน้ำมันและความมั่นคงทางการเมืองในระดับโลก"
 }
