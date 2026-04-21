@@ -1,102 +1,102 @@
 {
-  "lastUpdated": "21 เมษายน 2569, 05:40 น.",
+  "lastUpdated": "22 เมษายน 2569, 05:36 น.",
   "marketData": [
     {
       "name": "S&P 500 (US)",
-      "price": "7,109.14",
-      "change": "-0.24%",
+      "price": "7,064.01",
+      "change": "-0.63%",
       "status": "down"
     },
     {
       "name": "Dow Jones (US)",
-      "price": "49,442.56",
-      "change": "-0.01%",
+      "price": "49,149.38",
+      "change": "-0.59%",
       "status": "down"
     },
     {
       "name": "Nasdaq (US)",
-      "price": "24,404.39",
-      "change": "-0.26%",
+      "price": "24,259.96",
+      "change": "-0.59%",
       "status": "down"
     },
     {
       "name": "Nikkei 225 (JP)*",
-      "price": "58,475.90",
-      "change": "-1.75%",
-      "status": "down"
+      "price": "58,824.89",
+      "change": "+0.60%",
+      "status": "up"
     },
     {
       "name": "KOSPI (KR)*",
-      "price": "6,191.92",
-      "change": "-0.55%",
-      "status": "down"
+      "price": "6,219.09",
+      "change": "+0.44%",
+      "status": "up"
     },
     {
       "name": "Gold (Spot)",
-      "price": "$4,849.00",
-      "change": "-0.18%",
+      "price": "$4,736.50",
+      "change": "-1.46%",
       "status": "down"
     },
     {
       "name": "Crude Oil (WTI)",
-      "price": "$86.26",
-      "change": "+2.87%",
+      "price": "$90.10",
+      "change": "+0.55%",
       "status": "up"
     },
     {
       "name": "Crude Oil (Brent)",
-      "price": "$94.54",
-      "change": "+4.60%",
-      "status": "up"
+      "price": "$93.64",
+      "change": "-1.93%",
+      "status": "down"
     },
     {
       "name": "Bitcoin (BTC)",
-      "price": "$76,030",
-      "change": "+2.94%",
-      "status": "up"
+      "price": "$75,408",
+      "change": "-0.61%",
+      "status": "down"
     },
     {
       "name": "USD/THB",
-      "price": "32.01 บาท",
-      "change": "-0.09%",
-      "status": "down"
+      "price": "32.16 บาท",
+      "change": "+0.09%",
+      "status": "up"
     },
     {
       "name": "Dollar Index (DXY)",
-      "price": "98.05",
-      "change": "-0.05%",
-      "status": "down"
+      "price": "98.41",
+      "change": "+0.37%",
+      "status": "up"
     },
     {
       "name": "US 10Y Yield",
-      "price": "4.25%",
-      "change": "+0.09%",
+      "price": "4.29%",
+      "change": "+0.99%",
       "status": "up"
     }
   ],
-  "moverStory": "**ตลาดหุ้นทั่วโลกปรับตัวลดลง ในขณะที่ราคาน้ำมันขยับสูงขึ้น**\n\nในวันนี้ตลาดหุ้นหลักในสหรัฐอเมริกาและตลาดหุ้นเอเชียมีแนวโน้มปรับตัวลดลง โดย S&P 500 ลดลง 0.24% ขณะที่ราคาน้ำมันดิบ WTI และ Brent กลับมาเพิ่มขึ้นหลังจากเหตุการณ์ในเวเนซุเอลา",
+  "moverStory": "**ตลาดหุ้นสหรัฐฯ ปรับตัวลง ขณะที่ราคาทองคำและคริปโตเคอเรนซีเผชิญแรงขาย**\n\nในวันพุธที่ 22 เมษายน 2026 ตลาดหุ้นสหรัฐอเมริกาปรับตัวลง รวมถึง S&P 500 และ Dow Jones โดยมีแรงขายที่เข้ามาในตลาด ขณะที่ตลาดในเอเชีย เช่น Nikkei 225 และ KOSPI มีกระแสซื้อเพิ่มขึ้นเล็กน้อย นอกจากนี้ ราคาทองคำก็ลดลงเล็กน้อย เช่นเดียวกับ Bitcoin ที่ปรับตัวลดลงในวันเดียวกันนี้",
   "topNews": [
     {
-      "text": "ติดตามหุ้นน้ำมันหลังจากการบุกของทรัมป์ในเวเนซุเอลา",
-      "url": "https://finance.yahoo.com/sectors/energy/articles/3-oil-stocks-watch-trumps-202345398.html",
+      "text": "แพลตฟอร์มคริปโตขนาดใหญ่ปิดตัวลงท่ามกลางการปรับตัวลดลงของตลาด",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/major-crypto-platform-shuts-down-215000383.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "วอลล์สตรีทส่งสัญญาณร้ายให้กับหุ้นน้ำมันหลังการเคลื่อนไหวของอิหร่าน",
-      "url": "https://finance.yahoo.com/sectors/energy/articles/wall-street-just-sent-oil-203300330.html",
+      "text": "Onfolio Holdings (ONFO) ลงนามข้อตกลงมูลค่า 100 ล้านดอลลาร์เพื่อเร่งการเข้าซื้อกิจการ",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/onfolio-holdings-onfo-enters-100m-141516820.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "เน็ตฟลิกซ์สร้างกระแสเงินสดมหาศาลและคาดการณ์ราคาหุ้นสูงขึ้น",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/netflix-generates-massive-fcf-fcf-133002954.html",
+      "text": "ธนาคารใหญ่ชี้ให้เห็นแนวโน้มที่น่าแปลกใจสำหรับนักลงทุนคริปโตในอเมริกา",
+      "url": "https://finance.yahoo.com/markets/crypto/articles/major-bank-identifies-surprising-trend-003444154.html",
       "source": "Yahoo Finance"
     },
     {
-      "text": "ราคาน้ำมันพุ่งขึ้นหลังจากทรัมป์กล่าวว่าเรืออิหร่านถูกยึด",
-      "url": "https://www.bbc.com/news/articles/c5yjzy35825o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC"
+      "text": "Boeing เริ่มเพิ่มการจ้างงาน สัญญาณเบื้องต้นของการกลับมาเติบโตในหุ้น BA",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/boeing-ramping-hiring-sign-real-142151324.html",
+      "source": "Yahoo Finance"
     }
   ],
-  "whyItMatters": "การขยับของราคาน้ำมันมีผลสำคัญต่อข้อมูลเศรษฐกิจทั่วโลก และความตึงเครียดในตะวันออกกลางยังส่งผลต่อความเชื่อมั่นของตลาดหุ้น",
-  "closingTakeaway": "นักลงทุนควรระมัดระวังการลงทุนในหุ้นที่ได้รับผลกระทบจากราคาน้ำมันและความมั่นคงทางการเมืองในระดับโลก"
+  "whyItMatters": "การที่ตลาดหุ้นสหรัฐฯ ปรับตัวลดลงสะท้อนถึงความไม่แน่นอนในเศรษฐกิจ รวมถึงแรงกดดันจากภายนอก และการพัฒนาของดารบายาทางการเงินใหม่ๆ ที่อาจมีผลกระทบต่อตลาดในอนาคต",
+  "closingTakeaway": "นักลงทุนควรติดตามการเปลี่ยนแปลงในตลาดอย่างใกล้ชิดและพิจารณารีวิวนโยบายการลงทุนให้เหมาะสมกับสถานการณ์ที่เปลี่ยนแปลงอย่างรวดเร็ว"
 }
